@@ -1,8 +1,13 @@
 package com.projectIsep.risk;
 
-public class Main {
+public class Main{
 
     public static void main(String[] args) {
-	// write your code here
+//        Map map = new Map();
+//        map.worldMap();
+        Menu menu = new Menu();
+
+
     }
+
 }
