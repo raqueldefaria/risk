@@ -89,7 +89,6 @@ public class Menu extends JFrame {
             JLabel playerLabel = new JLabel("Please the number of players :  ");
 
             JComboBox<Integer> playerOptions = new JComboBox<>();
-            playerOptions.addItem(1);
             playerOptions.addItem(2);
             playerOptions.addItem(3);
             playerOptions.addItem(4);
@@ -105,6 +104,8 @@ public class Menu extends JFrame {
             buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
 
             JButton button = new JButton("Play");
+
+            // when the play button is pressed
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -112,7 +113,7 @@ public class Menu extends JFrame {
                     numberOfPlayers = (int) playerOptions.getSelectedItem();
                     frame.dispose();
                     Map map = new Map();
-                    map.worldMap();
+                    map.worldMap(mapOption, numberOfPlayers);
                 }
             });
 
