@@ -2,8 +2,9 @@ package com.projectIsep.risk;
 
 public class Player {
     private int mission;
+    private String namePlayer;
     private int[] territories;
-    private int armies;
+    private int reinforcement;
 
     // -------------- Constructor --------------  //
     public Player() {
@@ -27,11 +28,11 @@ public class Player {
         this.territories = territories;
     }
 
-    public int getArmies() {
-        return armies;
+    public int getReinforcement() {
+        return reinforcement;
     }
 
-    public void setArmies(int armies) {
-        this.armies = armies;
+    public void setReinforcement(int armies) {
+        this.reinforcement = armies;
     }
 }

@@ -35,22 +35,22 @@ public class Map {
             // defining the number of armies for each player
             switch(numberOfPlayers){
                 case 2:
-                    player.setArmies(40);
+                    player.setReinforcement(40);
                     break;
                 case 3:
-                    player.setArmies(35);
+                    player.setReinforcement(35);
                     break;
                 case 4:
-                    player.setArmies(30);
+                    player.setReinforcement(30);
                     break;
                 case 5:
-                    player.setArmies(25);
+                    player.setReinforcement(25);
                     break;
                 case 6:
-                    player.setArmies(20);
+                    player.setReinforcement(20);
                     break;
                 default:
-                    player.setArmies(0);
+                    player.setReinforcement(0);
             }
 
             int pickedTerritory = rand.nextInt(42);
