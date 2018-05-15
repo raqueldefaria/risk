@@ -1,9 +1,11 @@
 package com.projectIsep.risk;
 
+import java.util.ArrayList;
+
 public class Player {
-    private int mission;
+    private Mission mission;
     private String namePlayer;
-    private int[] territories;
+    private ArrayList<Territory> arraylistTerritories;
     private int reinforcement;
 
     // -------------- Constructor --------------  //

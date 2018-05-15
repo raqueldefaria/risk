@@ -2,13 +2,40 @@ package com.projectIsep.risk;
 
 import edu.princeton.cs.introcs.StdDraw;
 
+import java.util.ArrayList;
 import java.util.Random;
 
-public class Map {
+public class GameGestion {
 
     public void worldMap(String map, int numberOfPlayers){
-        System.out.println(map);
-        System.out.println(numberOfPlayers);
+        showMap();
+        boolean gameOver= false;
+        int it =1;
+        ArrayList<Player> playerArrayList = new ArrayList<>();
+        for (int i=0; i<numberOfPlayers;i++){
+            int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de missio, pour l'instant de 1 à 100
+
+
+            Player player = new Player();
+            playerArrayList.add(player);
+        }
+
+        while (!gameOver){
+            while (it!=numberOfPlayers ){
+
+                Player player = playerArrayList.get(it);
+                StdDraw.show();
+                it++;
+            }
+            it=1;
+
+        }
+
+
+
+    }
+
+    public void showMap(){
         // map of the world
         StdDraw.setCanvasSize(1050,737);
         StdDraw.setXscale(0,100);
@@ -17,6 +44,9 @@ public class Map {
         StdDraw.picture(50,50, "img/risk-prof.png");
         // display and pause for 20 ms
         StdDraw.show();
+    }
+    public void initiateTerritories(int a){
+
 
     }
 

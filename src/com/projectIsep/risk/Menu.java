@@ -91,9 +91,9 @@ public class Menu extends JFrame {
                     String mapOption = (String) mapOptions.getSelectedItem();
                     int numberOfPlayers = (int) playerOptions.getSelectedItem();
                     frame.dispose();
-                    // displaying the chosen map
-                    Map map = new Map();
-                    map.worldMap(mapOption, numberOfPlayers);
+                    // displaying the chosen gameGestion
+                    GameGestion gameGestion = new GameGestion();
+                    gameGestion.worldMap(mapOption, numberOfPlayers);
                 }
             });
 
