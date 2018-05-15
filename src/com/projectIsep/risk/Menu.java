@@ -11,10 +11,6 @@ import java.io.IOException;
 
 public class Menu extends JFrame {
 
-    private String mapOption;
-    private int numberOfPlayers;
-
-
 
     //------------------Constructor------------------//
     public Menu() {
@@ -27,23 +23,6 @@ public class Menu extends JFrame {
         this.setVisible(true);
     }
 
-    //------------------Getters & Setters------------------//
-
-    public String getMapOption() {
-        return mapOption;
-    }
-
-    public void setMapOption(String mapOption) {
-        this.mapOption = mapOption;
-    }
-
-    public int getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public void setNumberOfPlayers(int numberOfPlayers) {
-        this.numberOfPlayers = numberOfPlayers;
-    }
 
 
     //------------------Methods------------------//
@@ -109,9 +88,10 @@ public class Menu extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    mapOption = (String) mapOptions.getSelectedItem();
-                    numberOfPlayers = (int) playerOptions.getSelectedItem();
+                    String mapOption = (String) mapOptions.getSelectedItem();
+                    int numberOfPlayers = (int) playerOptions.getSelectedItem();
                     frame.dispose();
+                    // displaying the chosen map
                     Map map = new Map();
                     map.worldMap(mapOption, numberOfPlayers);
                 }
