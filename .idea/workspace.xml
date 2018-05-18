@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="134794cc-9e7b-4596-b291-1f9b78c03e73" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Main.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Cavalery.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Cavalery.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Player.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Player.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Map.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Region.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Region.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,8 +29,8 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="930">
-              <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
+            <state relative-caret-position="958">
+              <caret line="93" column="56" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -35,36 +38,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="e#399#400#0" expanded="true" />
-                <element signature="e#429#430#0" expanded="true" />
-                <element signature="e#472#473#0" expanded="true" />
-                <element signature="e#510#511#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#634#635#0" expanded="true" />
-                <element signature="e#680#681#0" expanded="true" />
-                <element signature="e#717#718#0" expanded="true" />
-                <element signature="e#753#754#0" expanded="true" />
-                <element signature="e#801#802#0" expanded="true" />
-                <element signature="e#844#845#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="969">
-              <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+            <state relative-caret-position="466">
+              <caret line="110" column="75" lean-forward="false" selection-start-line="110" selection-start-column="75" selection-end-line="110" selection-end-column="75" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#worldMap#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#gameInitialisation#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#addTerritory#0;class#GameGestion#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -73,9 +57,41 @@
       <file leaf-file-name="Territory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
+            <state relative-caret-position="221">
+              <caret line="13" column="78" lean-forward="false" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="312">
+              <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#501#502#0" expanded="true" />
+                <element signature="e#531#532#0" expanded="true" />
+                <element signature="e#578#579#0" expanded="true" />
+                <element signature="e#616#617#0" expanded="true" />
+                <element signature="e#653#654#0" expanded="true" />
+                <element signature="e#686#687#0" expanded="true" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#782#783#0" expanded="true" />
+                <element signature="e#843#844#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#1067#1068#0" expanded="true" />
+                <element signature="e#1097#1098#0" expanded="true" />
+                <element signature="e#1140#1141#0" expanded="true" />
+                <element signature="e#1178#1179#0" expanded="true" />
+                <element signature="e#1395#1396#0" expanded="true" />
+                <element signature="e#1433#1434#0" expanded="true" />
+                <element signature="e#1506#1507#0" expanded="true" />
+                <element signature="e#1560#1561#0" expanded="true" />
+                <element signature="method#computerReinforcement#0;class#Player#0" expanded="false" />
+                <element signature="method#reinforcementByRegion#0;class#Player#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -83,19 +99,30 @@
       <file leaf-file-name="Unit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Soldier.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="295">
+              <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+              <folding>
+                <element signature="e#535#536#0" expanded="true" />
+                <element signature="e#562#563#0" expanded="true" />
+                <element signature="e#599#600#0" expanded="true" />
+                <element signature="e#631#632#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
+                <element signature="e#739#740#0" expanded="true" />
+                <element signature="e#779#780#0" expanded="true" />
+                <element signature="e#817#818#0" expanded="true" />
+                <element signature="e#854#855#0" expanded="true" />
+                <element signature="e#911#912#0" expanded="true" />
+                <element signature="e#963#964#0" expanded="true" />
+                <element signature="e#1002#1003#0" expanded="true" />
+                <element signature="e#1040#1041#0" expanded="true" />
+                <element signature="e#1099#1100#0" expanded="true" />
+                <element signature="e#1153#1154#0" expanded="true" />
+                <element signature="e#1185#1186#0" expanded="true" />
+                <element signature="e#1216#1217#0" expanded="true" />
+                <element signature="e#1261#1262#0" expanded="true" />
+                <element signature="e#1301#1302#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -103,8 +130,8 @@
       <file leaf-file-name="Cavalery.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Cavalery.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+            <state relative-caret-position="51">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,8 +150,21 @@
       <file leaf-file-name="Mission.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="29" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+              <folding>
+                <element signature="e#435#436#0" expanded="true" />
+                <element signature="e#460#461#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -133,9 +173,26 @@
       <file leaf-file-name="Region.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-              <folding />
+            <state relative-caret-position="901">
+              <caret line="53" column="17" lean-forward="false" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+              <folding>
+                <element signature="e#474#475#0" expanded="true" />
+                <element signature="e#505#506#0" expanded="true" />
+                <element signature="e#550#551#0" expanded="true" />
+                <element signature="e#590#591#0" expanded="true" />
+                <element signature="e#627#628#0" expanded="true" />
+                <element signature="e#660#661#0" expanded="true" />
+                <element signature="e#712#713#0" expanded="true" />
+                <element signature="e#756#757#0" expanded="true" />
+                <element signature="e#785#786#0" expanded="true" />
+                <element signature="e#813#814#0" expanded="true" />
+                <element signature="e#852#853#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#931#932#0" expanded="true" />
+                <element signature="e#967#968#0" expanded="true" />
+                <element signature="e#1030#1031#0" expanded="true" />
+                <element signature="e#1080#1081#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -166,18 +223,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Main.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Map.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Region.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Cavalery.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Region.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Player.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
       </list>
     </option>
   </component>
@@ -188,10 +245,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="793" />
+    <option name="width" value="814" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -209,7 +265,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -228,12 +283,19 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="risk" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="risk" type="b2602c69:ProjectViewProjectNode" />
+              <item name="risk" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -251,122 +313,6 @@
       <recent name="C:\Users\Raquel De Faria\OneDrive\ISEP\1ere_annee\cours\algo_et_prog\risk\src" />
       <recent name="C:\Users\Raquel De Faria\OneDrive\ISEP\1ere_annee\cours\algo_et_prog\risk\src\com\projectIsep\risk" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/Map.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/Player.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/img/risk.png</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/img/Map.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/img/risk-prof.png</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -438,7 +384,8 @@
       <workItem from="1524484717052" duration="1005000" />
       <workItem from="1525927905049" duration="992000" />
       <workItem from="1526110509823" duration="2065000" />
-      <workItem from="1526374117256" duration="5134000" />
+      <workItem from="1526374117256" duration="5175000" />
+      <workItem from="1526628267198" duration="7532000" />
     </task>
     <task id="LOCAL-00001" summary="Menu added">
       <created>1524157910006</created>
@@ -489,43 +436,50 @@
       <option name="project" value="LOCAL" />
       <updated>1526378212204</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Menu added">
+      <created>1526379778353</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1526379778353</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33117000" />
+    <option name="totallyTimeSpent" value="40690000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1554054" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19098143" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -566,6 +520,10 @@
           <caret line="56" column="0" lean-forward="false" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#worldMap#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#gameInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#addTerritory#0;class#GameGestion#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -582,18 +540,27 @@
         <state relative-caret-position="312">
           <caret line="13" column="29" lean-forward="false" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
           <folding>
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1506#1507#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="method#computerReinforcement#0;class#Player#0" expanded="false" />
+            <element signature="method#reinforcementByRegion#0;class#Player#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -620,18 +587,27 @@
         <state relative-caret-position="72">
           <caret line="3" column="24" lean-forward="false" selection-start-line="3" selection-start-column="24" selection-end-line="3" selection-end-column="24" />
           <folding>
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1506#1507#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="method#computerReinforcement#0;class#Player#0" expanded="false" />
+            <element signature="method#reinforcementByRegion#0;class#Player#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -642,6 +618,10 @@
           <caret line="4" column="18" lean-forward="true" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#worldMap#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#gameInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#addTerritory#0;class#GameGestion#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,34 +858,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Cavalery.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        <state relative-caret-position="51">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -918,44 +882,58 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java">
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="60" column="39" lean-forward="true" selection-start-line="60" selection-start-column="39" selection-end-line="60" selection-end-column="39" />
+          <folding>
+            <element signature="e#535#536#0" expanded="true" />
+            <element signature="e#562#563#0" expanded="true" />
+            <element signature="e#599#600#0" expanded="true" />
+            <element signature="e#631#632#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+            <element signature="e#739#740#0" expanded="true" />
+            <element signature="e#779#780#0" expanded="true" />
+            <element signature="e#817#818#0" expanded="true" />
+            <element signature="e#854#855#0" expanded="true" />
+            <element signature="e#911#912#0" expanded="true" />
+            <element signature="e#963#964#0" expanded="true" />
+            <element signature="e#1002#1003#0" expanded="true" />
+            <element signature="e#1040#1041#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1153#1154#0" expanded="true" />
+            <element signature="e#1185#1186#0" expanded="true" />
+            <element signature="e#1216#1217#0" expanded="true" />
+            <element signature="e#1261#1262#0" expanded="true" />
+            <element signature="e#1301#1302#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="28" lean-forward="false" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="27" lean-forward="true" selection-start-line="4" selection-start-column="27" selection-end-line="4" selection-end-column="27" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="29" lean-forward="true" selection-start-line="0" selection-start-column="29" selection-end-line="0" selection-end-column="29" />
+          <folding>
+            <element signature="e#435#436#0" expanded="true" />
+            <element signature="e#460#461#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="100" column="0" lean-forward="true" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="30" lean-forward="true" selection-start-line="57" selection-start-column="30" selection-end-line="57" selection-end-column="30" />
+        <state relative-caret-position="958">
+          <caret line="93" column="56" lean-forward="false" selection-start-line="93" selection-start-column="56" selection-end-line="93" selection-end-column="56" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -964,21 +942,77 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="312">
+          <caret line="106" column="0" lean-forward="false" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
           <folding>
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#429#430#0" expanded="true" />
-            <element signature="e#472#473#0" expanded="true" />
-            <element signature="e#510#511#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#634#635#0" expanded="true" />
-            <element signature="e#680#681#0" expanded="true" />
-            <element signature="e#717#718#0" expanded="true" />
-            <element signature="e#753#754#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#844#845#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#501#502#0" expanded="true" />
+            <element signature="e#531#532#0" expanded="true" />
+            <element signature="e#578#579#0" expanded="true" />
+            <element signature="e#616#617#0" expanded="true" />
+            <element signature="e#653#654#0" expanded="true" />
+            <element signature="e#686#687#0" expanded="true" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#782#783#0" expanded="true" />
+            <element signature="e#843#844#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#1067#1068#0" expanded="true" />
+            <element signature="e#1097#1098#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1395#1396#0" expanded="true" />
+            <element signature="e#1433#1434#0" expanded="true" />
+            <element signature="e#1506#1507#0" expanded="true" />
+            <element signature="e#1560#1561#0" expanded="true" />
+            <element signature="method#computerReinforcement#0;class#Player#0" expanded="false" />
+            <element signature="method#reinforcementByRegion#0;class#Player#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="901">
+          <caret line="53" column="17" lean-forward="false" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
+          <folding>
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#505#506#0" expanded="true" />
+            <element signature="e#550#551#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+            <element signature="e#627#628#0" expanded="true" />
+            <element signature="e#660#661#0" expanded="true" />
+            <element signature="e#712#713#0" expanded="true" />
+            <element signature="e#756#757#0" expanded="true" />
+            <element signature="e#785#786#0" expanded="true" />
+            <element signature="e#813#814#0" expanded="true" />
+            <element signature="e#852#853#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#931#932#0" expanded="true" />
+            <element signature="e#967#968#0" expanded="true" />
+            <element signature="e#1030#1031#0" expanded="true" />
+            <element signature="e#1080#1081#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="78" lean-forward="false" selection-start-line="13" selection-start-column="78" selection-end-line="13" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="466">
+          <caret line="110" column="75" lean-forward="false" selection-start-line="110" selection-start-column="75" selection-end-line="110" selection-end-column="75" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#worldMap#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#gameInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#addTerritory#0;class#GameGestion#0" expanded="false" />
           </folding>
         </state>
       </provider>

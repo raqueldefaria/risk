@@ -65,7 +65,7 @@ public class Menu extends JFrame {
             playerOptionPanel.setLayout(new BoxLayout(playerOptionPanel, BoxLayout.LINE_AXIS));
             playerOptionPanel.setBorder(new EmptyBorder(0,0,30,0));
 
-            JLabel playerLabel = new JLabel("Please the number of players :  ");
+            JLabel playerLabel = new JLabel("Choisissez le nombre de joueurs  ");
 
             JComboBox<Integer> playerOptions = new JComboBox<>();
             playerOptions.addItem(2);
@@ -94,6 +94,7 @@ public class Menu extends JFrame {
                     // displaying the chosen gameGestion
                     GameGestion gameGestion = new GameGestion();
                     gameGestion.worldMap(mapOption, numberOfPlayers);
+
                 }
             });
 
