@@ -1,21 +1,40 @@
 package com.projectIsep.risk;
 
 public class Unit {
-    private int cost;
-    private int strength;
-    private int attackPriority;
-    private int defencePriority;
-    private int movement;
+    public int cost;
+    public int strengthMax;
+    public int strengthMin;
+    public int attackPriority;
+    public int defencePriority;
+    public int movement;
 
     public Unit() {
     }
 
-    public Unit(int cost, int strength, int attackPriority, int defencePriority, int movement) {
+
+    public Unit(int cost, int strengthMax, int strengthMin, int attackPriority, int defencePriority, int movement) {
         this.cost = cost;
-        this.strength = strength;
+        this.strengthMax = strengthMax;
+        this.strengthMin = strengthMin;
         this.attackPriority = attackPriority;
         this.defencePriority = defencePriority;
         this.movement = movement;
+    }
+
+    public int getStrengthMax() {
+        return strengthMax;
+    }
+
+    public void setStrengthMax(int strengthMax) {
+        this.strengthMax = strengthMax;
+    }
+
+    public int getStrengthMin() {
+        return strengthMin;
+    }
+
+    public void setStrengthMin(int strengthMin) {
+        this.strengthMin = strengthMin;
     }
 
     public int getCost() {
@@ -26,13 +45,6 @@ public class Unit {
         this.cost = cost;
     }
 
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
 
     public int getAttackPriority() {
         return attackPriority;
