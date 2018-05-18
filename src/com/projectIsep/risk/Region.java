@@ -1,21 +1,23 @@
 package com.projectIsep.risk;
 
+import java.util.ArrayList;
+
 public class Region {
     private int idRegion;
     private String nameRegion;
     private int ruler;
-    private Territory [] idTerritories;
+    private ArrayList<Territory> Territories;
 
     // -------------- Constructors --------------  //
 
     public Region() {
     }
 
-    public Region(int idRegion, String nameRegion, int ruler, Territory[] idTerritories) {
+    public Region(int idRegion, String nameRegion, int ruler, ArrayList<Territory> Territories) {
         this.idRegion = idRegion;
         this.nameRegion = nameRegion;
         this.ruler = ruler;
-        this.idTerritories = idTerritories;
+        this.Territories = Territories;
     }
 
     // -------------- Getters & Setters --------------  //
@@ -44,18 +46,18 @@ public class Region {
         this.ruler = ruler;
     }
 
-    public Territory[] getIdTerritories() {
-        return idTerritories;
+    public ArrayList<Territory> getIdTerritories() {
+        return Territories;
     }
 
-    public void setIdTerritories(Territory[] idTerritories) {
-        this.idTerritories = idTerritories;
+    public void setTerritories(ArrayList<Territory> Territories) {
+        this.Territories = Territories;
     }
 
     // -------------- Methods --------------  //
 
     public int computeReinforcementGiven(){
-        int a = this.idTerritories.length;
+        int a = this.Territories.size();
         int regionReinforcement = (int)a/2;
         return a;
     }

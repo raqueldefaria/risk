@@ -13,6 +13,7 @@ public class GameGestion {
         int it =1; // initialising the number of players
         ArrayList<Player> playerArrayList = new ArrayList<>();
         ArrayList<Territory> territoryArrayList = new ArrayList<>();
+        ArrayList<Region> regionArrayList = new ArrayList<>();
         for (int i=0; i<numberOfPlayers;i++){ // initialisation des joueurs
             int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
             Player player = new Player();
@@ -82,7 +83,42 @@ public class GameGestion {
 
     }
 
-    public void initiateRegions(){
+    public void initiateRegions(ArrayList<Region> regionArrayList, ArrayList<Territory> territoryArrayList){
+        ArrayList<Territory> territoryArrayListNorthamerica = new ArrayList<Territory>();
+        for (int it=0; it<9; it++){
+            territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 9 premiers elements
+        }
+        Region northAmerica = new Region(1, "North America", 0, territoryArrayListNorthamerica);
+
+        ArrayList<Territory> territoryArrayListSouthamerica = new ArrayList<Territory>();
+        for (int it=9; it<13; it++){
+            territoryArrayListSouthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires sud americains les 4 elements suivants
+        }
+        Region southAmerica = new Region(1, "South America", 0, territoryArrayListSouthamerica);
+
+        ArrayList<Territory> territoryArrayListAfrica = new ArrayList<Territory>();
+        for (int it=14; it<19; it++){
+            territoryArrayListAfrica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires africains les 6 elements suivants
+        }
+        Region africa = new Region(1, "Africa", 0, territoryArrayListAfrica);
+
+        ArrayList<Territory> territoryArrayListEurope = new ArrayList<Territory>();
+        for (int it=19; it<26; it++){
+            territoryArrayListEurope.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires europées les 7 elements suivants
+        }
+        Region europe = new Region(1, "Europe", 0, territoryArrayListNorthamerica);
+
+        ArrayList<Territory> territoryArrayListAsia = new ArrayList<Territory>();
+        for (int it=26; it<37; it++){
+            territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 11 elements suivants
+        }
+        Region NortAmerica = new Region(1, "Asia", 0, territoryArrayListNorthamerica);
+
+        ArrayList<Territory> territoryArrayListOceania = new ArrayList<Territory>();
+        for (int it=37; it<41; it++){
+            territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 4 elements suivants
+        }
+        Region oceania = new Region(1, "Oceania", 0, territoryArrayListNorthamerica);
 
     }
 
