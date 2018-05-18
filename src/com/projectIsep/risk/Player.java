@@ -6,8 +6,8 @@ import java.util.Random;
 public class Player {
     private Mission mission;
     private String namePlayer;
-    private ArrayList<Territory> arraylistTerritories;
-    private ArrayList<Region> arraylistRegion;
+    public ArrayList<Territory> arraylistTerritories= new ArrayList<Territory>();
+    public ArrayList<Region> arraylistRegion = new ArrayList<Region>();
     private int reinforcement;
     private int capture;
 
@@ -99,10 +99,13 @@ public class Player {
 
     public int reinforcementByRegion(){
         int amoutByRegion=0;
-        for (int it = 0; it <arraylistRegion.size(); it++){
-            Region region = arraylistRegion.get(it); // On sélectionne la région
-            amoutByRegion = amoutByRegion + region.computeReinforcementGiven(); // on ajoute aux renforts les renforts lié au contrôle de la région
+        if (arraylistRegion!= null){
+            for (int it = 0; it <arraylistRegion.size(); it++){
+                Region region = arraylistRegion.get(it); // On sélectionne la région
+                amoutByRegion = amoutByRegion + region.computeReinforcementGiven(); // on ajoute aux renforts les renforts lié au contrôle de la région
+            }
         }
+
         return amoutByRegion;
     }
 

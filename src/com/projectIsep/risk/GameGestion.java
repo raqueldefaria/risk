@@ -14,9 +14,9 @@ public class GameGestion {
         // arrayList containing all the regions
         ArrayList<Territory> territoryArrayList = initiateTerritories();
 
-        int it =1; // initialising the number of players
-        ArrayList<Player> playerArrayList = new ArrayList<>();
-        ArrayList<Region> regionArrayList = new ArrayList<>();
+        int it =0; // initialising the number of players
+        ArrayList<Player> playerArrayList = new ArrayList<>();;
+        ArrayList<Region>  regionArrayList = initiateRegions(territoryArrayList);
         for (int i=0; i<numberOfPlayers;i++){ // initialisation des joueurs
             int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
             Player player = new Player();
@@ -28,32 +28,32 @@ public class GameGestion {
             territoryInitialisation(player, numberOfPlayers,territoryArrayList); // on affecte ses territoires au joueur
         }
 
-        while (!gameOver){ // on
-            while (it!=numberOfPlayers ){
+        while (!gameOver){
+            int that = 0;
+            while (that!=numberOfPlayers ){
                 boolean pass = false;
                 Player player = playerArrayList.get(it); // On sélectionne le joueurs
-                StdDraw.show(); // on affiche la map
-                it++; // on incrémente
+                that++; // on incrémente
                 player.computerReinforcement(); //on calcule le nombre de renforts
                 //on permet au joueur de placer ses renforts
                 int reinforcement = player.getReinforcement();
 
 
                 while (!pass){
-                    StdDraw.show(); // on refresh la map
                     //une boucle désignation d'attaque/résolution d'attaque
                     // on check si le bouton pour mettre fin à la phase d'attaque est appuyé, puis on update pass
-
+                    pass = true;
                 }
 
                 //mouvement
 
                 //on check si le joueur a gagné
-                if (player.getMission().missionAccomplished){
+               /* if (player.getMission().missionAccomplished){
                     gameOver=true;
                     // message de victoire
                     // on ferme la partie
-                }
+                }*/
+
                 //message de fin de tour
             }
             it=1;
@@ -67,12 +67,16 @@ public class GameGestion {
     public void showMap(){
         // map of the world
         StdDraw.setCanvasSize(1050,737);
+        System.out.println("1");
         StdDraw.setXscale(0,100);
         StdDraw.setYscale(0,100);
-        StdDraw.clear();
+        //StdDraw.clear();
         StdDraw.picture(50,50, "img/riskmap.jpg");
+        StdDraw.circle(60,60,400);
         // display and pause for 20 ms
+        System.out.println("2");
         StdDraw.show();
+        System.out.println("3");
     }
 
     public ArrayList<Territory> initiateTerritories(){
@@ -91,42 +95,53 @@ public class GameGestion {
 
     }
 
-    public void initiateRegions(ArrayList<Region> regionArrayList, ArrayList<Territory> territoryArrayList){
+    public ArrayList<Region> initiateRegions(ArrayList<Territory> territoryArrayList){
+
+        ArrayList<Region> regionArrayList = new ArrayList<Region>();
+
         ArrayList<Territory> territoryArrayListNorthamerica = new ArrayList<Territory>();
         for (int it=0; it<9; it++){
             territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 9 premiers elements
         }
         Region northAmerica = new Region(1, "North America", 0, territoryArrayListNorthamerica);
+        regionArrayList.add(northAmerica);
 
         ArrayList<Territory> territoryArrayListSouthamerica = new ArrayList<Territory>();
         for (int it=9; it<13; it++){
             territoryArrayListSouthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires sud americains les 4 elements suivants
         }
         Region southAmerica = new Region(1, "South America", 0, territoryArrayListSouthamerica);
+        regionArrayList.add(southAmerica);
 
         ArrayList<Territory> territoryArrayListAfrica = new ArrayList<Territory>();
         for (int it=14; it<19; it++){
             territoryArrayListAfrica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires africains les 6 elements suivants
         }
         Region africa = new Region(1, "Africa", 0, territoryArrayListAfrica);
+        regionArrayList.add(africa);
 
         ArrayList<Territory> territoryArrayListEurope = new ArrayList<Territory>();
         for (int it=19; it<26; it++){
             territoryArrayListEurope.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires europées les 7 elements suivants
         }
         Region europe = new Region(1, "Europe", 0, territoryArrayListNorthamerica);
+        regionArrayList.add(europe);
 
         ArrayList<Territory> territoryArrayListAsia = new ArrayList<Territory>();
         for (int it=26; it<37; it++){
-            territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 11 elements suivants
+            territoryArrayListAsia.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 11 elements suivants
         }
-        Region NortAmerica = new Region(1, "Asia", 0, territoryArrayListNorthamerica);
+        Region asia = new Region(1, "Asia", 0, territoryArrayListAsia);
+        regionArrayList.add(asia);
 
         ArrayList<Territory> territoryArrayListOceania = new ArrayList<Territory>();
         for (int it=37; it<41; it++){
             territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 4 elements suivants
         }
         Region oceania = new Region(1, "Oceania", 0, territoryArrayListNorthamerica);
+        regionArrayList.add(oceania);
+
+        return regionArrayList;
 
     }
 
@@ -176,17 +191,25 @@ public class GameGestion {
 
     public void addTerritory(Player player, int id, ArrayList<Territory> territoryArrayList){
         Random random = new Random();
-        Territory territory = territoryArrayList.get(id);// trouver le territoire de l'id cherché
+        Territory territory = territoryArrayList.get(id);
         if (territory.getProprietary()==0){
-            player.getArraylistTerritories().add(territory);
+            ArrayList<Territory> currentArraylist= null;
+            player.getArraylistTerritories().add(0, territory);
+            player.setArraylistTerritories(player.getArraylistTerritories());
+
         }
         else {
-            int toAdd= random.nextInt(42)+1;
-            while (toAdd==id){
-                toAdd= random.nextInt(42)+1;
-            }
-            player.getArraylistTerritories().add(territory);
-            //addTerritory(player, toAdd, territoryArrayList);
+            int toAdd= random.nextInt(41)+1;
+            addTerritory(player, toAdd, territoryArrayList);
+
         }
+    }
+
+    public void conflict(Territory attacker, Territory defender){
+        int totalAttackers=0;
+        System.out.println("How many soliers to atack?");
+
+        System.out.println("How many cavalieries to atack?");
+        System.out.println("How many canons to atack?");
     }
 }
