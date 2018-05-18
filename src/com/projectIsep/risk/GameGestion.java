@@ -7,17 +7,19 @@ import java.util.Random;
 
 public class GameGestion {
 
-    public void worldMap(String map, int numberOfPlayers){
-        showMap();
-        boolean gameOver= false;
+    public void worldMap(int numberOfPlayers) {
+        initiateBackground();
+
+        boolean gameOver = false;
 
         // arrayList containing all the regions
         ArrayList<Territory> territoryArrayList = initiateTerritories();
 
-        int it =0; // initialising the number of players
-        ArrayList<Player> playerArrayList = new ArrayList<>();;
-        ArrayList<Region>  regionArrayList = initiateRegions(territoryArrayList);
-        for (int i=0; i<numberOfPlayers;i++){ // initialisation des joueurs
+        int it = 0; // initialising the number of players
+        ArrayList<Player> playerArrayList = new ArrayList<>();
+        ;
+        ArrayList<Region> regionArrayList = initiateRegions(territoryArrayList);
+        for (int i = 0; i < numberOfPlayers; i++) { // initialisation des joueurs
             int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
             Player player = new Player();
             //player.setMission(); //on set la mission d'ID a;
@@ -25,59 +27,64 @@ public class GameGestion {
             playerArrayList.add(player); // adding a player to the list
 
             //giving the player his territories
-            territoryInitialisation(player, numberOfPlayers,territoryArrayList); // on affecte ses territoires au joueur
+            territoryInitialisation(player, numberOfPlayers, territoryArrayList); // on affecte ses territoires au joueur
         }
+        while (!gameOver) {
+            initiateBackground();
+            StdDraw.pause(400);
+            System.out.println("in game");
+            int that = 1;
+            while (that != numberOfPlayers) {
+                System.out.println("in player");
 
-        while (!gameOver){
-            int that = 0;
-            while (that!=numberOfPlayers ){
+
                 boolean pass = false;
-                Player player = playerArrayList.get(it); // On sélectionne le joueurs
+                Player player = playerArrayList.get(that); // On sélectionne le joueurs
                 that++; // on incrémente
                 player.computerReinforcement(); //on calcule le nombre de renforts
                 //on permet au joueur de placer ses renforts
                 int reinforcement = player.getReinforcement();
 
 
-                while (!pass){
+                while (!pass) {
                     //une boucle désignation d'attaque/résolution d'attaque
                     // on check si le bouton pour mettre fin à la phase d'attaque est appuyé, puis on update pass
                     pass = true;
+
+
                 }
 
                 //mouvement
 
                 //on check si le joueur a gagné
-               /* if (player.getMission().missionAccomplished){
-                    gameOver=true;
+                if (player.getMission().missionAccomplished) {
+                    gameOver = true;
                     // message de victoire
                     // on ferme la partie
-                }*/
+                }
 
                 //message de fin de tour
             }
-            it=1;
 
         }
-
-
-
     }
 
-    public void showMap(){
+
+
+
+    public void initiateBackground(){
         // map of the world
         StdDraw.setCanvasSize(1050,737);
-        System.out.println("1");
         StdDraw.setXscale(0,100);
         StdDraw.setYscale(0,100);
-        //StdDraw.clear();
+        StdDraw.clear();
         StdDraw.picture(50,50, "img/riskmap.jpg");
-        StdDraw.circle(60,60,400);
-        // display and pause for 20 ms
-        System.out.println("2");
+
+       // display and pause for 20 ms
         StdDraw.show();
-        System.out.println("3");
+        //StdDraw.pause(20);
     }
+
 
     public ArrayList<Territory> initiateTerritories(){
         ArrayList<Territory> territoryArrayList = new ArrayList<>();

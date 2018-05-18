@@ -93,7 +93,7 @@ public class Menu extends JFrame {
                     frame.dispose();
                     // displaying the chosen gameGestion
                     GameGestion gameGestion = new GameGestion();
-                    gameGestion.worldMap(mapOption, numberOfPlayers);
+                    gameGestion.worldMap(numberOfPlayers);
 
                 }
             });
