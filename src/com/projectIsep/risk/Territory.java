@@ -12,6 +12,11 @@ public class Territory {
     public Territory() {
     }
 
+    public Territory(int idTerritory, int proprietary) {
+        this.idTerritory = idTerritory;
+        this.proprietary = proprietary;
+    }
+
     public Territory(int idTerritory, int proprietary, String nameTerritory) {
         this.idTerritory = idTerritory;
         this.proprietary = proprietary;
