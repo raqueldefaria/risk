@@ -162,35 +162,35 @@ public class GameGestion {
             case 2:
                 player.setReinforcement(40);
                 for (int twoPlayers = 0; twoPlayers < 21; twoPlayers++){
-                    int num2 = random.nextInt(42);
+                    int num2 = random.nextInt(42)+1;
                     addTerritory(player, num2);
                 }
                 break;
             case 3:
                 player.setReinforcement(35);
                 for (int threePlayers = 0; threePlayers < 14; threePlayers++){
-                    int num3 = random.nextInt(42);
+                    int num3 = random.nextInt(42)+1;
                     addTerritory(player, num3);
                 }
                 break;
             case 4:
                 player.setReinforcement(30);
                 for (int fourPlayers = 0; fourPlayers < 10; fourPlayers++){ // il restera deux territoires à distribuer
-                    int num4 = random.nextInt(42);
+                    int num4 = random.nextInt(42)+1;
                     addTerritory(player, num4);
                 }
                 break;
             case 5:
                 player.setReinforcement(25);
                 for (int fivePlayers = 0; fivePlayers < 8; fivePlayers++){ // il restera deux territoires à distribuer
-                    int num5 = random.nextInt(42);
+                    int num5 = random.nextInt(42)+1;
                     addTerritory(player, num5);
                 }
                 break;
             case 6:
                 player.setReinforcement(20);
                 for (int sixPlayers = 0; sixPlayers < 7; sixPlayers++){
-                    int num6 = random.nextInt(42);
+                    int num6 = random.nextInt(42)+1;
                     addTerritory(player, num6);
                 }
                 break;
@@ -202,7 +202,7 @@ public class GameGestion {
     public void addTerritory(Player player, int id){
        /* int [] territories = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,36,36,37,38,39,40,41,42};
         Random random = new Random();
-        Territory territory =// trouver le territoire de l'id cherché
+        Territory territory =  // trouver le territoire de l'id cherché
         if (territory.getProprietary()==0){
             player.setArraylistTerritories(player.getArraylistTerritories().add(territory));
         }
