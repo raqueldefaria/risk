@@ -10,7 +10,10 @@ public class GameGestion {
     public void worldMap(String map, int numberOfPlayers){
         showMap();
         boolean gameOver= false;
+
+        // arrayList containing all the regions
         ArrayList<Territory> territoryArrayList = initiateTerritories();
+
         int it =1; // initialising the number of players
         ArrayList<Player> playerArrayList = new ArrayList<>();
         ArrayList<Region> regionArrayList = new ArrayList<>();
@@ -18,10 +21,12 @@ public class GameGestion {
             int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
             Player player = new Player();
             //player.setMission(); //on set la mission d'ID a;
-            playerArrayList.add(player);
+
+            playerArrayList.add(player); // adding a player to the list
+
+            //giving the player his territories
             territoryInitialisation(player, numberOfPlayers,territoryArrayList); // on affecte ses territoires au joueur
         }
-        System.out.println(playerArrayList.get(1));
 
         while (!gameOver){ // on
             while (it!=numberOfPlayers ){
@@ -132,36 +137,36 @@ public class GameGestion {
             case 2:
                 player.setReinforcement(40);
                 for (int twoPlayers = 0; twoPlayers < numberTerritories/2; twoPlayers++){
-                    int num2 = random.nextInt(numberTerritories);
-                    addTerritory(player, num2,territories);
+                    int territoryId2 = random.nextInt(numberTerritories);
+                    addTerritory(player, territoryId2,territories);
                 }
                 break;
             case 3:
                 player.setReinforcement(35);
                 for (int threePlayers = 0; threePlayers < numberTerritories/3; threePlayers++){
-                    int num3 = random.nextInt(numberTerritories);
-                    addTerritory(player, num3,territories);
+                    int territoryId3 = random.nextInt(numberTerritories);
+                    addTerritory(player, territoryId3,territories);
                 }
                 break;
             case 4:
                 player.setReinforcement(30);
                 for (int fourPlayers = 0; fourPlayers < numberTerritories/4; fourPlayers++){ // il restera deux territoires à distribuer
-                    int num4 = random.nextInt(numberTerritories);
-                    addTerritory(player, num4,territories);
+                    int territoryId4 = random.nextInt(numberTerritories);
+                    addTerritory(player, territoryId4,territories);
                 }
                 break;
             case 5:
                 player.setReinforcement(25);
                 for (int fivePlayers = 0; fivePlayers < numberTerritories/5; fivePlayers++){ // il restera deux territoires à distribuer
-                    int num5 = random.nextInt(numberTerritories);
-                    addTerritory(player, num5,territories);
+                    int territoryId5 = random.nextInt(numberTerritories);
+                    addTerritory(player, territoryId5,territories);
                 }
                 break;
             case 6:
                 player.setReinforcement(20);
                 for (int sixPlayers = 0; sixPlayers < numberTerritories/6; sixPlayers++){
-                    int num6 = random.nextInt(numberTerritories);
-                    addTerritory(player, num6,territories);
+                    int territoryId6 = random.nextInt(numberTerritories);
+                    addTerritory(player, territoryId6,territories);
                 }
                 break;
             default:
