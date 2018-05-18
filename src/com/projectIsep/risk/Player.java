@@ -17,7 +17,6 @@ public class Player {
 
     // -------------- Getters & Setters --------------  //
 
-
     public Mission getMission() {
         return mission;
     }
@@ -42,6 +41,22 @@ public class Player {
         this.arraylistTerritories = arraylistTerritories;
     }
 
+    public ArrayList<Region> getArraylistRegion() {
+        return arraylistRegion;
+    }
+
+    public void setArraylistRegion(ArrayList<Region> arraylistRegion) {
+        this.arraylistRegion = arraylistRegion;
+    }
+
+    public int getReinforcement() {
+        return reinforcement;
+    }
+
+    public void setReinforcement(int reinforcement) {
+        this.reinforcement = reinforcement;
+    }
+
     public int getCapture() {
         return capture;
     }
@@ -50,21 +65,6 @@ public class Player {
         this.capture = capture;
     }
 
-    public int getReinforcement() {
-        return reinforcement;
-    }
-
-    public void setReinforcement(int armies) {
-        this.reinforcement = armies;
-    }
-
-    public ArrayList<Region> getArraylistRegion() {
-        return arraylistRegion;
-    }
-
-    public void setArraylistRegion(ArrayList<Region> arraylistRegion) {
-        this.arraylistRegion = arraylistRegion;
-    }
 
     // -------------- Methods --------------  //
 

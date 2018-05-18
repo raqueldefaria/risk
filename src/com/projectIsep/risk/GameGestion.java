@@ -10,9 +10,9 @@ public class GameGestion {
     public void worldMap(String map, int numberOfPlayers){
         showMap();
         boolean gameOver= false;
+        ArrayList<Territory> territoryArrayList = initiateTerritories();
         int it =1; // initialising the number of players
         ArrayList<Player> playerArrayList = new ArrayList<>();
-        ArrayList<Territory> territoryArrayList = new ArrayList<>();
         ArrayList<Region> regionArrayList = new ArrayList<>();
         for (int i=0; i<numberOfPlayers;i++){ // initialisation des joueurs
             int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
@@ -69,7 +69,9 @@ public class GameGestion {
         // display and pause for 20 ms
         StdDraw.show();
     }
-    public void initiateTerritories(ArrayList<Territory> territoryArrayList){
+
+    public ArrayList<Territory> initiateTerritories(){
+        ArrayList<Territory> territoryArrayList = new ArrayList<>();
         String [] territorylist = {"Alaska", "North West Territory", "Alberta", "Ontario", "Quebec", "Groenland","Western United States",
                 "Eastern United States", "Central America", "Venezuela", "Brazil", "Peru", "Argentina", "Congo","South Africa", "Madagascar",
                 "East Africa","Egypt","Iceland","Western Europe","Northern Europe","Great Britain","Southern Europe","Scandinavia",
@@ -80,6 +82,7 @@ public class GameGestion {
             Territory territory = new Territory(it,0, territoryName);
             territoryArrayList.add(territory);
         }
+        return territoryArrayList;
 
     }
 
