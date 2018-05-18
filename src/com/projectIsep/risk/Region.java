@@ -6,6 +6,8 @@ public class Region {
     private int ruler;
     private Territory [] idTerritories;
 
+    // -------------- Constructors --------------  //
+
     public Region() {
     }
 
@@ -15,6 +17,8 @@ public class Region {
         this.ruler = ruler;
         this.idTerritories = idTerritories;
     }
+
+    // -------------- Getters & Setters --------------  //
 
     public int getIdRegion() {
         return idRegion;
@@ -47,6 +51,8 @@ public class Region {
     public void setIdTerritories(Territory[] idTerritories) {
         this.idTerritories = idTerritories;
     }
+
+    // -------------- Methods --------------  //
 
     public int computeReinforcementGiven(){
         int a = this.idTerritories.length;

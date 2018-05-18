@@ -8,6 +8,7 @@ public class Territory {
     private int nbCanon;
     private String nameTerritory;
 
+    // -------------- Constructors --------------  //
     public Territory() {
     }
 
@@ -16,6 +17,8 @@ public class Territory {
         this.proprietary = proprietary;
         this.nameTerritory = nameTerritory;
     }
+
+    // -------------- Getters & Setters --------------  //
 
     public int getIdTerritory() {
         return idTerritory;

@@ -66,6 +66,8 @@ public class Player {
         this.arraylistRegion = arraylistRegion;
     }
 
+    // -------------- Methods --------------  //
+
     public void computerReinforcement(){
         int amount = 0;
         amount = amount + (int) arraylistTerritories.size()/3; // les renforts des territoires

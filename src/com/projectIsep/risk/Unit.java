@@ -7,6 +7,7 @@ public class Unit {
     private int defencePriority;
     private int movement;
 
+    // -------------- Constructors --------------  //
     public Unit() {
     }
 
@@ -18,6 +19,7 @@ public class Unit {
         this.movement = movement;
     }
 
+    // -------------- Getters & Setters --------------  //
     public int getCost() {
         return cost;
     }

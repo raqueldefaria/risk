@@ -6,6 +6,8 @@ public class Mission {
     private boolean missionAvalaible = true;
     public boolean missionAccomplished = false;
 
+    // -------------- Constructors --------------  //
+
     public Mission() {
     }
 
@@ -14,6 +16,8 @@ public class Mission {
         this.briefing = briefing;
         this.missionAvalaible = missionAvalaible;
     }
+
+    // -------------- Getters & Setters --------------  //
 
     public int getId() {
         return id;
