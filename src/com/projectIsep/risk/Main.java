@@ -5,11 +5,10 @@ public class Main{
     public static void main(String[] args) {
 //        GameGestion map = new GameGestion();
 //        map.worldMap();
-     //   Menu menu = new Menu();
-//change
+        Menu menu = new Menu();
+        menu.startGame();
         GameGestion gestion = new GameGestion();
-        gestion.worldMap(2);
-        
+        gestion.worldMap(menu.getNumberOfplayers());
     }
 
 }

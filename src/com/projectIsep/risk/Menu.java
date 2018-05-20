@@ -1,122 +1,93 @@
 package com.projectIsep.risk;
 
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
+import edu.princeton.cs.introcs.StdDraw;
 
-public class Menu extends JFrame {
+public class Menu  {
+    private int numberOfplayers;
 
 
     //------------------Constructor------------------//
     public Menu() {
-        this.setTitle("Le jeu du Risk");
-        this.setSize(500,330);
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setContentPane(panelContent(this));
 
-        this.setVisible(true);
     }
 
+    //------------------Getters------------------//
+
+    public int getNumberOfplayers() {
+        return numberOfplayers;
+    }
 
 
     //------------------Methods------------------//
 
-    public JPanel panelContent(JFrame frame){
-        JPanel panel = new JPanel();
-        try {
-            // -------------- Risk logo --------------  //
-            JPanel logoPanel = new JPanel();
-            logoPanel.setLayout(new BoxLayout(logoPanel, BoxLayout.LINE_AXIS));
+    public void startGame(){
+        // map of the world
+        StdDraw.setCanvasSize(850,350);
+        StdDraw.setXscale(0,10);
+        StdDraw.setYscale(0,10);
+        StdDraw.clear();
+        StdDraw.picture(5.1,7, "img/risk_logo.png");
+        // Number of players
+        StdDraw.text(1.5,3,"Nombre de joueurs : ");
+        StdDraw.text(3,3,"2");
+        StdDraw.text(4,3,"3");
+        StdDraw.text(5,3,"4");
+        StdDraw.text(6,3,"5");
+        StdDraw.text(7,3,"6");
+        StdDraw.text(8,3,"7");
+        StdDraw.text(9,3,"8");
+        // display and pause for 20 ms
+        StdDraw.show();
+        //StdDraw.pause(20);
 
-            Image img = ImageIO.read(new File("src/img/risk_logo.png"));
-
-            JLabel logoLabel = new JLabel();
-            logoLabel.setSize(250,150);
-
-            Image dimg = img.getScaledInstance(logoLabel.getWidth(),logoLabel.getHeight(),Image.SCALE_SMOOTH);
-            ImageIcon imageIcon = new ImageIcon(dimg);
-
-            logoLabel.setIcon(imageIcon);
-
-            logoPanel.add(logoLabel);
-
-
-            // -------------- Option to chose the map --------------  //
-            JPanel mapOptionPanel = new JPanel();
-            mapOptionPanel.setLayout(new BoxLayout(mapOptionPanel, BoxLayout.LINE_AXIS));
-            mapOptionPanel.setBorder(new EmptyBorder(0,0,20,0));
-
-            JLabel mapsLabel = new JLabel("Please choose a map :  ");
-
-            String[] tab = {"World map", "Europe map", "GOT map"};
-            JComboBox<String> mapOptions = new JComboBox<>(tab);
-
-            mapOptionPanel.add(mapsLabel);
-            mapOptionPanel.add(mapOptions);
-
-            // -------------- Option to chose the number of players --------------  //
-            JPanel playerOptionPanel = new JPanel();
-            playerOptionPanel.setLayout(new BoxLayout(playerOptionPanel, BoxLayout.LINE_AXIS));
-            playerOptionPanel.setBorder(new EmptyBorder(0,0,30,0));
-
-            JLabel playerLabel = new JLabel("Choisissez le nombre de joueurs  ");
-
-            JComboBox<Integer> playerOptions = new JComboBox<>();
-            playerOptions.addItem(2);
-            playerOptions.addItem(3);
-            playerOptions.addItem(4);
-            playerOptions.addItem(5);
-            playerOptions.addItem(6);
-
-            playerOptionPanel.add(playerLabel);
-            playerOptionPanel.add(playerOptions);
-
-
-            // -------------- Play Button --------------  //
-            JPanel buttonPanel = new JPanel();
-            buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.LINE_AXIS));
-
-            JButton button = new JButton("Play");
-
-            // when the play button is pressed
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    String mapOption = (String) mapOptions.getSelectedItem();
-                    int numberOfPlayers = (int) playerOptions.getSelectedItem();
-                    frame.dispose();
-                    // displaying the chosen gameGestion
-                    GameGestion gameGestion = new GameGestion();
-                    gameGestion.worldMap(numberOfPlayers);
-
+        boolean numberOfplayersChosen = false;
+        while (!numberOfplayersChosen){
+            // Choosing the number of players
+            if(StdDraw.isMousePressed()) {
+                //coordinates of the click
+                double x = StdDraw.mouseX();
+                double y = StdDraw.mouseY();
+                this.numberOfplayers = numberPlayersChosen(x,y);
+                if(this.numberOfplayers!=0){
+                    numberOfplayersChosen = true;
                 }
-            });
+                StdDraw.pause(90);
 
-            buttonPanel.add(button);
-
-
-            // -------------- The panel with all the panels --------------  //
-            JPanel finalMenuPanel = new JPanel();
-            finalMenuPanel.setLayout(new BoxLayout(finalMenuPanel, BoxLayout.PAGE_AXIS));
-            finalMenuPanel.add(logoPanel);
-            finalMenuPanel.add(mapOptionPanel);
-            finalMenuPanel.add(playerOptionPanel);
-            finalMenuPanel.add(buttonPanel);
-
-            // -------------- Adding everything to the final panel --------------  //
-            panel.add(finalMenuPanel);
+                //y 2.7, 3.4
+                //x 2.9, 3.1
+            }
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        StdDraw.clear();
+        StdDraw.text(5,5,"You chose "+this.numberOfplayers+" players");
+        StdDraw.pause(2000);
+        StdDraw.clear();
 
-        return panel;
+
+    }
+
+    public int numberPlayersChosen(double x, double y){
+        if(y>=2.7 && y<=3.4){
+            if(x>=2.9 && x<=3.1){
+                return 2;
+            }
+            else if(x>=3.9 && x<=4.1){
+                return 3;
+            }
+            else if(x>=4.9 && x<=5.1){
+                return 4;
+            }
+            else if(x>=5.9 && x<=6.1){
+                return 5;
+            }
+            else if(x>=6.9 && x<=7.1){
+                return 6;
+            }
+            else if(x>=7.9 && x<=8.1){
+                return 7;
+            }
+        }
+        return 0;
+
     }
 
 
