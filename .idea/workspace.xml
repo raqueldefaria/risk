@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="134794cc-9e7b-4596-b291-1f9b78c03e73" name="Default" comment="Comments">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="134794cc-9e7b-4596-b291-1f9b78c03e73" name="Default" comment="Adding territories">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/img/risk_logo.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/img/risk_logo.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -55,8 +53,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+            <state relative-caret-position="210">
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
@@ -64,8 +62,8 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2112">
-              <caret line="111" selection-start-line="111" selection-end-line="111" />
+            <state relative-caret-position="-408">
+              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -73,8 +71,18 @@
       <file leaf-file-name="Territory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+            <state relative-caret-position="-1038">
+              <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+              <folding>
+                <element signature="e#1727#1728#0" expanded="true" />
+                <element signature="e#1751#1752#0" expanded="true" />
+                <element signature="e#1785#1786#0" expanded="true" />
+                <element signature="e#1811#1812#0" expanded="true" />
+                <element signature="e#1839#1840#0" expanded="true" />
+                <element signature="e#1863#1864#0" expanded="true" />
+                <element signature="e#1897#1898#0" expanded="true" />
+                <element signature="e#1923#1924#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,18 +90,13 @@
       <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
-              <caret line="83" column="50" lean-forward="true" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+            <state relative-caret-position="330">
+              <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
               <folding>
+                <element signature="method#initiateBackground#0;class#GameGestion#0" />
+                <element signature="method#updateBackground#0;class#GameGestion#0" />
                 <element signature="method#initiateTerritories#0;class#GameGestion#0" />
                 <element signature="method#initiateRegions#0;class#GameGestion#0" />
-                <element signature="e#4468#4476#0" expanded="true" />
-                <element signature="e#4556#4567#0" expanded="true" />
-                <element signature="e#4984#4995#0" expanded="true" />
-                <element signature="e#5411#5422#0" expanded="true" />
-                <element signature="e#5803#5814#0" expanded="true" />
-                <element signature="e#6198#6209#0" expanded="true" />
-                <element signature="e#6583#6594#0" expanded="true" />
                 <element signature="method#territoryInitialisation#0;class#GameGestion#0" />
                 <element signature="method#addTerritory#0;class#GameGestion#0" />
                 <element signature="method#conflict#0;class#GameGestion#0" />
@@ -105,8 +108,8 @@
       <file leaf-file-name="Menu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+            <state relative-caret-position="138">
+              <caret line="38" column="28" lean-forward="true" selection-end-line="90" />
               <folding>
                 <element signature="e#302#303#0" expanded="true" />
                 <element signature="e#340#341#0" expanded="true" />
@@ -142,11 +145,11 @@
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Region.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Player.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Main.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
       </list>
     </option>
@@ -158,16 +161,17 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1912" />
-    <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1940" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,23 +184,10 @@
               <item name="risk" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="risk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="risk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="risk" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="risk" type="b2602c69:ProjectViewProjectNode" />
-              <item name="risk" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="PackagesPane" />
     </panes>
@@ -216,120 +207,6 @@
       <recent name="C:\Users\Raquel De Faria\OneDrive\ISEP\1ere_annee\cours\algo_et_prog\risk\src" />
       <recent name="C:\Users\Raquel De Faria\OneDrive\ISEP\1ere_annee\cours\algo_et_prog\risk\src\com\projectIsep\risk" />
     </key>
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/Main.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -394,7 +271,8 @@
       <workItem from="1526641089047" duration="7730000" />
       <workItem from="1526650373537" duration="4824000" />
       <workItem from="1526740794048" duration="233000" />
-      <workItem from="1526822686101" duration="10715000" />
+      <workItem from="1526822686101" duration="10779000" />
+      <workItem from="1527104273647" duration="5773000" />
     </task>
     <task id="LOCAL-00001" summary="Menu added">
       <created>1524157910006</created>
@@ -466,19 +344,26 @@
       <option name="project" value="LOCAL" />
       <updated>1526648291788</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Comments">
+      <created>1526835015423</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1526835015423</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56156000" />
+    <option name="totallyTimeSpent" value="61993000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.32890365" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32751092" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
@@ -486,12 +371,11 @@
       <window_info anchor="right" id="Maven Projects" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25027686" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32942432" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.2489083" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11513859" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11677852" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -500,6 +384,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.32942432" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -508,18 +393,18 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32896653" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25704697" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32896653" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="5" />
@@ -529,11 +414,11 @@
       <window_info anchor="right" id="Coverage" order="0" side_tool="true" weight="0.3295302" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.32972974" />
       <window_info id="Capture Tool" order="4" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info id="Favorites" order="6" side_tool="true" />
     </layout-to-restore>
@@ -551,10 +436,26 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1896">
+          <caret line="83" column="50" lean-forward="true" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+          <folding>
+            <element signature="method#initiateBackground#0;class#GameGestion#0" />
+            <element signature="method#updateBackground#0;class#GameGestion#0" />
+            <element signature="method#initiateTerritories#0;class#GameGestion#0" />
+            <element signature="method#initiateRegions#0;class#GameGestion#0" />
+            <element signature="method#territoryInitialisation#0;class#GameGestion#0" />
+            <element signature="method#addTerritory#0;class#GameGestion#0" />
+            <element signature="method#conflict#0;class#GameGestion#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Map.java" />
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -582,7 +483,8 @@
         <state relative-caret-position="2520">
           <caret line="115" column="59" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -607,7 +509,8 @@
         <state relative-caret-position="2568">
           <caret line="115" column="59" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -632,7 +535,8 @@
         <state relative-caret-position="2760">
           <caret line="115" column="59" selection-start-line="115" selection-start-column="44" selection-end-line="115" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -657,7 +561,8 @@
         <state relative-caret-position="2712">
           <caret line="113" column="59" selection-start-line="113" selection-start-column="59" selection-end-line="113" selection-end-column="59" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -690,7 +595,8 @@
         <state relative-caret-position="2736">
           <caret line="114" column="35" lean-forward="true" selection-start-line="114" selection-start-column="35" selection-end-line="114" selection-end-column="35" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -715,7 +621,8 @@
         <state relative-caret-position="2760">
           <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -740,7 +647,8 @@
         <state relative-caret-position="2760">
           <caret line="115" column="17" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -765,7 +673,8 @@
         <state relative-caret-position="2760">
           <caret line="115" column="17" lean-forward="true" selection-start-line="115" selection-start-column="17" selection-end-line="115" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#302#303#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,13 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/img/risk_logo.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="58" column="9" selection-start-line="58" selection-start-column="9" selection-end-line="58" selection-end-column="9" />
+        <state relative-caret-position="138">
+          <caret line="38" column="28" lean-forward="true" selection-end-line="90" />
           <folding>
             <element signature="e#302#303#0" expanded="true" />
             <element signature="e#340#341#0" expanded="true" />
@@ -862,39 +768,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        <state relative-caret-position="210">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2112">
-          <caret line="111" selection-start-line="111" selection-end-line="111" />
+        <state relative-caret-position="-408">
+          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="53" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
+        <state relative-caret-position="-1038">
+          <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
+          <folding>
+            <element signature="e#1727#1728#0" expanded="true" />
+            <element signature="e#1751#1752#0" expanded="true" />
+            <element signature="e#1785#1786#0" expanded="true" />
+            <element signature="e#1811#1812#0" expanded="true" />
+            <element signature="e#1839#1840#0" expanded="true" />
+            <element signature="e#1863#1864#0" expanded="true" />
+            <element signature="e#1897#1898#0" expanded="true" />
+            <element signature="e#1923#1924#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="83" column="50" lean-forward="true" selection-start-line="83" selection-start-column="50" selection-end-line="83" selection-end-column="50" />
+        <state relative-caret-position="330">
+          <caret line="43" column="78" selection-start-line="43" selection-start-column="78" selection-end-line="43" selection-end-column="78" />
           <folding>
+            <element signature="method#initiateBackground#0;class#GameGestion#0" />
+            <element signature="method#updateBackground#0;class#GameGestion#0" />
             <element signature="method#initiateTerritories#0;class#GameGestion#0" />
             <element signature="method#initiateRegions#0;class#GameGestion#0" />
-            <element signature="e#4468#4476#0" expanded="true" />
-            <element signature="e#4556#4567#0" expanded="true" />
-            <element signature="e#4984#4995#0" expanded="true" />
-            <element signature="e#5411#5422#0" expanded="true" />
-            <element signature="e#5803#5814#0" expanded="true" />
-            <element signature="e#6198#6209#0" expanded="true" />
-            <element signature="e#6583#6594#0" expanded="true" />
             <element signature="method#territoryInitialisation#0;class#GameGestion#0" />
             <element signature="method#addTerritory#0;class#GameGestion#0" />
             <element signature="method#conflict#0;class#GameGestion#0" />

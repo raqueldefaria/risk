@@ -28,14 +28,12 @@ public class Menu  {
         StdDraw.clear();
         StdDraw.picture(5.1,7, "img/risk_logo.png");
         // Number of players
-        StdDraw.text(1.5,3,"Nombre de joueurs : ");
-        StdDraw.text(3,3,"2");
-        StdDraw.text(4,3,"3");
-        StdDraw.text(5,3,"4");
-        StdDraw.text(6,3,"5");
-        StdDraw.text(7,3,"6");
-        StdDraw.text(8,3,"7");
-        StdDraw.text(9,3,"8");
+        StdDraw.text(2.5,3,"Nombre de joueurs : ");
+        StdDraw.text(4,3,"2");
+        StdDraw.text(5,3,"3");
+        StdDraw.text(6,3,"4");
+        StdDraw.text(7,3,"5");
+        StdDraw.text(8,3,"6");
         // display and pause for 20 ms
         StdDraw.show();
         //StdDraw.pause(20);
@@ -67,24 +65,22 @@ public class Menu  {
 
     public int numberPlayersChosen(double x, double y){
         if(y>=2.7 && y<=3.4){
-            if(x>=2.9 && x<=3.1){
+            if(x>=3.9 && x<=4.1){
                 return 2;
             }
-            else if(x>=3.9 && x<=4.1){
+            else if(x>=4.9 && x<=5.1){
                 return 3;
             }
-            else if(x>=4.9 && x<=5.1){
+            else if(x>=5.9 && x<=6.1){
                 return 4;
             }
-            else if(x>=5.9 && x<=6.1){
+            else if(x>=6.9 && x<=7.1){
                 return 5;
             }
-            else if(x>=6.9 && x<=7.1){
+            else if(x>=7.9 && x<=8.1){
                 return 6;
             }
-            else if(x>=7.9 && x<=8.1){
-                return 7;
-            }
+
         }
         return 0;
 

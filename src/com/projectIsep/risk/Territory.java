@@ -7,6 +7,8 @@ public class Territory {
     private int nbCavalery;
     private int nbCanon;
     private String nameTerritory;
+    private double x;
+    private double y;
 
     // -------------- Constructors --------------  //
     public Territory() {
@@ -71,6 +73,22 @@ public class Territory {
 
     public void setNameTerritory(String nameTerritory) {
         this.nameTerritory = nameTerritory;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 
     // fonction de résolution de combat. En effet les combats se font entre deux territoires
