@@ -91,12 +91,12 @@ public class GameGestion {
 
                 //mouvement
 
-                //on check si le joueur a gagné
-                if (player.getMission().missionAccomplished) {
-                    gameOver = true;
-                    // message de victoire
-                    // on ferme la partie
-                }
+//                //on check si le joueur a gagné
+//                if (player.getMission().missionAccomplished) {
+//                    gameOver = true;
+//                    // message de victoire
+//                    // on ferme la partie
+//                }
 
                 //message de fin de tour
             }
