@@ -10,6 +10,7 @@ public class Player {
     public ArrayList<Region> arraylistRegion = new ArrayList<Region>();
     private int reinforcement;
     private int capture;
+    private boolean alive;
 
     // -------------- Constructor --------------  //
     public Player() {
@@ -21,8 +22,18 @@ public class Player {
         return mission;
     }
 
+
+
     public void setMission(Mission mission) {
         this.mission = mission;
+    }
+
+    public boolean isAlive() {
+        return alive;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
     }
 
     public String getNamePlayer() {

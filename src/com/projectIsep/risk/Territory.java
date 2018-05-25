@@ -9,6 +9,7 @@ public class Territory {
     private String nameTerritory;
     private double x;
     private double y;
+    private int[] frontier;
 
     // -------------- Constructors --------------  //
     public Territory() {
@@ -19,10 +20,11 @@ public class Territory {
         this.proprietary = proprietary;
     }
 
-    public Territory(int idTerritory, int proprietary, String nameTerritory) {
+    public Territory(int idTerritory, int proprietary, String nameTerritory, int[] frontier) {
         this.idTerritory = idTerritory;
         this.proprietary = proprietary;
         this.nameTerritory = nameTerritory;
+        this.frontier = frontier;
     }
 
     // -------------- Getters & Setters --------------  //
@@ -33,6 +35,14 @@ public class Territory {
 
     public void setIdTerritory(int idTerritory) {
         this.idTerritory = idTerritory;
+    }
+
+    public int[] getFrontier() {
+        return frontier;
+    }
+
+    public void setFrontier(int[] frontier) {
+        this.frontier = frontier;
     }
 
     public int getProprietary() {

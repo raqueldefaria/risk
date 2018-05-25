@@ -21,13 +21,24 @@ public class GameGestion {
         for (int i = 0; i < numberOfPlayers; i++) { // initialisation des joueurs
             int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
             Player player = new Player();
-            //player.setMission(); //on set la mission d'ID a;
+
 
             playerArrayList.add(player); // adding a player to the list
 
             //giving the player his territories
             territoryInitialisation(player, (i+1),numberOfPlayers, territoryArrayList); // on affecte ses territoires au joueur
         }
+
+        // ---------- Initialising the missions ---------- //
+        Mission mission = new Mission();
+        ArrayList<Mission> missions = mission.generateMission(playerArrayList);
+        for (int playerID =0; playerID<numberOfPlayers; playerID++ ){
+            Random random = new Random();
+            int rndm = random.nextInt(missions.size()-1)+1;
+            playerArrayList.get(it).setMission(missions.get(rndm));
+        }
+
+
 
         // ---------- Initialising the background---------- //
         initiateBackground(territoryArrayList);
@@ -261,11 +272,61 @@ public class GameGestion {
                 "East Africa","Egypt","North Africa","Iceland","Western Europe","Northern Europe","Great Britain","Southern Europe","Scandinavia",
                 "Ukraine","Middle East","Afghanistan","Ural","Siberia","Yakutsk","Kamchatka","Irkustsk","Mongolia","China",
                 "India","Siam","Japan","Indonesia","New Guinea","Western Australia","Eastern Australia"};
+
+        ArrayList<int [][]> listoffrontiers = new ArrayList<int [][]>();
+
+        int [] [] listfrontiers = {{2, 3, 32}, // Alaska id 1
+                {1, 3, 4, 6}, //"North West Territory", 2
+                {1, 2, 4, 7},//"Alberta", 3
+                {2, 3, 5, 6}, //"Ontario", 4
+                {4, 6, 8},//"Quebec", 5
+                {2, 4, 20},//"Groenland",6
+                {3, 4, 8, 9},// "Western United States", 7
+                {4, 5, 7, 9},//"Eastern United States", 8
+                {7, 8, 10},//"Central America", 9
+                {9, 11, 12},//"Venezuela", 10
+                {10, 12, 13},//"Brazil", 11
+                {10, 11, 13},//"Peru", 12
+                {11, 12},//"Argentina", 13
+                {15, 17, 19},//"Congo", 14
+                {14, 16, 17},//"South Africa", 15
+                {15, 17},//"Madagascar",    16
+                {14, 15, 16, 18, 19}, //"East Africa"17
+                {17, 19, 24, 27},//"Egypt",18
+                {11, 14, 17, 18, 21, 24},//"North Africa",19
+                {6, 23, 25},//"Iceland", 20
+                {19, 22, 23, 24},//"Western Europe","21
+                {21, 23, 24, 25},//Northern Europe",22
+                {20, 21, 22, 25},//"Great Britain","23
+                {18, 19, 21, 22, 26},//Southern Europe",24
+                {20, 22, 23, 26},//"Scandinavia",25
+                {22, 24, 25, 27, 28, 29},//"Ukraine","26
+                {17, 18, 24, 26, 28, 36},//Middle East","27
+                {26, 27, 29, 35, 36},//Afghanistan",28
+                {26, 28, 30, 35},//"Ural","29
+                {29, 31, 33, 34, 35},//Siberia",30
+                {30, 32, 33},//"Yakutsk",31
+                {1, 31, 33, 34, 38},//"Kamchatka",32
+                {30, 31, 32, 34},//"Irkustsk",33
+                {30, 32, 33, 35, 38},//"Mongolia",34
+                {28, 29, 30, 34, 36, 37},//"China",35
+                {27, 28, 35, 37},//"India",36
+                {35, 36, 39},//"Siam", 37
+                {32, 34},//"Japan",38
+                {37, 40, 41},//"Indonesia",39
+                {39, 40, 41},//"New Guinea",40
+                {39,40,42},//"Western Australia"41
+                {40,41},//, "Eastern Australia"42
+        };
+        listoffrontiers.add(listfrontiers);
+
         for(int it=0; it<territorylist.length;it++){
             String territoryName= territorylist[it];
-            Territory territory = new Territory(it,0, territoryName);
+            int[] territoryFrontiers= listfrontiers[it];
+            Territory territory = new Territory(it,0, territoryName, territoryFrontiers);
             territoryArrayList.add(territory);
         }
+
         return territoryArrayList;
 
     }
@@ -383,6 +444,16 @@ public class GameGestion {
     }
 
     public void conflict(Territory attackerTerritory, Territory defenderTerritory){
+                    // ------------------- On vérifie que les territoires sont voisins -------------------//
+        boolean frontierValidation = false;
+        for(int it=0; it<attackerTerritory.getFrontier().length; it++){
+            if (attackerTerritory.getFrontier()[it]== defenderTerritory.getIdTerritory()){ // si on trouve l'ID du territoire attaqué dans la liste des voisins de l'attaquand
+                frontierValidation = true; // l'attaque est validée
+            }
+        }
+        if (!frontierValidation){ // sinon on stoppe la fonction
+            return;
+        }
 
                     // ------------------- On crée l'armée attaquante -------------------//
         Army attacker = new Army();

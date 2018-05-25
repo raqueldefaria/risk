@@ -128,15 +128,6 @@ public class Army {
         this.setNbSoldier(nbSoldierDefender);
 
 
-
-        System.out.println("How many cavalieries to defend?");
-        int nbCavaleryDefender = scannerdef.nextInt();
-        if (this.getNbCavalery()<nbCavaleryDefender){
-            System.out.println("Not enough cavaleries");
-            return false;
-        }
-        this.setNbCavalery(nbCavaleryDefender);
-
         System.out.println("How many canons to defend?");
         int nbCanonDefender = scannerdef.nextInt();
         if (this.getNbCanon()<nbCanonDefender){
@@ -144,6 +135,13 @@ public class Army {
             return false;
         }
         this.setNbCanon(nbCanonDefender);
+        System.out.println("How many cavalieries to defend?");
+        int nbCavaleryDefender = scannerdef.nextInt();
+        if (this.getNbCavalery()<nbCavaleryDefender){
+            System.out.println("Not enough cavaleries");
+            return false;
+        }
+        this.setNbCavalery(nbCavaleryDefender);
 
         // ---------------------- Army checking -----------------//
 
@@ -165,9 +163,9 @@ public class Army {
 
     public void battle(Army defender){
 
-        ArrayList <Unit>  attackerList = this.generateList(); //On prépare l'ordre des troupes attaquantes
+        ArrayList <Unit>  attackerList = this.generateAttackerList(); //On prépare l'ordre des troupes attaquantes
 
-        ArrayList <Unit> defenderList = defender.generateList();//  On prépare l'ordre des troupes défenseuses
+        ArrayList <Unit> defenderList = defender.generateDefenderList();//  On prépare l'ordre des troupes défenseuses
 
         ArrayList<Integer> attackerResults = generateDice(attackerList);// On lance les dés pour l'attaquant
 
@@ -181,7 +179,7 @@ public class Army {
 
     }
 
-    public ArrayList<Unit> generateList(){
+    public ArrayList<Unit> generateAttackerList(){ // l'ordre d'ajout des troupes à la liste permet de gérer les priorités de combats (les premiers meurent en premier, "et les premiers seront les derniers" ne s'applique pas à un tir de canon
         ArrayList<Unit> unitList= new ArrayList<>();
         int cavaleryAttacker = this.getNbCavalery();
         while (cavaleryAttacker!=0){
@@ -201,6 +199,32 @@ public class Army {
             unitList.add(canon);
             canonAttacker --;
         }
+        return unitList;
+    }
+
+    public ArrayList<Unit> generateDefenderList(){
+        ArrayList<Unit> unitList= new ArrayList<>();
+        int soldierAttacker = this.getNbSoldier();
+        while (soldierAttacker!=0){
+            Soldier soldier = new Soldier();
+            unitList.add(soldier);
+            soldierAttacker --;
+        }
+
+        int canonAttacker =this.getNbCanon();
+        while (canonAttacker!=0){
+            Canon canon = new Canon();
+            unitList.add(canon);
+            canonAttacker --;
+        }
+        int cavaleryAttacker = this.getNbCavalery();
+        while (cavaleryAttacker!=0){
+            Cavalery cavalery = new Cavalery();
+            unitList.add(cavalery);
+            cavaleryAttacker --;
+        }
+
+
         return unitList;
     }
 
