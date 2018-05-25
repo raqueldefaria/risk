@@ -9,6 +9,7 @@ public class Canon extends Unit{
 //        this.attackPriority = 3;
 //        this.defencePriority = 2;
 //        this.movement = 1;
+
     }
 
     public Canon() {
