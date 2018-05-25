@@ -382,11 +382,27 @@ public class GameGestion {
         }
     }
 
-    public void conflict(Territory attacker, Territory defender){
-        int totalAttackers=0;
-        System.out.println("How many soliers to atack?");
+    public void conflict(Territory attackerTerritory, Territory defenderTerritory){
 
-        System.out.println("How many cavalieries to atack?");
-        System.out.println("How many canons to atack?");
+                    // ------------------- On crée l'armée attaquante -------------------//
+        Army attacker = new Army();
+        attacker.setAttacker(true);
+        attacker.setTerritory(attackerTerritory);
+        if (!attacker.generateAttacker()){ // si l'armée n'est pas générée correctement
+            conflict(attackerTerritory,defenderTerritory); // on reboot
+        }
+
+                    // ------------------- On crée l'armée défenseuse -------------------//
+        Army defender = new Army();
+        defender.setAttacker(false);
+        defender.setTerritory(defenderTerritory);
+        if (!defender.generateDefender()){ // si l'armée n'est pas générée correctement
+            conflict(attackerTerritory,defenderTerritory); // on reboot
+        }
+
+                    // ------------------- On résout un round de combat -------------------//
+
+        attacker.battle(defender);
+
     }
 }
