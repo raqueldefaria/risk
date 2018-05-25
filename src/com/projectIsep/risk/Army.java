@@ -67,7 +67,7 @@ public class Army {
         Scanner scanner = new Scanner(System.in);
         System.out.println("How many soliers to atack?");
         int nbSoldierAttacker = scanner.nextInt();
-        if (this.getNbSoldier()<nbSoldierAttacker){
+        if (this.getTerritory().getNbSoldier()<nbSoldierAttacker){
             System.out.println("Not enough soldiers");
             return false;
         }
@@ -121,7 +121,7 @@ public class Army {
         Scanner scannerdef = new Scanner(System.in);
         System.out.println("How many soliers to defend?");
         int nbSoldierDefender = scannerdef.nextInt();
-        if (this.getNbSoldier()<nbSoldierDefender){
+        if (this.getTerritory().getNbSoldier()<nbSoldierDefender){
             System.out.println("Not enough soldiers");
             return false;
         }
