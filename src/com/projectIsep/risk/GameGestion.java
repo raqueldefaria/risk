@@ -56,14 +56,14 @@ public class GameGestion {
         while (!gameOver) {
             StdDraw.pause(400);
             System.out.println("in game");
-            int that = 1;
-            while (that != numberOfPlayers) {
+            int compteur = 1;
+            while (compteur != numberOfPlayers) {
                 System.out.println("in player");
 
 
                 boolean pass = false;
-                Player player = playerArrayList.get(that); // On sélectionne le joueurs
-                that++; // on incrémente
+                Player player = playerArrayList.get(compteur); // On sélectionne le joueurs
+                compteur++; // on incrémente
                 player.computerReinforcement(); //on calcule le nombre de renforts
                 //on permet au joueur de placer ses renforts
                 int reinforcement = player.getReinforcement();
@@ -123,7 +123,7 @@ public class GameGestion {
                             updateBackground(territoryArrayList, playerArrayList.size());
                         }
                         //clicking on inspection
-                        else {
+                        else if(y>=39.34 && y<=42.47) {
                             StdDraw.clear();
                             StdDraw.text(50,50,"Click on a territory to inspect it !");
                             StdDraw.pause(2000);
@@ -251,10 +251,15 @@ public class GameGestion {
 
         }
         StdDraw.setPenColor(Color.BLACK);
+        StdDraw.rectangle(94,60,3.5,1.5);
         StdDraw.text(94,60,"Attack");
+        StdDraw.rectangle(94,56,3.5,1.5);
         StdDraw.text(94,56,"Move");
+        StdDraw.rectangle(94,52,3.5,1.5);
         StdDraw.text(94,52,"Pass");
+        StdDraw.rectangle(94,45,3.5,1.5);
         StdDraw.text(94,45,"Mission");
+        StdDraw.rectangle(94,41,3.5,1.5);
         StdDraw.text(94,41,"Inspection");
         double [] xList = {2.75, 14.666666666666666, 12.666666666666666, 17.166666666666668, 23.666666666666668, 29.333333333333332, 12.333333333333334, 22.0, 11.333333333333334,
                 18.333333333333332, 27.0, 18.916666666666668, 20.833333333333332, 48.25, 47.416666666666664, 58.666666666666664, 52.583333333333336, 44.5, 39.916666666666664,
@@ -363,10 +368,15 @@ public class GameGestion {
             }
 
         }
+        StdDraw.rectangle(94,60,3.5,1.5);
         StdDraw.text(94,60,"Attack");
+        StdDraw.rectangle(94,56,3.5,1.5);
         StdDraw.text(94,56,"Move");
+        StdDraw.rectangle(94,52,3.5,1.5);
         StdDraw.text(94,52,"Pass");
+        StdDraw.rectangle(94,45,3.5,1.5);
         StdDraw.text(94,45,"Mission");
+        StdDraw.rectangle(94,41,3.5,1.5);
         StdDraw.text(94,41,"Inspection");
         double [] xList = {2.75, 14.666666666666666, 12.666666666666666, 17.166666666666668, 23.666666666666668, 29.333333333333332, 12.333333333333334, 22.0, 11.333333333333334,
                 18.333333333333332, 27.0, 18.916666666666668, 20.833333333333332, 48.25, 47.416666666666664, 58.666666666666664, 52.583333333333336, 44.5, 39.916666666666664,
