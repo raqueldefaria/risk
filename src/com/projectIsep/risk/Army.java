@@ -1,5 +1,7 @@
 package com.projectIsep.risk;
 
+import edu.princeton.cs.introcs.StdDraw;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -64,11 +66,39 @@ public class Army {
     }
 
     public boolean generateAttacker(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("How many soliers to atack?");
-        int nbSoldierAttacker = scanner.nextInt();
+        int [] xTextSoldier = new int[this.getTerritory().getNbSoldier()+1];
+        StdDraw.clear();
+        StdDraw.text(50,60,"How many soldiers do you want to attack ?");
+        StdDraw.text(40,55,"Number of soldiers : ");
+        for(int it=0;it<this.getTerritory().getNbSoldier();it++){
+            StdDraw.text((45+it*2)+2,55, String.valueOf((it + 1)));
+            xTextSoldier[it] = (45+it*2)+2;
+        }
+        StdDraw.pause(5000);
+        boolean numberOfSoldiersChosen = false;
+        int nbSoldierAttacker = 0;
+        while (!numberOfSoldiersChosen){
+            if (StdDraw.isMousePressed()){
+                double x = StdDraw.mouseX();
+                double y = StdDraw.mouseY();
+                System.out.println("x = "+ x);
+                System.out.println("y = "+ y);
+                StdDraw.pause(200);
+                if(y>=53.7 && y<=56.3){
+                    for (int k=0; k<this.getTerritory().getNbSoldier();k++){
+                        if(x>=xTextSoldier[k]-0.1 && x<=xTextSoldier[k]+0.1){
+                            nbSoldierAttacker = k+1;
+                            numberOfSoldiersChosen = true;
+                        }
+                    }
+                }
+            }
+        }
+
         if (this.getTerritory().getNbSoldier()<nbSoldierAttacker){
-            System.out.println("Not enough soldiers");
+            StdDraw.clear();
+            StdDraw.text(50,50,"Not enough soldiers");
+            StdDraw.pause(1500);
             return false;
         }
         this.setNbSoldier(nbSoldierAttacker);
@@ -206,10 +236,9 @@ public class Army {
 
     public ArrayList<Integer> generateDice (ArrayList<Unit> army){
         ArrayList<Integer> result = new ArrayList<Integer>();
-        for (int it=0; it< army.size(); it ++){
+        for (Unit anArmy : army) {
             Random random = new Random();
-            Unit currentUnit = army.get(it);
-            int value = random.nextInt(currentUnit.strengthMax)+currentUnit.strengthMin;
+            int value = random.nextInt(anArmy.strengthMax) + anArmy.strengthMin;
             result.add(value);
         }
         return result;
