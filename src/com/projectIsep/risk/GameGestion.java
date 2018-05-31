@@ -182,7 +182,7 @@ public class GameGestion {
         while (!unitsChosen) {
             int[] xTextSoldier = new int[territoryGivingUnits.getNbSoldier() + 1];
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many soldiers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to" + territoryReceivingUnits.getNameTerritory() + " ?");
+            StdDraw.text(50, 60, "How many soldiers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
             StdDraw.text(40, 55, "Number of soldiers : ");
             for (int it = 0; it <= territoryGivingUnits.getNbSoldier(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -212,7 +212,7 @@ public class GameGestion {
 
             int[] xTextCavalier = new int[territoryGivingUnits.getNbCavalery() + 1];
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many cavaliers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to" + territoryReceivingUnits.getNameTerritory() + " ?");
+            StdDraw.text(50, 60, "How many cavaliers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
             StdDraw.text(40, 55, "Number of cavaliers : ");
             for (int it = 0; it <= territoryGivingUnits.getNbCavalery(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -242,7 +242,7 @@ public class GameGestion {
 
             int[] xTextCanon = new int[territoryGivingUnits.getNbCanon() + 1];
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many canons do you want to go from " + territoryGivingUnits.getNameTerritory()+" to" + territoryReceivingUnits.getNameTerritory() + " ?");
+            StdDraw.text(50, 60, "How many canons do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
             StdDraw.text(40, 55, "Number of canons : ");
             for (int it = 0; it <= territoryGivingUnits.getNbCanon(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -286,6 +286,7 @@ public class GameGestion {
                 StdDraw.clear();
                 StdDraw.text(50,50,"No units were moved !");
                 StdDraw.pause(1500);
+                return;
             }
 
             if(unitsTerritory<=units){
