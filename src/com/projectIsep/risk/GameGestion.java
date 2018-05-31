@@ -41,139 +41,262 @@ public class GameGestion {
         // ---------- Initialising Armies in the different territories ---------- //
         initiateArmy(playerArrayList, territoryArrayList);
 
-        // initialising the reinforcements
-        int reinforcement = 0;
+
 
 
         while (!gameOver) {
             StdDraw.clear();
             StdDraw.text(50,50,"Let the game begin !");
-            StdDraw.pause(500);
+            StdDraw.pause(1000);
             StdDraw.clear();
             int compteur = 0;
+            int reinforcement = 0;
             while (compteur < numberOfPlayers) {
-
-
-                boolean pass = false;
                 Player player = playerArrayList.get(compteur); // On sélectionne le joueur
-
-                // ---------- Player getting reinforcements and placing them ---------- //
-                if(reinforcement!=0){
-                    StdDraw.text(50,50,"You have reinforcements. Place them on your territories !");
-                    StdDraw.pause(500);
-                    StdDraw.clear();
-                    //getting the map
-                    updateBackground(territoryArrayList, numberOfPlayers);
-                    //player positioning its reinforcements
-                    placingUnits(player, compteur, territoryArrayList, playerArrayList);
-                }
-                // ---------- Player does not have reinforcements and plays right away ---------- //
-                else{
-                    StdDraw.text(50,50,"Player " + compteur + " it's your turn to play !");
-                    StdDraw.pause(1000);
-                    updateBackground(territoryArrayList,numberOfPlayers);
-                    boolean actionChosen = false;
-                    while (!actionChosen){
-                        if(StdDraw.isMousePressed()){
-                            double xAction = StdDraw.mouseX();
-                            double yAction = StdDraw.mouseY();
-                            if(xAction>=89){
-                                // attack
-                                if(yAction>=58.7 && yAction<=61.7){
-                                    StdDraw.clear();
-                                    StdDraw.text(50,55,"You're going to attack !");
-                                    StdDraw.text(50,52,"First choose one of your territories to attack with");
-                                    StdDraw.text(50,49,"Then choose the territory that you want to attack");
-                                    StdDraw.pause(1000);
-                                    StdDraw.clear();
-                                    updateBackground(territoryArrayList, numberOfPlayers);
-                                    ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList);
-                                    conflict(listTerritories.get(0),listTerritories.get(1));
-                                    actionChosen = true;
-                                    updateBackground(territoryArrayList, numberOfPlayers);
-                                }
-                                // move
-                                else if(yAction>=54.9 && yAction<=57.4){
-
-                                }
-                                // pass
-                                else if(yAction>=50.8 && yAction<=53.3){
-
-                                }
-                                // clicking on the mission
-                                else if (yAction >= 43.96 && yAction <= 46.96) {
-                                    StdDraw.clear();
-                                    StdDraw.text(50, 50, "Player " + (compteur + 1) + ", your mission is :  " + player.getMission().getBriefing());
-                                    StdDraw.pause(5000);
-                                    StdDraw.clear();
-                                    updateBackground(territoryArrayList, playerArrayList.size());
-                                }
-                                //clicking on inspection
-                                else if(yAction>=39.34 && yAction<=42.47) {
-                                    StdDraw.clear();
-                                    StdDraw.text(50,50,"Click on a territory to inspect it !");
-                                    StdDraw.pause(2000);
-                                    updateBackground(territoryArrayList, playerArrayList.size());
-                                    boolean territoryChecked = false;
-                                    while (!territoryChecked) {
-                                        if (StdDraw.isMousePressed()) {
-                                            //coordinates of the click
-                                            double xTerritory = StdDraw.mouseX();
-                                            double yTerritory = StdDraw.mouseY();
-                                            StdDraw.pause(200);
-                                            for (int u = 0; u < territoryArrayList.size(); u++) {
-                                                Territory territory = territoryArrayList.get(u);
-                                                if ((xTerritory >= territory.getX() - 2 && xTerritory <= territory.getX() + 2) && (yTerritory >= territory.getY() - 4 && yTerritory <= territory.getY() + 4)) {
-                                                    StdDraw.clear();
-                                                    StdDraw.text(50, 60, "Here are the units available in " + territory.getNameTerritory());
-                                                    StdDraw.text(30, 50, "Number of Soldiers : " + territory.getNbSoldier());
-                                                    StdDraw.text(50, 50, "Cavalry effective : " + territory.getNbCavalery());
-                                                    StdDraw.text(70, 50, "Number of Canons : " + territory.getNbCanon());
-                                                    StdDraw.pause(5000);
-                                                    territoryChecked = true;
-                                                    updateBackground(territoryArrayList, playerArrayList.size());
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            else{
-
-                            }
-                        }
-                    }
-
-                }
-
-                while (!pass) {
-                    //une boucle désignation d'attaque/résolution d'attaque
-                    // on check si le bouton pour mettre fin à la phase d'attaque est appuyé, puis on update pass
-                    pass = true;
-
-
-                }
-
-                //mouvement
-
-                //on check si le joueur a gagné
-                if (player.getMission().missionAccomplished) {
-                    gameOver = true;
-                    // message de victoire
-                    // on ferme la partie
-                }
-
-                //message de fin de tour
-                compteur++; // on incrémente
+                System.out.println("compteur = "+ compteur);
+                playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
                 player.computerReinforcement(); //on calcule le nombre de renforts
                 //on permet au joueur de placer ses renforts
-                reinforcement = player.getReinforcement();
+                //on check si le joueur a gagné avec sa mission
+//                if (player.getMission().missionAccomplished) {
+//                    gameOver = true;
+//                    // message de victoire
+//                    // on ferme la partie
+//                }
+                //checking if the player has conquered all the territories
+                for(int k=0; k<territoryArrayList.size();k++){
+                    gameOver = true;
+                    if(territoryArrayList.get(k).getProprietary() != (compteur+1)){
+                        gameOver = false;
+                    }
+                }
+                compteur++;
+                if(compteur == numberOfPlayers){
+                    compteur=0;
+                }
             }
 
         }
     }
 
-    public ArrayList<Territory> chosingTwoTerritories(Player player, int numberOfPlayers, ArrayList<Territory> territories){
+    public void playing(ArrayList<Player> playerArrayList, ArrayList<Territory> territoryArrayList, int compteur, int numberOfPlayers, int reinforcement){
+        Player player = playerArrayList.get(compteur); // On sélectionne le joueur
+
+        System.out.println("reinforcements = " + reinforcement);
+
+        // ---------- Player getting reinforcements and placing them ---------- //
+        if(reinforcement!=0){
+            StdDraw.clear();
+            StdDraw.text(50,50,"Player "+ (compteur+1)+" you have reinforcements. Place them on your territories !");
+            StdDraw.pause(2000);
+            StdDraw.clear();
+            //getting the map
+            updateBackground(territoryArrayList, numberOfPlayers);
+            //player positioning its reinforcements
+            placingUnits(player, compteur, territoryArrayList, playerArrayList);
+        }
+        // ---------- Player does not have reinforcements and plays right away ---------- //
+        else{
+            StdDraw.clear();
+            StdDraw.text(50,50,"Player " + (compteur+1) + " it's your turn to play !");
+            StdDraw.pause(2000);
+            updateBackground(territoryArrayList,numberOfPlayers);
+            boolean actionChosen = false;
+            while (!actionChosen){
+                if(StdDraw.isMousePressed()){
+                    double xAction = StdDraw.mouseX();
+                    double yAction = StdDraw.mouseY();
+                    if(xAction>=89){
+                        // attack
+                        if(yAction>=58.7 && yAction<=61.7){
+                            StdDraw.clear();
+                            StdDraw.text(50,55,"You're going to attack !");
+                            StdDraw.text(50,52,"First choose one of your territories to attack with");
+                            StdDraw.text(50,49,"Then choose the territory that you want to attack");
+                            StdDraw.pause(1000);
+                            StdDraw.clear();
+                            updateBackground(territoryArrayList, numberOfPlayers);
+                            ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"attack");
+                            conflict(listTerritories.get(0),listTerritories.get(1));
+                            actionChosen = true;
+                            updateBackground(territoryArrayList, numberOfPlayers);
+                        }
+                        // move
+                        else if(yAction>=54.9 && yAction<=57.4){
+                            ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"move");
+                            int numberOfUnits = listTerritories.get(0).getNbSoldier() + listTerritories.get(0).getNbCavalery() + listTerritories.get(0).getNbCanon();
+                            movingUnits(listTerritories.get(0),listTerritories.get(1));
+                            updateBackground(territoryArrayList,numberOfPlayers);
+                        }
+                        // pass
+                        else if(yAction>=50.8 && yAction<=53.3){
+                            StdDraw.clear();
+                            return;
+                        }
+                        // clicking on the mission
+                        else if (yAction >= 43.96 && yAction <= 46.96) {
+                            StdDraw.clear();
+                            StdDraw.text(50, 50, "Player " + (compteur + 1) + ", your mission is :  " + player.getMission().getBriefing());
+                            StdDraw.pause(5000);
+                            StdDraw.clear();
+                            updateBackground(territoryArrayList, playerArrayList.size());
+                        }
+                        //clicking on inspection
+                        else if(yAction>=39.34 && yAction<=42.47) {
+                            StdDraw.clear();
+                            StdDraw.text(50,50,"Click on a territory to inspect it !");
+                            StdDraw.pause(2000);
+                            updateBackground(territoryArrayList, playerArrayList.size());
+                            boolean territoryChecked = false;
+                            while (!territoryChecked) {
+                                if (StdDraw.isMousePressed()) {
+                                    //coordinates of the click
+                                    double xTerritory = StdDraw.mouseX();
+                                    double yTerritory = StdDraw.mouseY();
+                                    StdDraw.pause(200);
+                                    for (int u = 0; u < territoryArrayList.size(); u++) {
+                                        Territory territory = territoryArrayList.get(u);
+                                        if ((xTerritory >= territory.getX() - 2 && xTerritory <= territory.getX() + 2) && (yTerritory >= territory.getY() - 4 && yTerritory <= territory.getY() + 4)) {
+                                            StdDraw.clear();
+                                            StdDraw.text(50, 60, "Here are the units available in " + territory.getNameTerritory());
+                                            StdDraw.text(30, 50, "Number of Soldiers : " + territory.getNbSoldier());
+                                            StdDraw.text(50, 50, "Cavalry effective : " + territory.getNbCavalery());
+                                            StdDraw.text(70, 50, "Number of Canons : " + territory.getNbCanon());
+                                            StdDraw.pause(5000);
+                                            territoryChecked = true;
+                                            updateBackground(territoryArrayList, playerArrayList.size());
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    public void movingUnits(Territory territoryGivingUnits, Territory territoryReceivingUnits){
+        boolean unitsChosen = false;
+        while (!unitsChosen) {
+            int[] xTextSoldier = new int[territoryGivingUnits.getNbSoldier() + 1];
+            StdDraw.clear();
+            StdDraw.text(50, 60, "How many soldiers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to" + territoryReceivingUnits.getNameTerritory() + " ?");
+            StdDraw.text(40, 55, "Number of soldiers : ");
+            for (int it = 0; it <= territoryGivingUnits.getNbSoldier(); it++) {
+                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                xTextSoldier[it] = (45 + it * 2) + 2;
+            }
+            StdDraw.pause(5000);
+            boolean numberOfSoldiersChosen = false;
+            int nbSoldierAttacker = 0;
+            while (!numberOfSoldiersChosen) {
+                if (StdDraw.isMousePressed()) {
+                    double xSoldier = StdDraw.mouseX();
+                    double ySoldier = StdDraw.mouseY();
+                    if (ySoldier >= 53.7 && ySoldier <= 56.3) {
+                        for (int k = 0; k <= territoryGivingUnits.getNbSoldier(); k++) {
+                            System.out.println("nombre : " + xTextSoldier[k]);
+                            if (xSoldier >= xTextSoldier[k] - 1.1 && xSoldier <= xTextSoldier[k] + 1.1) {
+                                nbSoldierAttacker = k;
+                                numberOfSoldiersChosen = true;
+                            }
+                        }
+                    }
+                    StdDraw.pause(90);
+                }
+            }
+
+
+
+            int[] xTextCavalier = new int[territoryGivingUnits.getNbCavalery() + 1];
+            StdDraw.clear();
+            StdDraw.text(50, 60, "How many cavaliers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to" + territoryReceivingUnits.getNameTerritory() + " ?");
+            StdDraw.text(40, 55, "Number of cavaliers : ");
+            for (int it = 0; it <= territoryGivingUnits.getNbCavalery(); it++) {
+                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                xTextCavalier[it] = (45 + it * 2) + 2;
+            }
+            StdDraw.pause(5000);
+            boolean numberOfCavaliersChosen = false;
+            int nbCavaleryAttacker = 0;
+            while (!numberOfCavaliersChosen) {
+                if (StdDraw.isMousePressed()) {
+                    double xCavalery = StdDraw.mouseX();
+                    double yCavalery = StdDraw.mouseY();
+
+                    if (yCavalery >= 53.7 && yCavalery <= 56.3) {
+                        for (int k = 0; k <= territoryGivingUnits.getNbCavalery(); k++) {
+                            if (xCavalery >= xTextCavalier[k] - 1.1 && xCavalery <= xTextCavalier[k] + 1.1) {
+                                nbCavaleryAttacker = k;
+                                numberOfCavaliersChosen = true;
+                            }
+                        }
+                    }
+                    StdDraw.pause(90);
+                }
+            }
+
+
+
+            int[] xTextCanon = new int[territoryGivingUnits.getNbCanon() + 1];
+            StdDraw.clear();
+            StdDraw.text(50, 60, "How many canons do you want to go from " + territoryGivingUnits.getNameTerritory()+" to" + territoryReceivingUnits.getNameTerritory() + " ?");
+            StdDraw.text(40, 55, "Number of canons : ");
+            for (int it = 0; it <= territoryGivingUnits.getNbCanon(); it++) {
+                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                xTextCanon[it] = (45 + it * 2) + 2;
+            }
+            StdDraw.pause(5000);
+            boolean numberOfCanonChosen = false;
+            int nbCanonAttacker = 0;
+            while (!numberOfCanonChosen) {
+                if (StdDraw.isMousePressed()) {
+                    double xCanon = StdDraw.mouseX();
+                    double yCanon = StdDraw.mouseY();
+                    if (yCanon >= 53.7 && yCanon <= 56.3) {
+                        for (int k = 0; k <= territoryGivingUnits.getNbCanon(); k++) {
+                            if (xCanon >= xTextCanon[k] - 1.1 && xCanon <= xTextCanon[k] + 1.1) {
+                                nbCanonAttacker = k;
+                                numberOfCanonChosen = true;
+                            }
+                        }
+                    }
+                    StdDraw.pause(90);
+                }
+            }
+
+            int unitsTerritory = territoryGivingUnits.getNbSoldier() + territoryGivingUnits.getNbCanon() + territoryGivingUnits.getNbCavalery();
+            int units = nbSoldierAttacker + nbCavaleryAttacker + nbCanonAttacker;
+
+            if((nbCanonAttacker + nbCavaleryAttacker + nbSoldierAttacker !=0) && (unitsTerritory>units)){
+                // giving units
+                territoryGivingUnits.setNbSoldier(territoryGivingUnits.getNbSoldier()-nbSoldierAttacker);
+                territoryGivingUnits.setNbCavalery(territoryGivingUnits.getNbCavalery()-nbCavaleryAttacker);
+                territoryGivingUnits.setNbCanon(territoryGivingUnits.getNbCanon()-nbCanonAttacker);
+                //receiving units
+                territoryReceivingUnits.setNbSoldier(territoryReceivingUnits.getNbSoldier()+nbSoldierAttacker);
+                territoryReceivingUnits.setNbCavalery(territoryReceivingUnits.getNbCavalery()+nbCavaleryAttacker);
+                territoryReceivingUnits.setNbCanon(territoryReceivingUnits.getNbCanon()+nbCanonAttacker);
+                unitsChosen = true;
+            }
+            // no mouvement
+            if(nbCanonAttacker + nbCavaleryAttacker + nbSoldierAttacker ==0){
+                StdDraw.clear();
+                StdDraw.text(50,50,"No units were moved !");
+                StdDraw.pause(1500);
+            }
+
+            if(unitsTerritory<=units){
+                StdDraw.clear();
+                StdDraw.text(50,50,"At least one unit needs to remain in " + territoryGivingUnits.getNameTerritory());
+                StdDraw.pause(1500);
+            }
+        }
+    }
+
+    public ArrayList<Territory> chosingTwoTerritories(Player player, int numberOfPlayers, ArrayList<Territory> territories, String button){
         System.out.println(player.getArraylistTerritories());
         ArrayList<Territory> territoryArrayList = new ArrayList<>();
         boolean attackingTerritoryChosen = false;
@@ -190,7 +313,14 @@ public class GameGestion {
                             Territory attackingTerritory = territory;
                             attackingTerritoryChosen = true;
                             StdDraw.clear();
-                            StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory());
+                            if(button.equals("attack")){
+                                StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory());
+
+                            }
+                            else if(button.equals("move")){
+                                StdDraw.text(50,50,"You chose to move units from " + attackingTerritory.getNameTerritory());
+
+                            }
                             StdDraw.pause(1000);
                             updateBackground(territories,numberOfPlayers);
                             boolean defendingTerritoryChosen = false;
@@ -205,21 +335,41 @@ public class GameGestion {
                                             Territory territory2 = territories.get(a);
                                             if ((xDefendingTerritory >= territory2.getX() - 2 && xDefendingTerritory <= territory2.getX() + 2) && (yDefendingTerritory >= territory2.getY() - 4 && yDefendingTerritory <= territory2.getY() + 4)) {
                                                 Territory defendingTerritory = territory2;
-                                                if(territory2 != territory && territory2.getProprietary() != territory.getProprietary()){
-                                                    defendingTerritoryChosen = true;
-                                                    StdDraw.clear();
-                                                    StdDraw.text(50,50,"You chose to attack " + defendingTerritory.getNameTerritory());
-                                                    StdDraw.pause(1000);
-                                                    updateBackground(territories,numberOfPlayers);
-                                                    territoryArrayList.add(0, attackingTerritory);
-                                                    territoryArrayList.add(1, defendingTerritory);
+                                                if(button.equals("attack")){
+                                                    if(territory2 != territory && territory2.getProprietary() != territory.getProprietary()){
+                                                        defendingTerritoryChosen = true;
+                                                        StdDraw.clear();
+                                                        StdDraw.text(50,50,"You chose to attack " + defendingTerritory.getNameTerritory());
+                                                        StdDraw.pause(1000);
+                                                        updateBackground(territories,numberOfPlayers);
+                                                        territoryArrayList.add(0, attackingTerritory);
+                                                        territoryArrayList.add(1, defendingTerritory);
+                                                    }
+                                                    else{
+                                                        StdDraw.clear();
+                                                        StdDraw.text(50,50,"Please choose another territory");
+                                                        StdDraw.pause(1000);
+                                                        updateBackground(territories, numberOfPlayers);
+                                                    }
                                                 }
-                                                else{
-                                                    StdDraw.clear();
-                                                    StdDraw.text(50,50,"Please choose another territory");
-                                                    StdDraw.pause(1000);
-                                                    updateBackground(territories, numberOfPlayers);
+                                                else if(button.equals("move")){
+                                                    if(territory2 != territory && territory2.getProprietary() == territory.getProprietary()){
+                                                        defendingTerritoryChosen = true;
+                                                        StdDraw.clear();
+                                                        StdDraw.text(50,50,"You chose to move your units to " + defendingTerritory.getNameTerritory());
+                                                        StdDraw.pause(1000);
+                                                        updateBackground(territories,numberOfPlayers);
+                                                        territoryArrayList.add(0, attackingTerritory);
+                                                        territoryArrayList.add(1, defendingTerritory);
+                                                    }
+                                                    else{
+                                                        StdDraw.clear();
+                                                        StdDraw.text(50,50,"Please choose another territory");
+                                                        StdDraw.pause(1000);
+                                                        updateBackground(territories, numberOfPlayers);
+                                                    }
                                                 }
+
                                             }
                                         }
                                     }
@@ -263,8 +413,6 @@ public class GameGestion {
                 double x = StdDraw.mouseX();
                 double y = StdDraw.mouseY();
                 StdDraw.pause(200);
-                System.out.println(x);
-                System.out.println(y);
                 // clicked on the menu panel
                 if(x>=89) {
                     // clicking on the mission
