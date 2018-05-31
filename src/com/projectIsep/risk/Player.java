@@ -1,5 +1,8 @@
 package com.projectIsep.risk;
 
+import edu.princeton.cs.introcs.StdDraw;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -119,6 +122,8 @@ public class Player {
 
         return amoutByRegion;
     }
+
+
 
 
 }
