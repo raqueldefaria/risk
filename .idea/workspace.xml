@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="134794cc-9e7b-4596-b291-1f9b78c03e73" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,9 +31,46 @@
       <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="11" lean-forward="false" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
-              <folding />
+            <state relative-caret-position="119">
+              <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+              <folding>
+                <marker date="1527779462929" expanded="true" signature="52462:52478" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52462:52496" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52462:52509" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52462:52524" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52559:54760" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52572:54745" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52626:52921" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52645:52906" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52708:52886" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52748:52852" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52769:52830" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52971:53298" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="52990:53283" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53085:53263" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53125:53229" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53146:53207" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53349:53657" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53368:53642" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53444:53622" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53484:53588" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53505:53566" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53700:54004" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53719:53989" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53791:53969" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53831:53935" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="53852:53913" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54055:54362" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54074:54347" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54149:54327" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54189:54293" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54210:54271" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54414:54731" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54433:54716" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54518:54696" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54558:54662" ph="..." />
+                <marker date="1527779462929" expanded="true" signature="54579:54640" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -47,9 +85,50 @@
       <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7383">
-              <caret line="56" column="31" lean-forward="false" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
+            <state relative-caret-position="2862">
+              <caret line="942" column="19" lean-forward="true" selection-start-line="942" selection-start-column="19" selection-end-line="942" selection-end-column="19" />
+              <folding>
+                <element signature="method#chosingTwoTerritories#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#initiateArmy#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#placingUnits#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#initiateBackground#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#updateBackground#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#initiateTerritories#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#initiateRegions#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
+                <element signature="method#addTerritory#0;class#GameGestion#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Territory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="346">
+              <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Army.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Army.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="433">
+              <caret line="366" column="74" lean-forward="false" selection-start-line="366" selection-start-column="74" selection-end-line="366" selection-end-column="74" />
+              <folding>
+                <element signature="method#generateAttacker#0;class#Army#0" expanded="false" />
+                <element signature="method#generateDefender#0;class#Army#0" expanded="false" />
+                <element signature="method#battle#0;class#Army#0" expanded="false" />
+                <element signature="method#generateAttackerList#0;class#Army#0" expanded="false" />
+                <element signature="method#generateDefenderList#0;class#Army#0" expanded="false" />
+                <element signature="method#generateDice#0;class#Army#0" expanded="false" />
+                <element signature="method#compareResult#0;class#Army#0" expanded="false" />
+                <element signature="method#supressLosses#0;class#Army#0" expanded="false" />
+                <element signature="method#deleteUnit#0;class#Army#0" expanded="false" />
+                <element signature="method#battleConclusion#0;class#Army#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -317,7 +396,7 @@
       <workItem from="1527345313604" duration="815000" />
       <workItem from="1527356227333" duration="1542000" />
       <workItem from="1527430192735" duration="736000" />
-      <workItem from="1527778982706" duration="93000" />
+      <workItem from="1527778982706" duration="580000" />
     </task>
     <task id="LOCAL-00001" summary="Menu added">
       <created>1524157910006</created>
@@ -431,28 +510,36 @@
       <option name="project" value="LOCAL" />
       <updated>1527345392753</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="frontieres">
+      <created>1527779119362</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1527779119362</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="81515000" />
+    <option name="totallyTimeSpent" value="82002000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25321338" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25321338" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -464,7 +551,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32972974" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -485,9 +571,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="frontieres" />
+    <option name="LAST_COMMIT_MESSAGE" value="frontieres" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -706,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="26" lean-forward="false" selection-start-line="5" selection-start-column="26" selection-end-line="5" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="48">
@@ -763,23 +846,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Army.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1663">
-          <caret line="266" column="62" lean-forward="false" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/img/riskmap_old.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Army.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="366" column="74" lean-forward="false" selection-start-line="366" selection-start-column="74" selection-end-line="366" selection-end-column="74" />
+          <folding>
+            <element signature="method#generateAttacker#0;class#Army#0" expanded="false" />
+            <element signature="method#generateDefender#0;class#Army#0" expanded="false" />
+            <element signature="method#battle#0;class#Army#0" expanded="false" />
+            <element signature="method#generateAttackerList#0;class#Army#0" expanded="false" />
+            <element signature="method#generateDefenderList#0;class#Army#0" expanded="false" />
+            <element signature="method#generateDice#0;class#Army#0" expanded="false" />
+            <element signature="method#compareResult#0;class#Army#0" expanded="false" />
+            <element signature="method#supressLosses#0;class#Army#0" expanded="false" />
+            <element signature="method#deleteUnit#0;class#Army#0" expanded="false" />
+            <element signature="method#battleConclusion#0;class#Army#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7383">
-          <caret line="56" column="31" lean-forward="false" selection-start-line="56" selection-start-column="31" selection-end-line="56" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="2862">
+          <caret line="942" column="19" lean-forward="true" selection-start-line="942" selection-start-column="19" selection-end-line="942" selection-end-column="19" />
+          <folding>
+            <element signature="method#chosingTwoTerritories#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#initiateArmy#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#placingUnits#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#initiateBackground#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#updateBackground#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#initiateTerritories#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#initiateRegions#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
+            <element signature="method#addTerritory#0;class#GameGestion#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
