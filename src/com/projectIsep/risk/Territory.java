@@ -20,6 +20,12 @@ public class Territory {
         this.proprietary = proprietary;
     }
 
+    public Territory(int idTerritory, int proprietary, String nameTerritory) {
+        this.idTerritory = idTerritory;
+        this.proprietary = proprietary;
+        this.nameTerritory = nameTerritory;
+    }
+
     public Territory(int idTerritory, int proprietary, String nameTerritory, int[] frontier) {
         this.idTerritory = idTerritory;
         this.proprietary = proprietary;
@@ -35,14 +41,6 @@ public class Territory {
 
     public void setIdTerritory(int idTerritory) {
         this.idTerritory = idTerritory;
-    }
-
-    public int[] getFrontier() {
-        return frontier;
-    }
-
-    public void setFrontier(int[] frontier) {
-        this.frontier = frontier;
     }
 
     public int getProprietary() {
@@ -99,6 +97,14 @@ public class Territory {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    public int[] getFrontier() {
+        return frontier;
+    }
+
+    public void setFrontier(int[] frontier) {
+        this.frontier = frontier;
     }
 
     // fonction de résolution de combat. En effet les combats se font entre deux territoires
