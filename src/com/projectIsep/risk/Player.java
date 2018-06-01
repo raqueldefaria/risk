@@ -1,12 +1,10 @@
 package com.projectIsep.risk;
 
-import edu.princeton.cs.introcs.StdDraw;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Player {
+    private int ID;
     private Mission mission;
     private String namePlayer;
     public ArrayList<Territory> arraylistTerritories= new ArrayList<Territory>();
@@ -53,6 +51,14 @@ public class Player {
 
     public void setArraylistTerritories(ArrayList<Territory> arraylistTerritories) {
         this.arraylistTerritories = arraylistTerritories;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public ArrayList<Region> getArraylistRegion() {

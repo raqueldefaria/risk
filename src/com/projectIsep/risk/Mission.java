@@ -104,7 +104,7 @@ public class Mission {
                 Mission mission = new Mission();
                 mission.setMissionType(1);
                 mission.setIDtarget(it);
-                mission.setBriefing("You must eliminate player " + listOfPlayers.get(it).getNamePlayer() + " to win");
+                mission.setBriefing("You must eliminate player " + it+1 + "to win");
                 listOfMission.add(mission);
             }
 
@@ -159,7 +159,62 @@ public class Mission {
         return listOfMission;
     }
 
-    private void distributeMission(int idPlayer){
+    private void chekcMissionFinished(ArrayList<Player> playerArrayList, Player player){
+        if (this.getMissionType()==1){ // si on a une mission de type "tuer un joueur"
+            if (playerArrayList.get(this.IDtarget).getArraylistTerritories().size()==0){
+                this.missionAccomplished=true;
+            }
+        }
+        if (this.getMissionType()==2){ // si on a une mission de type "conquete totale"
+            if (player.getArraylistTerritories().size()==42){
+                this.missionAccomplished=true;
+            }
+        }
 
+        if (this.getMissionType()==3){ // si on a une mission de type "trois régions et 18 territoires"
+            if ((player.getArraylistTerritories().size()>=18) && (player.getArraylistRegion().size()>=3)){
+                this.missionAccomplished=true;
+            }
+        if (this.getMissionType()==4){ // 18 territoires avec 2 armées
+            if ((playerArrayList.get(this.IDtarget).getArraylistTerritories().size()>=18)){ // si il a au moins 18 territoires
+                int territoryWithEnoughArmy = 0;
+                for (int it=0; it<(playerArrayList.get(this.IDtarget).getArraylistTerritories().size()); it++){ // on parours la liste des territoires
+                    if ((playerArrayList.get(this.IDtarget).getArraylistTerritories().get(it).getNbCavalery()!=0)||(playerArrayList.get(this.IDtarget).getArraylistTerritories().get(it).getNbCanon()!=0)||(playerArrayList.get(this.IDtarget).getArraylistTerritories().get(it).getNbSoldier()>=2)){
+                        //pour avoir une valeur d'armée supérieure ou égale à deux, il faut soit 2 soldats, soit au moins un cavalier ou canon
+                        territoryWithEnoughArmy = territoryWithEnoughArmy+1;
+                    }
+                }
+                if (territoryWithEnoughArmy>=18){ // si 18 territoire ont une assez grande armée
+                    this.missionAccomplished=true; // on gagne
+                }
+
+            }
+        }
+        if (this.getMissionType()==5){ // si on a une mission de type "contrôler X territoires"
+            if (player.getArraylistTerritories().size()>= this.getIDtarget()){
+                this.missionAccomplished=true;
+            }
+        }
+        if (this.getMissionType()==6) { // si on a une mission de type "Contrôler la plus grosse région + une autre"
+
+            if (player.getArraylistRegion().size() >= 1) { // si on contrôle au moins une région
+                boolean validation = true;
+                for(int increment = 0; increment<playerArrayList.size(); increment++){
+                    if (increment==player.getID()){
+
+                    }
+                    else if (playerArrayList.get(increment).getArraylistTerritories().size()>player.getArraylistTerritories().size()){
+                        validation=false;
+                    }
+                }
+
+
+                    if (validation){
+                    this.missionAccomplished = true;
+                }
+            }
+        }
+
+        }
     }
 }

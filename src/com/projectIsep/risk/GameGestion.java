@@ -12,16 +12,23 @@ public class GameGestion {
 
         boolean gameOver = false;
 
-        // ---------- Initialising players and territories ---------- //
+        // ---------- Initialising players and territories and missions ---------- //
         ArrayList<Territory> territoryArrayList = initiateTerritories();
         int it = 0; // initialising the number of players
         ArrayList<Player> playerArrayList = new ArrayList<>();
+        Mission mission = new Mission();
+        ArrayList<Mission> missionList = mission.generateMission(playerArrayList);
         ArrayList<Region> regionArrayList = initiateRegions(territoryArrayList);
 
         for (int i = 0; i < numberOfPlayers; i++) { // initialisation des joueurs
-            int a = (int) Math.floor(Math.random() * 100) + 1; // on tire l'id de mission, pour l'instant de 1 à 100
+            int a = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id de mission
             Player player = new Player();
-            //player.setMission(); //on set la mission d'ID a;
+            player.setID(i);
+            player.setMission(missionList.get(a)); //on set la mission d'ID a;
+            while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
+                int b = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id d'une nouvelle mission
+                player.setMission(missionList.get(b)); // qu'on affecte au joueur
+            }
 
             playerArrayList.add(player); // adding a player to the list
 
@@ -67,9 +74,9 @@ public class GameGestion {
                 //checking if the player has conquered all the territories
                 for(int k=0; k<territoryArrayList.size();k++){
                     gameOver = true;
-                    if(territoryArrayList.get(k).getProprietary() != (compteur+1)){
+                    if(territoryArrayList.get(k).getProprietary().getID() != (compteur+1)){
                         gameOver = false;
-                    }
+                }
                 }
                 compteur++;
                 if(compteur == numberOfPlayers){
@@ -633,22 +640,22 @@ public class GameGestion {
             StdDraw.filledEllipse(x,y,1,2);
             StdDraw.setPenRadius(0.005);
             //color of the player
-            if(territoryArrayList.get(it).getProprietary()==1){
+            if(territoryArrayList.get(it).getProprietary().getID()==1){
                 StdDraw.setPenColor(Color.RED);
             }
-            else if(territoryArrayList.get(it).getProprietary()==2){
+            else if(territoryArrayList.get(it).getProprietary().getID()==2){
                 StdDraw.setPenColor(Color.GREEN);
             }
-            else if(territoryArrayList.get(it).getProprietary()==3){
+            else if(territoryArrayList.get(it).getProprietary().getID()==3){
                 StdDraw.setPenColor(Color.BLUE);
             }
-            else if(territoryArrayList.get(it).getProprietary()==4){
+            else if(territoryArrayList.get(it).getProprietary().getID()==4){
                 StdDraw.setPenColor(Color.MAGENTA);
             }
-            else if(territoryArrayList.get(it).getProprietary()==5){
+            else if(territoryArrayList.get(it).getProprietary().getID()==5){
                 StdDraw.setPenColor(Color.ORANGE);
             }
-            else if(territoryArrayList.get(it).getProprietary()==6){
+            else if(territoryArrayList.get(it).getProprietary().getID()==6){
                 StdDraw.setPenColor(Color.GRAY);
             }
             else{
@@ -749,28 +756,28 @@ public class GameGestion {
             StdDraw.filledEllipse(x,y,1,2);
             StdDraw.setPenRadius(0.005);
             //color of the player
-            if(territoryArrayList.get(it).getProprietary()==1){
+            if(territoryArrayList.get(it).getProprietary().getID()==1){
                 StdDraw.setPenColor(Color.RED);
             }
-            else if(territoryArrayList.get(it).getProprietary()==2){
+            else if(territoryArrayList.get(it).getProprietary().getID()==2){
                 StdDraw.setPenColor(Color.GREEN);
             }
-            else if(territoryArrayList.get(it).getProprietary()==3){
+            else if(territoryArrayList.get(it).getProprietary().getID()==3){
                 StdDraw.setPenColor(Color.BLUE);
             }
-            else if(territoryArrayList.get(it).getProprietary()==4){
+            else if(territoryArrayList.get(it).getProprietary().getID()==4){
                 StdDraw.setPenColor(Color.MAGENTA);
             }
-            else if(territoryArrayList.get(it).getProprietary()==5){
+            else if(territoryArrayList.get(it).getProprietary().getID()==5){
                 StdDraw.setPenColor(Color.ORANGE);
             }
-            else if(territoryArrayList.get(it).getProprietary()==6){
+            else if(territoryArrayList.get(it).getProprietary().getID()==6){
                 StdDraw.setPenColor(Color.PINK);
             }
-            else if(territoryArrayList.get(it).getProprietary()==7){
+            else if(territoryArrayList.get(it).getProprietary().getID()==7){
                 StdDraw.setPenColor(Color.GRAY);
             }
-            else if(territoryArrayList.get(it).getProprietary()==8){
+            else if(territoryArrayList.get(it).getProprietary().getID()==8){
                 StdDraw.setPenColor(Color.YELLOW);
             }
             else{
@@ -851,7 +858,7 @@ public class GameGestion {
         for(int it=1; it<=territorylist.length;it++){
             String territoryName= territorylist[it-1];
             int[] territoryFrontiers= listfrontiers[it-1];
-            Territory territory = new Territory(it,0, territoryName, territoryFrontiers);
+            Territory territory = new Territory(it,null, territoryName, territoryFrontiers);
             territoryArrayList.add(territory);
         }
 
@@ -867,42 +874,42 @@ public class GameGestion {
         for (int it=0; it<9; it++){
             territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 9 premiers elements
         }
-        Region northAmerica = new Region(1, "North America", 0, territoryArrayListNorthamerica);
+        Region northAmerica = new Region(1, "North America", null, territoryArrayListNorthamerica);
         regionArrayList.add(northAmerica);
 
         ArrayList<Territory> territoryArrayListSouthamerica = new ArrayList<Territory>();
         for (int it=9; it<13; it++){
             territoryArrayListSouthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires sud americains les 4 elements suivants
         }
-        Region southAmerica = new Region(1, "South America", 0, territoryArrayListSouthamerica);
+        Region southAmerica = new Region(1, "South America", null, territoryArrayListSouthamerica);
         regionArrayList.add(southAmerica);
 
         ArrayList<Territory> territoryArrayListAfrica = new ArrayList<Territory>();
         for (int it=14; it<19; it++){
             territoryArrayListAfrica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires africains les 6 elements suivants
         }
-        Region africa = new Region(1, "Africa", 0, territoryArrayListAfrica);
+        Region africa = new Region(1, "Africa", null, territoryArrayListAfrica);
         regionArrayList.add(africa);
 
         ArrayList<Territory> territoryArrayListEurope = new ArrayList<Territory>();
         for (int it=19; it<26; it++){
             territoryArrayListEurope.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires europées les 7 elements suivants
         }
-        Region europe = new Region(1, "Europe", 0, territoryArrayListNorthamerica);
+        Region europe = new Region(1, "Europe", null, territoryArrayListNorthamerica);
         regionArrayList.add(europe);
 
         ArrayList<Territory> territoryArrayListAsia = new ArrayList<Territory>();
         for (int it=26; it<37; it++){
             territoryArrayListAsia.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 11 elements suivants
         }
-        Region asia = new Region(1, "Asia", 0, territoryArrayListAsia);
+        Region asia = new Region(1, "Asia", null, territoryArrayListAsia);
         regionArrayList.add(asia);
 
         ArrayList<Territory> territoryArrayListOceania = new ArrayList<Territory>();
         for (int it=37; it<41; it++){
             territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 4 elements suivants
         }
-        Region oceania = new Region(1, "Oceania", 0, territoryArrayListNorthamerica);
+        Region oceania = new Region(1, "Oceania", null, territoryArrayListNorthamerica);
         regionArrayList.add(oceania);
 
         return regionArrayList;
@@ -956,11 +963,11 @@ public class GameGestion {
     public void addTerritory(Player player, int playerId, int id, ArrayList<Territory> territoryArrayList){
         Random random = new Random();
         Territory territory = territoryArrayList.get(id);
-        if (territory.getProprietary()==0){
+        if (territory.getProprietary().getID()==0){
             ArrayList<Territory> currentArraylist= null;
             player.getArraylistTerritories().add(0, territory);
             player.setArraylistTerritories(player.getArraylistTerritories());
-            territory.setProprietary(playerId);
+            territory.setProprietary(player);
 
         }
         else {
