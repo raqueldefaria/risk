@@ -2,7 +2,7 @@ package com.projectIsep.risk;
 
 public class Territory {
     private int idTerritory;
-    private int proprietary;
+    private Player proprietary;
     private int nbSoldier;
     private int nbCavalery;
     private int nbCanon;
@@ -15,18 +15,18 @@ public class Territory {
     public Territory() {
     }
 
-    public Territory(int idTerritory, int proprietary) {
+    public Territory(int idTerritory, Player proprietary) {
         this.idTerritory = idTerritory;
         this.proprietary = proprietary;
     }
 
-    public Territory(int idTerritory, int proprietary, String nameTerritory) {
+    public Territory(int idTerritory, Player proprietary, String nameTerritory) {
         this.idTerritory = idTerritory;
         this.proprietary = proprietary;
         this.nameTerritory = nameTerritory;
     }
 
-    public Territory(int idTerritory, int proprietary, String nameTerritory, int[] frontier) {
+    public Territory(int idTerritory, Player proprietary, String nameTerritory, int[] frontier) {
         this.idTerritory = idTerritory;
         this.proprietary = proprietary;
         this.nameTerritory = nameTerritory;
@@ -43,11 +43,11 @@ public class Territory {
         this.idTerritory = idTerritory;
     }
 
-    public int getProprietary() {
+    public Player getProprietary() {
         return proprietary;
     }
 
-    public void setProprietary(int proprietary) {
+    public void setProprietary(Player proprietary) {
         this.proprietary = proprietary;
     }
 

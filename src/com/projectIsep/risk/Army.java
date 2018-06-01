@@ -342,7 +342,7 @@ public class Army {
         ArrayList<Integer> result = new ArrayList<Integer>();
         for (Unit anArmy : army) {
             Random random = new Random();
-            int value = random.nextInt(anArmy.strengthMax) + anArmy.strengthMin;
+            int value = random.nextInt(anArmy.strengthMax-anArmy.strengthMin) + anArmy.strengthMin;
             result.add(value);
         }
         return result;
@@ -403,6 +403,11 @@ public class Army {
             defender.territory.setNbCavalery(attacker.getNbCavalery());
             defender.territory.setNbCanon(attacker.getNbCanon());
             defender.territory.setProprietary(attacker.territory.getProprietary()); // le vainqueur prend possession du territoire
+            ArrayList<Territory> newArraylistTerritoryAttacker = attacker.territory.getProprietary().getArraylistTerritories(); // je copie la liste de territoires de l'attaquant
+            newArraylistTerritoryAttacker.add(defender.territory); // je lui ajoute le nouveau territoire
+            attacker.territory.getProprietary().setArraylistTerritories(newArraylistTerritoryAttacker); // je l'implémente à la place de l'ancienne
+            defender.territory.getProprietary().arraylistTerritories.remove(territory);
+
 
         }
         else{ // sinon les survivants rentrent chez eux

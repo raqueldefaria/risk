@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Region {
     private int idRegion;
     private String nameRegion;
-    private int ruler;
+    private Player ruler;
     private ArrayList<Territory> Territories;
 
     // -------------- Constructors --------------  //
@@ -13,7 +13,7 @@ public class Region {
     public Region() {
     }
 
-    public Region(int idRegion, String nameRegion, int ruler, ArrayList<Territory> Territories) {
+    public Region(int idRegion, String nameRegion, Player ruler, ArrayList<Territory> Territories) {
         this.idRegion = idRegion;
         this.nameRegion = nameRegion;
         this.ruler = ruler;
@@ -38,11 +38,11 @@ public class Region {
         this.nameRegion = nameRegion;
     }
 
-    public int getRuler() {
+    public Player getRuler() {
         return ruler;
     }
 
-    public void setRuler(int ruler) {
+    public void setRuler(Player ruler) {
         this.ruler = ruler;
     }
 
