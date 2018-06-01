@@ -1007,7 +1007,8 @@ public class GameGestion {
         attacker.setAttacker(true);
         attacker.setTerritory(attackerTerritory);
         if (!attacker.generateAttacker()){ // si l'armée n'est pas générée correctement
-            conflict(attackerTerritory,defenderTerritory); // on reboot
+            //conflict(attackerTerritory,defenderTerritory); // on reboot
+            return;
         }
 
         // ------------------- On crée l'armée défenseuse -------------------//
@@ -1015,7 +1016,8 @@ public class GameGestion {
         defender.setAttacker(false);
         defender.setTerritory(defenderTerritory);
         if (!defender.generateDefender()){ // si l'armée n'est pas générée correctement
-            conflict(attackerTerritory,defenderTerritory); // on reboot
+            //conflict(attackerTerritory,defenderTerritory); // on reboot
+            return;
         }
 
         // ------------------- On résout un round de combat -------------------//

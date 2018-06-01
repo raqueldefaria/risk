@@ -124,7 +124,7 @@ public class Army {
                     double yCavalery = StdDraw.mouseY();
                     if(yCavalery>=53.7 && yCavalery<=56.3){
                         for (int k=0; k<=this.getTerritory().getNbCavalery();k++){
-                            if(xCavalery>=xTextCavalier[k]-1.1 && xCavalery<=xTextCavalier[k]+1.1){
+                            if(xCavalery>=xTextCavalier[k]-0.1 && xCavalery<=xTextCavalier[k]+0.1){
                                 nbCavaleryAttacker = k;
                                 numberOfCavaliersChosen = true;
                             }
@@ -205,6 +205,7 @@ public class Army {
                 StdDraw.text(50,50,"At least one unit needs to stay in the territory ");
                 StdDraw.show();
                 StdDraw.pause(1500);
+                return false;
             }
             else{
                 unitsChosen = true;
@@ -371,22 +372,13 @@ public class Army {
 
     public void battle(Army defender){
 
-        System.out.println("battle");
-
         ArrayList <Unit>  attackerList = this.generateAttackerList(); //On prépare l'ordre des troupes attaquantes
-        System.out.println("attackerGenerated");
         ArrayList <Unit> defenderList = defender.generateDefenderList();//  On prépare l'ordre des troupes défenseuses
-        System.out.println("defenderGenerated");
         ArrayList<Integer> attackerResults = generateDice(attackerList);// On lance les dés pour l'attaquant
-        System.out.println("attackerDiceGenerated");
         ArrayList<Integer> defenderResults = generateDice(defenderList);// On lance les dés pour le défenseur
-        System.out.println("defenderDiceGenerated");
         ArrayList<Boolean> results = compareResult(attackerResults, defenderResults); // On compare les résultats
-        System.out.println("results compared");
         supressLosses(results, attackerList, this, defenderList, defender); // on supprime les pertes
-        System.out.println("casualties suppressed");
         battleConclusion(this,defender); // et on conclut le combat
-        System.out.println("fight concluded");
     }
 
     public ArrayList<Unit> generateAttackerList(){ // l'ordre d'ajout des troupes à la liste permet de gérer les priorités de combats (les premiers meurent en premier, "et les premiers seront les derniers" ne s'applique pas à un tir de canon
