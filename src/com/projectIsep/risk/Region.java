@@ -62,5 +62,24 @@ public class Region {
         return a;
     }
 
+    public void checkRuler(){
+        boolean united = true;
+        Player former;
+        former = this.Territories.get(0).getProprietary();
+        Player current;
+        for (int it=1; it<Territories.size();it++){
+            current = this.Territories.get(it).getProprietary();
+            if(current!= former){
+                united= false;
+            }
+            former=current;
 
+        }
+        if (united){
+            this.setRuler(former);
+        }
+        else{
+            this.setRuler(null);
+        }
+    }
 }

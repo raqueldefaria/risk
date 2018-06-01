@@ -69,18 +69,36 @@ public class GameGestion {
                 playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
                 player.computerReinforcement(); //on calcule le nombre de renforts
                 //on permet au joueur de placer ses renforts
-                //on check si le joueur a gagné avec sa mission
-//                if (player.getMission().missionAccomplished) {
-//                    gameOver = true;
-//                    // message de victoire
-//                    // on ferme la partie
-//                }
+
+
                 //checking if the player has conquered all the territories
                 for(int k=0; k<territoryArrayList.size();k++){
                     gameOver = true;
                     if(territoryArrayList.get(k).getProprietary().getID() != (compteur+1)){
                         gameOver = false;
                 }
+
+                for (int region=0; region<regionArrayList.size(); region++ ){
+                    regionArrayList.get(region).checkRuler();
+                }
+
+                for (int playerCheckRegion=0; playerCheckRegion<playerArrayList.size(); playerCheckRegion++){
+                    for (int region=0; region<regionArrayList.size(); region++ ){
+                        ArrayList<Region> regionRuled = new ArrayList<Region>();
+                        if (regionArrayList.get(region).getRuler()==playerArrayList.get(playerCheckRegion)){
+                            regionRuled.add(regionArrayList.get(region));
+                        }
+                        playerArrayList.get(playerCheckRegion).setArraylistRegion(regionRuled);
+                    }
+                }
+
+                }
+               // on check si le joueur a gagné avec sa mission
+                player.getMission().chekcMissionFinished(playerArrayList, player);
+                if (player.getMission().missionAccomplished) {
+                    gameOver = true;
+                    System.out.println("Player "+ player+ "won the game !");
+
                 }
                 compteur++;
                 if(compteur == numberOfPlayers){

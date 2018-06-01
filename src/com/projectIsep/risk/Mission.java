@@ -159,7 +159,7 @@ public class Mission {
         return listOfMission;
     }
 
-    private void chekcMissionFinished(ArrayList<Player> playerArrayList, Player player){
+    public void chekcMissionFinished(ArrayList<Player> playerArrayList, Player player){
         if (this.getMissionType()==1){ // si on a une mission de type "tuer un joueur"
             if (playerArrayList.get(this.IDtarget).getArraylistTerritories().size()==0){
                 this.missionAccomplished=true;

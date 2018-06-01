@@ -30,53 +30,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1958">
-              <caret line="783" column="37" lean-forward="true" selection-start-line="783" selection-start-column="37" selection-end-line="783" selection-end-column="37" />
-              <folding>
-                <marker date="1527859992395" expanded="true" signature="74888:74905" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="74888:74923" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="74888:74936" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="74888:74951" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="74986:77228" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="74999:77213" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75053:75348" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75072:75333" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75135:75313" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75175:75279" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75196:75257" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75398:75725" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75417:75710" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75512:75690" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75552:75656" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75573:75634" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75776:76084" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75795:76069" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75871:76049" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75911:76015" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="75932:75993" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76127:76433" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76146:76418" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76220:76398" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76260:76364" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76281:76342" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76484:76830" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76503:76815" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76578:76795" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76618:76761" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76639:76739" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76882:77199" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76901:77184" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="76986:77164" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="77026:77130" ph="..." />
-                <marker date="1527859992395" expanded="true" signature="77047:77108" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Army.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Army.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -148,12 +101,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="76" column="19" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+            <state relative-caret-position="239">
+              <caret line="96" column="82" lean-forward="true" selection-start-line="96" selection-start-column="82" selection-end-line="96" selection-end-column="82" />
               <folding>
+                <element signature="e#3757#3765#0" expanded="true" />
                 <element signature="method#movingUnits#0;class#GameGestion#0" expanded="false" />
                 <element signature="method#chosingTwoTerritories#0;class#GameGestion#0" expanded="false" />
                 <element signature="method#initiateArmy#0;class#GameGestion#0" expanded="false" />
@@ -162,16 +116,16 @@
                 <element signature="method#updateBackground#0;class#GameGestion#0" expanded="false" />
                 <element signature="method#initiateTerritories#0;class#GameGestion#0" expanded="false" />
                 <element signature="method#initiateRegions#0;class#GameGestion#0" expanded="false" />
-                <element signature="e#47857#47865#0" expanded="true" />
+                <element signature="e#48704#48712#0" expanded="true" />
                 <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
-                <marker date="1527859812159" expanded="false" signature="47945:47956" ph="&lt;~&gt;" />
-                <marker date="1527859812159" expanded="false" signature="48376:48387" ph="&lt;~&gt;" />
-                <marker date="1527859812159" expanded="false" signature="48806:48817" ph="&lt;~&gt;" />
-                <marker date="1527859812159" expanded="false" signature="49201:49212" ph="&lt;~&gt;" />
-                <marker date="1527859812159" expanded="false" signature="49599:49610" ph="&lt;~&gt;" />
-                <marker date="1527859812159" expanded="false" signature="49987:49998" ph="&lt;~&gt;" />
-                <marker date="1527859812159" expanded="false" signature="53289:54739" ph="{...}" />
-                <marker date="1527859812159" expanded="true" signature="54732:54739" ph="{...}" />
+                <marker date="1527861702966" expanded="false" signature="48792:48803" ph="&lt;~&gt;" />
+                <marker date="1527861702966" expanded="false" signature="49223:49234" ph="&lt;~&gt;" />
+                <marker date="1527861702966" expanded="false" signature="49653:49664" ph="&lt;~&gt;" />
+                <marker date="1527861702966" expanded="false" signature="50048:50059" ph="&lt;~&gt;" />
+                <marker date="1527861702966" expanded="false" signature="50446:50457" ph="&lt;~&gt;" />
+                <marker date="1527861702966" expanded="false" signature="50834:50845" ph="&lt;~&gt;" />
+                <marker date="1527861702966" expanded="false" signature="54136:55586" ph="{...}" />
+                <marker date="1527861702966" expanded="true" signature="55579:55586" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -187,21 +141,34 @@
       <file leaf-file-name="Mission.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+            <state relative-caret-position="-646">
+              <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
               <folding>
-                <element signature="method#chekcMissionFinished#0;class#Mission#0" expanded="false" />
+                <element signature="method#generateMission#0;class#Mission#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Region.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Region.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="64" column="4" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+            <state relative-caret-position="339">
+              <caret line="76" column="9" lean-forward="true" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="122" column="60" lean-forward="false" selection-start-line="122" selection-start-column="60" selection-end-line="122" selection-end-column="60" />
+              <folding>
+                <element signature="e#1299#1300#0" expanded="true" />
+                <element signature="e#1324#1325#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -247,9 +214,9 @@
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Cavalery.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Region.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
       </list>
     </option>
   </component>
@@ -735,11 +702,18 @@
       <option name="project" value="LOCAL" />
       <updated>1527859436917</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="bagarre 2">
+      <created>1527860180071</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1527860180071</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90572000" />
+    <option name="totallyTimeSpent" value="92062000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -814,7 +788,8 @@
     <MESSAGE value="frontieres" />
     <MESSAGE value="mission" />
     <MESSAGE value="bagarre" />
-    <option name="LAST_COMMIT_MESSAGE" value="bagarre" />
+    <MESSAGE value="bagarre 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="bagarre 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1036,61 +1011,47 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="55" column="24" lean-forward="true" selection-start-line="55" selection-start-column="24" selection-end-line="55" selection-end-column="24" />
-          <folding>
-            <element signature="e#1324#1325#0" expanded="true" />
-            <element signature="e#1357#1358#0" expanded="true" />
-            <element signature="e#1385#1386#0" expanded="true" />
-            <element signature="e#1731#1732#0" expanded="true" />
-            <element signature="e#1781#1782#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1958">
-          <caret line="783" column="37" lean-forward="true" selection-start-line="783" selection-start-column="37" selection-end-line="783" selection-end-column="37" />
+        <state relative-caret-position="2077">
+          <caret line="790" column="37" lean-forward="true" selection-start-line="790" selection-start-column="37" selection-end-line="790" selection-end-column="37" />
           <folding>
-            <marker date="1527859992395" expanded="true" signature="74888:74905" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="74888:74923" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="74888:74936" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="74888:74951" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="74986:77228" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="74999:77213" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75053:75348" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75072:75333" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75135:75313" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75175:75279" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75196:75257" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75398:75725" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75417:75710" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75512:75690" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75552:75656" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75573:75634" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75776:76084" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75795:76069" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75871:76049" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75911:76015" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="75932:75993" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76127:76433" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76146:76418" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76220:76398" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76260:76364" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76281:76342" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76484:76830" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76503:76815" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76578:76795" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76618:76761" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76639:76739" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76882:77199" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76901:77184" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="76986:77164" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="77026:77130" ph="..." />
-            <marker date="1527859992395" expanded="true" signature="77047:77108" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="71961:71978" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="71961:71996" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="71961:72009" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="71961:72024" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72059:74301" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72072:74286" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72126:72421" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72145:72406" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72208:72386" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72248:72352" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72269:72330" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72471:72798" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72490:72783" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72585:72763" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72625:72729" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72646:72707" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72849:73157" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72868:73142" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72944:73122" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="72984:73088" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73005:73066" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73200:73506" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73219:73491" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73293:73471" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73333:73437" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73354:73415" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73557:73903" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73576:73888" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73651:73868" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73691:73834" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73712:73812" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73955:74272" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="73974:74257" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="74059:74237" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="74099:74203" ph="..." />
+            <marker date="1527861796154" expanded="true" signature="74120:74181" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1142,6 +1103,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="122" column="60" lean-forward="false" selection-start-line="122" selection-start-column="60" selection-end-line="122" selection-end-column="60" />
+          <folding>
+            <element signature="e#1299#1300#0" expanded="true" />
+            <element signature="e#1324#1325#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Soldier.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -1158,24 +1138,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Canon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="20" lean-forward="true" selection-start-line="5" selection-start-column="20" selection-end-line="5" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/img/riskmap.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="76" column="9" lean-forward="true" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-646">
+          <caret line="52" column="5" lean-forward="false" selection-start-line="52" selection-start-column="5" selection-end-line="52" selection-end-column="5" />
+          <folding>
+            <element signature="method#generateMission#0;class#Mission#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="76" column="19" lean-forward="true" selection-start-line="76" selection-start-column="19" selection-end-line="76" selection-end-column="19" />
+        <state relative-caret-position="239">
+          <caret line="96" column="82" lean-forward="true" selection-start-line="96" selection-start-column="82" selection-end-line="96" selection-end-column="82" />
           <folding>
+            <element signature="e#3757#3765#0" expanded="true" />
             <element signature="method#movingUnits#0;class#GameGestion#0" expanded="false" />
             <element signature="method#chosingTwoTerritories#0;class#GameGestion#0" expanded="false" />
             <element signature="method#initiateArmy#0;class#GameGestion#0" expanded="false" />
@@ -1184,35 +1175,17 @@
             <element signature="method#updateBackground#0;class#GameGestion#0" expanded="false" />
             <element signature="method#initiateTerritories#0;class#GameGestion#0" expanded="false" />
             <element signature="method#initiateRegions#0;class#GameGestion#0" expanded="false" />
-            <element signature="e#47857#47865#0" expanded="true" />
+            <element signature="e#48704#48712#0" expanded="true" />
             <element signature="method#territoryInitialisation#0;class#GameGestion#0" expanded="false" />
-            <marker date="1527859812159" expanded="false" signature="47945:47956" ph="&lt;~&gt;" />
-            <marker date="1527859812159" expanded="false" signature="48376:48387" ph="&lt;~&gt;" />
-            <marker date="1527859812159" expanded="false" signature="48806:48817" ph="&lt;~&gt;" />
-            <marker date="1527859812159" expanded="false" signature="49201:49212" ph="&lt;~&gt;" />
-            <marker date="1527859812159" expanded="false" signature="49599:49610" ph="&lt;~&gt;" />
-            <marker date="1527859812159" expanded="false" signature="49987:49998" ph="&lt;~&gt;" />
-            <marker date="1527859812159" expanded="false" signature="53289:54739" ph="{...}" />
-            <marker date="1527859812159" expanded="true" signature="54732:54739" ph="{...}" />
+            <marker date="1527861702966" expanded="false" signature="48792:48803" ph="&lt;~&gt;" />
+            <marker date="1527861702966" expanded="false" signature="49223:49234" ph="&lt;~&gt;" />
+            <marker date="1527861702966" expanded="false" signature="49653:49664" ph="&lt;~&gt;" />
+            <marker date="1527861702966" expanded="false" signature="50048:50059" ph="&lt;~&gt;" />
+            <marker date="1527861702966" expanded="false" signature="50446:50457" ph="&lt;~&gt;" />
+            <marker date="1527861702966" expanded="false" signature="50834:50845" ph="&lt;~&gt;" />
+            <marker date="1527861702966" expanded="false" signature="54136:55586" ph="{...}" />
+            <marker date="1527861702966" expanded="true" signature="55579:55586" ph="{...}" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Mission.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="57" column="0" lean-forward="true" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="method#chekcMissionFinished#0;class#Mission#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Region.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="64" column="4" lean-forward="false" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
