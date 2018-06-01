@@ -430,13 +430,20 @@ public class GameGestion {
     // ---------- Initialising Armies in the different territories ---------- //
     public void initiateArmy(ArrayList<Player> playerArrayList, ArrayList<Territory> territoryArrayList) {
 
-        updateBackground(territoryArrayList, playerArrayList.size());
+        //updateBackground(territoryArrayList, playerArrayList.size());
 
         for (int k = 0; k<playerArrayList.size();k++){
             Player player = playerArrayList.get(k);
 
             //updating player's reinforcements with 1 unit in each territory
             player.setReinforcement(player.getReinforcement()-player.getArraylistTerritories().size());
+            StdDraw.disableDoubleBuffering();
+            StdDraw.clear();
+            StdDraw.text(50,50,"Player " + (k+1) +" it's your turn to play !");
+            StdDraw.show();
+            StdDraw.pause(2000);
+
+            updateBackground(territoryArrayList, playerArrayList.size());
 
             // placing units
             placingUnits(player, k, territoryArrayList, playerArrayList);
@@ -817,7 +824,7 @@ public class GameGestion {
                 {11, 14, 17, 18, 21, 24},//"North Africa",19
                 {6, 23, 25},//"Iceland", 20
                 {19, 22, 23, 24},//"Western Europe","21
-                {21, 23, 24, 25},//Northern Europe",22
+                {21, 26, 24, 25},//Northern Europe",22
                 {20, 21, 22, 25},//"Great Britain","23
                 {18, 19, 21, 22, 26},//Southern Europe",24
                 {20, 22, 23, 26},//"Scandinavia",25
