@@ -307,7 +307,7 @@ public class Army {
             int[] xTextCanon = new int[this.getTerritory().getNbCanon() + 1];
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many canons do you want to attack ?");
+            StdDraw.text(50, 60, "How many canons do you want to defend ?");
             StdDraw.text(40, 55, "Number of canons : ");
             for (int it = 0; it <= this.getTerritory().getNbCanon(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -371,20 +371,22 @@ public class Army {
 
     public void battle(Army defender){
 
+        System.out.println("battle");
+
         ArrayList <Unit>  attackerList = this.generateAttackerList(); //On prépare l'ordre des troupes attaquantes
-
+        System.out.println("attackerGenerated");
         ArrayList <Unit> defenderList = defender.generateDefenderList();//  On prépare l'ordre des troupes défenseuses
-
+        System.out.println("defenderGenerated");
         ArrayList<Integer> attackerResults = generateDice(attackerList);// On lance les dés pour l'attaquant
-
+        System.out.println("attackerDiceGenerated");
         ArrayList<Integer> defenderResults = generateDice(defenderList);// On lance les dés pour le défenseur
-
+        System.out.println("defenderDiceGenerated");
         ArrayList<Boolean> results = compareResult(attackerResults, defenderResults); // On compare les résultats
-
+        System.out.println("results compared");
         supressLosses(results, attackerList, this, defenderList, defender); // on supprime les pertes
-
+        System.out.println("casualties suppressed");
         battleConclusion(this,defender); // et on conclut le combat
-
+        System.out.println("fight concluded");
     }
 
     public ArrayList<Unit> generateAttackerList(){ // l'ordre d'ajout des troupes à la liste permet de gérer les priorités de combats (les premiers meurent en premier, "et les premiers seront les derniers" ne s'applique pas à un tir de canon
@@ -438,24 +440,30 @@ public class Army {
 
     public ArrayList<Integer> generateDice (ArrayList<Unit> army){
         ArrayList<Integer> result = new ArrayList<Integer>();
+        int value = -1;// initialising value
+        int cost;
         for (Unit unit : army) {
             Random random = new Random();
-            int value = -1; // initialising value
-            int cost = unit.getCost(); // defining the type of unit by its cost
+            cost = unit.getCost(); // defining the type of unit by its cost
+            System.out.println(cost);
             //soldier
             if(cost == 1){
                 value = random.nextInt(6) + 1;
+                System.out.println("soldier " + value);
             }
             //cavalery
             else if(cost == 3){
                 value = random.nextInt(6) + 2;
+                System.out.println("cavalier" + value);
             }
             //canon
             else if (cost == 7){
                 value = random.nextInt(5) + 4;
+                System.out.println("canon" + value);
             }
             result.add(value);
         }
+        System.out.println("generated dice" + result);
         return result;
     }
 
@@ -500,10 +508,10 @@ public class Army {
         if(cost == 1){ // si le prix est 1 alors c'est un soldat
             army.setNbSoldier(army.getNbSoldier()-1); // on supprime un soldat dans l'armée
         }
-        if(cost == 3){ // si le prix est 1 alors c'est un cavalier
+        if(cost == 3){ // si le prix est 3 alors c'est un cavalier
             army.setNbCavalery(army.getNbCavalery()-1); // on supprime un cavalier dans l'armée
         }
-        if(cost == 7){ // si le prix est 1 alors c'est un canon
+        if(cost == 7){ // si le prix est 7 alors c'est un canon
             army.setNbCanon(army.getNbCanon()-1); // on supprime un canon dans l'armée
         }
     }
@@ -532,5 +540,5 @@ public class Army {
 
     }
 
-//hello
+
 }

@@ -24,16 +24,16 @@ public class GameGestion {
             int a = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id de mission
             Player player = new Player();
             player.setID(i);
-            player.setMission(missionList.get(a)); //on set la mission d'ID a;
-            while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
-                int b = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id d'une nouvelle mission
-                player.setMission(missionList.get(b)); // qu'on affecte au joueur
-            }
+//            player.setMission(missionList.get(a)); //on set la mission d'ID a;
+//            while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
+//                int b = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id d'une nouvelle mission
+//                player.setMission(missionList.get(b)); // qu'on affecte au joueur
+//            }
 
             playerArrayList.add(player); // adding a player to the list
 
             //giving the player his territories
-            territoryInitialisation(player, (i+1),numberOfPlayers, territoryArrayList); // on affecte ses territoires au joueur
+            territoryInitialisation(player, player.getID(),numberOfPlayers, territoryArrayList); // on affecte ses territoires au joueur
         }
 
         // ---------- Initialising the background---------- //
@@ -639,23 +639,26 @@ public class GameGestion {
             StdDraw.setPenColor(Color.white);
             StdDraw.filledEllipse(x,y,1,2);
             StdDraw.setPenRadius(0.005);
-            //color of the player
-            if(territoryArrayList.get(it).getProprietary().getID()==1){
+            //color of the player);
+            if(territoryArrayList.get(it).getProprietary()==null){
+                StdDraw.setPenColor(Color.BLACK);
+            }
+            else if(territoryArrayList.get(it).getProprietary().getID()==0){
                 StdDraw.setPenColor(Color.RED);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==2){
+            else if(territoryArrayList.get(it).getProprietary().getID()==1){
                 StdDraw.setPenColor(Color.GREEN);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==3){
+            else if(territoryArrayList.get(it).getProprietary().getID()==2){
                 StdDraw.setPenColor(Color.BLUE);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==4){
+            else if(territoryArrayList.get(it).getProprietary().getID()==3){
                 StdDraw.setPenColor(Color.MAGENTA);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==5){
+            else if(territoryArrayList.get(it).getProprietary().getID()==4){
                 StdDraw.setPenColor(Color.ORANGE);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==6){
+            else if(territoryArrayList.get(it).getProprietary().getID()==5){
                 StdDraw.setPenColor(Color.GRAY);
             }
             else{
@@ -756,29 +759,26 @@ public class GameGestion {
             StdDraw.filledEllipse(x,y,1,2);
             StdDraw.setPenRadius(0.005);
             //color of the player
-            if(territoryArrayList.get(it).getProprietary().getID()==1){
+            if(territoryArrayList.get(it).getProprietary()==null){
+                StdDraw.setPenColor(Color.BLACK);
+            }
+            else if(territoryArrayList.get(it).getProprietary().getID()==0){
                 StdDraw.setPenColor(Color.RED);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==2){
+            else if(territoryArrayList.get(it).getProprietary().getID()==1){
                 StdDraw.setPenColor(Color.GREEN);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==3){
+            else if(territoryArrayList.get(it).getProprietary().getID()==2){
                 StdDraw.setPenColor(Color.BLUE);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==4){
+            else if(territoryArrayList.get(it).getProprietary().getID()==3){
                 StdDraw.setPenColor(Color.MAGENTA);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==5){
+            else if(territoryArrayList.get(it).getProprietary().getID()==4){
                 StdDraw.setPenColor(Color.ORANGE);
             }
-            else if(territoryArrayList.get(it).getProprietary().getID()==6){
-                StdDraw.setPenColor(Color.PINK);
-            }
-            else if(territoryArrayList.get(it).getProprietary().getID()==7){
+            else if(territoryArrayList.get(it).getProprietary().getID()==5){
                 StdDraw.setPenColor(Color.GRAY);
-            }
-            else if(territoryArrayList.get(it).getProprietary().getID()==8){
-                StdDraw.setPenColor(Color.YELLOW);
             }
             else{
                 StdDraw.setPenColor(Color.BLACK);
@@ -833,7 +833,7 @@ public class GameGestion {
                 {19, 22, 23, 24},//"Western Europe","21
                 {21, 26, 24, 25},//Northern Europe",22
                 {20, 21, 22, 25},//"Great Britain","23
-                {18, 19, 21, 22, 26},//Southern Europe",24
+                {18, 19, 21, 22, 26,27},//Southern Europe",24
                 {20, 22, 23, 26},//"Scandinavia",25
                 {22, 24, 25, 27, 28, 29},//"Ukraine","26
                 {17, 18, 24, 26, 28, 36},//Middle East","27
@@ -963,10 +963,10 @@ public class GameGestion {
     public void addTerritory(Player player, int playerId, int id, ArrayList<Territory> territoryArrayList){
         Random random = new Random();
         Territory territory = territoryArrayList.get(id);
-        if (territory.getProprietary().getID()==0){
-            ArrayList<Territory> currentArraylist= null;
-            player.getArraylistTerritories().add(0, territory);
-            player.setArraylistTerritories(player.getArraylistTerritories());
+        if (territory.getProprietary()==null){
+            ArrayList<Territory> currentArraylist= player.getArraylistTerritories();
+            currentArraylist.add(0, territory);
+            player.setArraylistTerritories(currentArraylist);
             territory.setProprietary(player);
 
         }
