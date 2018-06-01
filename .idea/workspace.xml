@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="134794cc-9e7b-4596-b291-1f9b78c03e73" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/Army.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/Army.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,11 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameGestion.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="432" column="10" selection-start-line="432" selection-start-column="10" selection-end-line="432" selection-end-column="10" />
+            <state relative-caret-position="167">
+              <caret line="826" column="54" lean-forward="true" selection-start-line="826" selection-start-column="54" selection-end-line="826" selection-end-column="54" />
               <folding>
                 <element signature="method#worldMap#0;class#GameGestion#0" />
                 <element signature="method#playing#0;class#GameGestion#0" />
@@ -44,7 +42,6 @@
                 <element signature="method#placingUnits#0;class#GameGestion#0" />
                 <element signature="method#initiateBackground#0;class#GameGestion#0" />
                 <element signature="method#updateBackground#0;class#GameGestion#0" />
-                <element signature="method#initiateTerritories#0;class#GameGestion#0" />
                 <element signature="method#initiateRegions#0;class#GameGestion#0" />
                 <element signature="e#46810#46818#0" expanded="true" />
                 <element signature="e#46898#46909#0" expanded="true" />
@@ -60,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Army.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Army.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Army.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="438" column="37" selection-start-line="438" selection-start-column="37" selection-end-line="438" selection-end-column="37" />
+            <state relative-caret-position="274">
+              <caret line="444" column="21" lean-forward="true" selection-start-line="444" selection-start-column="21" selection-end-line="444" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#generateAttacker#0;class#Army#0" />
@@ -138,7 +135,7 @@
       <file leaf-file-name="Territory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-336">
+            <state relative-caret-position="-1595">
               <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
               <folding>
                 <element signature="e#1093#1094#0" expanded="true" />
@@ -190,8 +187,8 @@
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Player.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Menu.java" />
-        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
         <option value="$PROJECT_DIR$/src/com/projectIsep/risk/Army.java" />
+        <option value="$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java" />
       </list>
     </option>
   </component>
@@ -341,7 +338,7 @@
       <workItem from="1527689630337" duration="6798000" />
       <workItem from="1527768368765" duration="10790000" />
       <workItem from="1527837427696" duration="2694000" />
-      <workItem from="1527851189356" duration="4827000" />
+      <workItem from="1527851189356" duration="5127000" />
     </task>
     <task id="LOCAL-00001" summary="Menu added">
       <created>1524157910006</created>
@@ -504,15 +501,21 @@
       <option name="project" value="LOCAL" />
       <updated>1527840108894</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="double buffering implemented">
+      <created>1527856212570</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1527856212570</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="121320000" />
+    <option name="totallyTimeSpent" value="121620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -812,19 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-336">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
-          <folding>
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1127#1128#0" expanded="true" />
-            <element signature="e#1178#1179#0" expanded="true" />
-            <element signature="e#1224#1225#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Unit.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
@@ -867,37 +857,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="432" column="10" selection-start-line="432" selection-start-column="10" selection-end-line="432" selection-end-column="10" />
-          <folding>
-            <element signature="method#worldMap#0;class#GameGestion#0" />
-            <element signature="method#playing#0;class#GameGestion#0" />
-            <element signature="method#movingUnits#0;class#GameGestion#0" />
-            <element signature="method#chosingTwoTerritories#0;class#GameGestion#0" />
-            <element signature="method#placingUnits#0;class#GameGestion#0" />
-            <element signature="method#initiateBackground#0;class#GameGestion#0" />
-            <element signature="method#updateBackground#0;class#GameGestion#0" />
-            <element signature="method#initiateTerritories#0;class#GameGestion#0" />
-            <element signature="method#initiateRegions#0;class#GameGestion#0" />
-            <element signature="e#46810#46818#0" expanded="true" />
-            <element signature="e#46898#46909#0" expanded="true" />
-            <element signature="e#47326#47337#0" expanded="true" />
-            <element signature="e#47753#47764#0" expanded="true" />
-            <element signature="e#48145#48156#0" expanded="true" />
-            <element signature="e#48540#48551#0" expanded="true" />
-            <element signature="e#48925#48936#0" expanded="true" />
-            <element signature="method#territoryInitialisation#0;class#GameGestion#0" />
-            <element signature="method#addTerritory#0;class#GameGestion#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Army.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="438" column="37" selection-start-line="438" selection-start-column="37" selection-end-line="438" selection-end-column="37" />
+        <state relative-caret-position="274">
+          <caret line="444" column="21" lean-forward="true" selection-start-line="444" selection-start-column="21" selection-end-line="444" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#generateAttacker#0;class#Army#0" />
@@ -909,6 +872,45 @@
             <element signature="method#supressLosses#0;class#Army#0" />
             <element signature="method#deleteUnit#0;class#Army#0" />
             <element signature="method#battleConclusion#0;class#Army#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/Territory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1595">
+          <caret line="4" column="28" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="e#1093#1094#0" expanded="true" />
+            <element signature="e#1127#1128#0" expanded="true" />
+            <element signature="e#1178#1179#0" expanded="true" />
+            <element signature="e#1224#1225#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/projectIsep/risk/GameGestion.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="826" column="54" lean-forward="true" selection-start-line="826" selection-start-column="54" selection-end-line="826" selection-end-column="54" />
+          <folding>
+            <element signature="method#worldMap#0;class#GameGestion#0" />
+            <element signature="method#playing#0;class#GameGestion#0" />
+            <element signature="method#movingUnits#0;class#GameGestion#0" />
+            <element signature="method#chosingTwoTerritories#0;class#GameGestion#0" />
+            <element signature="method#placingUnits#0;class#GameGestion#0" />
+            <element signature="method#initiateBackground#0;class#GameGestion#0" />
+            <element signature="method#updateBackground#0;class#GameGestion#0" />
+            <element signature="method#initiateRegions#0;class#GameGestion#0" />
+            <element signature="e#46810#46818#0" expanded="true" />
+            <element signature="e#46898#46909#0" expanded="true" />
+            <element signature="e#47326#47337#0" expanded="true" />
+            <element signature="e#47753#47764#0" expanded="true" />
+            <element signature="e#48145#48156#0" expanded="true" />
+            <element signature="e#48540#48551#0" expanded="true" />
+            <element signature="e#48925#48936#0" expanded="true" />
+            <element signature="method#territoryInitialisation#0;class#GameGestion#0" />
+            <element signature="method#addTerritory#0;class#GameGestion#0" />
           </folding>
         </state>
       </provider>
