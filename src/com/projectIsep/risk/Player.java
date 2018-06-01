@@ -12,6 +12,7 @@ public class Player {
     private int reinforcement;
     private int capture;
     private boolean alive;
+    private boolean IA;
 
     // -------------- Constructor --------------  //
     public Player() {

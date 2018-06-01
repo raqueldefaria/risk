@@ -126,7 +126,7 @@ public class GameGestion {
             placingUnits(player, compteur, territoryArrayList, playerArrayList);
         }
         // ---------- Player does not have reinforcements and plays right away ---------- //
-        else{
+
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50,50,"Player " + (compteur+1) + " it's your turn to play !");
@@ -216,7 +216,7 @@ public class GameGestion {
             }
 
         }
-    }
+
 
     public void movingUnits(Territory territoryGivingUnits, Territory territoryReceivingUnits){
         boolean unitsChosen = false;
