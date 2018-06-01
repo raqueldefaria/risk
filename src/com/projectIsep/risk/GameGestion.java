@@ -21,14 +21,18 @@ public class GameGestion {
         ArrayList<Region> regionArrayList = initiateRegions(territoryArrayList);
 
         for (int i = 0; i < numberOfPlayers; i++) { // initialisation des joueurs
-            int a = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id de mission
+
+            Random random = new Random();
+            int a= random.nextInt(missionList.size());// on tire l'id de mission
             Player player = new Player();
             player.setID(i);
-//            player.setMission(missionList.get(a)); //on set la mission d'ID a;
-//            while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
-//                int b = (int) Math.floor(Math.random() * missionList.size()) + 1; // on tire l'id d'une nouvelle mission
-//                player.setMission(missionList.get(b)); // qu'on affecte au joueur
-//            }
+            System.out.println(a);
+            System.out.println(missionList.size());
+            player.setMission(missionList.get(a)); //on set la mission d'ID a;
+            while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
+                int b = random.nextInt(missionList.size()); // on tire l'id d'une nouvelle mission
+                player.setMission(missionList.get(b)); // qu'on affecte au joueur
+            }
 
             playerArrayList.add(player); // adding a player to the list
 
@@ -129,7 +133,7 @@ public class GameGestion {
                             updateBackground(territoryArrayList, numberOfPlayers);
                             ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"attack");
                             conflict(listTerritories.get(0),listTerritories.get(1));
-                            actionChosen = true;
+
                             updateBackground(territoryArrayList, numberOfPlayers);
                         }
                         // move
@@ -143,6 +147,7 @@ public class GameGestion {
                         else if(yAction>=50.8 && yAction<=53.3){
                             StdDraw.clear();
                             StdDraw.show();
+                            actionChosen = true;
                             return;
                         }
                         // clicking on the mission

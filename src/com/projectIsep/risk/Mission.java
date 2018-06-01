@@ -143,7 +143,7 @@ public class Mission {
 
         Mission bigTerriroty = new Mission();
         bigTerriroty.setMissionType(6);
-        bigTerriroty.setBriefing("You must control the biggest united region, and any other united one");
+        bigTerriroty.setBriefing("You must control a united region, and the more territories");
         bigTerriroty.setMissionAccomplished(false);
         bigTerriroty.setMissionAvalaible(true);
         listOfMission.add(bigTerriroty);
