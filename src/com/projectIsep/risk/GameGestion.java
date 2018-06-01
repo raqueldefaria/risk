@@ -36,6 +36,7 @@ public class GameGestion {
         StdDraw.pause(1000);
         StdDraw.clear();
         StdDraw.text(50,50,"Please put your armies in the territories");
+        StdDraw.show();
         StdDraw.pause(2000);
 
         // ---------- Initialising Armies in the different territories ---------- //
@@ -45,15 +46,15 @@ public class GameGestion {
 
 
         while (!gameOver) {
+            StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50,50,"Let the game begin !");
+            StdDraw.show();
             StdDraw.pause(1000);
             StdDraw.clear();
             int compteur = 0;
-            int reinforcement = 0;
             while (compteur < numberOfPlayers) {
                 Player player = playerArrayList.get(compteur); // On sélectionne le joueur
-                System.out.println("compteur = "+ compteur);
                 playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
                 player.computerReinforcement(); //on calcule le nombre de renforts
                 //on permet au joueur de placer ses renforts
@@ -82,12 +83,12 @@ public class GameGestion {
     public void playing(ArrayList<Player> playerArrayList, ArrayList<Territory> territoryArrayList, int compteur, int numberOfPlayers, int reinforcement){
         Player player = playerArrayList.get(compteur); // On sélectionne le joueur
 
-        System.out.println("reinforcements = " + reinforcement);
-
         // ---------- Player getting reinforcements and placing them ---------- //
         if(reinforcement!=0){
+            StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50,50,"Player "+ (compteur+1)+" you have reinforcements. Place them on your territories !");
+            StdDraw.show();
             StdDraw.pause(2000);
             StdDraw.clear();
             //getting the map
@@ -97,6 +98,7 @@ public class GameGestion {
         }
         // ---------- Player does not have reinforcements and plays right away ---------- //
         else{
+            StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50,50,"Player " + (compteur+1) + " it's your turn to play !");
             StdDraw.pause(2000);
@@ -109,10 +111,12 @@ public class GameGestion {
                     if(xAction>=89){
                         // attack
                         if(yAction>=58.7 && yAction<=61.7){
+                            StdDraw.disableDoubleBuffering();
                             StdDraw.clear();
                             StdDraw.text(50,55,"You're going to attack !");
                             StdDraw.text(50,52,"First choose one of your territories to attack with");
                             StdDraw.text(50,49,"Then choose the territory that you want to attack");
+                            StdDraw.show();
                             StdDraw.pause(1000);
                             StdDraw.clear();
                             updateBackground(territoryArrayList, numberOfPlayers);
@@ -131,20 +135,25 @@ public class GameGestion {
                         // pass
                         else if(yAction>=50.8 && yAction<=53.3){
                             StdDraw.clear();
+                            StdDraw.show();
                             return;
                         }
                         // clicking on the mission
                         else if (yAction >= 43.96 && yAction <= 46.96) {
+                            StdDraw.disableDoubleBuffering();
                             StdDraw.clear();
                             StdDraw.text(50, 50, "Player " + (compteur + 1) + ", your mission is :  " + player.getMission().getBriefing());
+                            StdDraw.show();
                             StdDraw.pause(5000);
                             StdDraw.clear();
                             updateBackground(territoryArrayList, playerArrayList.size());
                         }
                         //clicking on inspection
                         else if(yAction>=39.34 && yAction<=42.47) {
+                            StdDraw.disableDoubleBuffering();
                             StdDraw.clear();
                             StdDraw.text(50,50,"Click on a territory to inspect it !");
+                            StdDraw.show();
                             StdDraw.pause(2000);
                             updateBackground(territoryArrayList, playerArrayList.size());
                             boolean territoryChecked = false;
@@ -157,11 +166,13 @@ public class GameGestion {
                                     for (int u = 0; u < territoryArrayList.size(); u++) {
                                         Territory territory = territoryArrayList.get(u);
                                         if ((xTerritory >= territory.getX() - 2 && xTerritory <= territory.getX() + 2) && (yTerritory >= territory.getY() - 4 && yTerritory <= territory.getY() + 4)) {
+                                            StdDraw.disableDoubleBuffering();
                                             StdDraw.clear();
                                             StdDraw.text(50, 60, "Here are the units available in " + territory.getNameTerritory());
                                             StdDraw.text(30, 50, "Number of Soldiers : " + territory.getNbSoldier());
                                             StdDraw.text(50, 50, "Cavalry effective : " + territory.getNbCavalery());
                                             StdDraw.text(70, 50, "Number of Canons : " + territory.getNbCanon());
+                                            StdDraw.show();
                                             StdDraw.pause(5000);
                                             territoryChecked = true;
                                             updateBackground(territoryArrayList, playerArrayList.size());
@@ -181,6 +192,7 @@ public class GameGestion {
         boolean unitsChosen = false;
         while (!unitsChosen) {
             int[] xTextSoldier = new int[territoryGivingUnits.getNbSoldier() + 1];
+            StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50, 60, "How many soldiers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
             StdDraw.text(40, 55, "Number of soldiers : ");
@@ -188,6 +200,7 @@ public class GameGestion {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
                 xTextSoldier[it] = (45 + it * 2) + 2;
             }
+            StdDraw.show();
             StdDraw.pause(5000);
             boolean numberOfSoldiersChosen = false;
             int nbSoldierAttacker = 0;
@@ -197,7 +210,6 @@ public class GameGestion {
                     double ySoldier = StdDraw.mouseY();
                     if (ySoldier >= 53.7 && ySoldier <= 56.3) {
                         for (int k = 0; k <= territoryGivingUnits.getNbSoldier(); k++) {
-                            System.out.println("nombre : " + xTextSoldier[k]);
                             if (xSoldier >= xTextSoldier[k] - 1.1 && xSoldier <= xTextSoldier[k] + 1.1) {
                                 nbSoldierAttacker = k;
                                 numberOfSoldiersChosen = true;
@@ -211,6 +223,7 @@ public class GameGestion {
 
 
             int[] xTextCavalier = new int[territoryGivingUnits.getNbCavalery() + 1];
+            StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50, 60, "How many cavaliers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
             StdDraw.text(40, 55, "Number of cavaliers : ");
@@ -218,6 +231,7 @@ public class GameGestion {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
                 xTextCavalier[it] = (45 + it * 2) + 2;
             }
+            StdDraw.show();
             StdDraw.pause(5000);
             boolean numberOfCavaliersChosen = false;
             int nbCavaleryAttacker = 0;
@@ -241,6 +255,7 @@ public class GameGestion {
 
 
             int[] xTextCanon = new int[territoryGivingUnits.getNbCanon() + 1];
+            StdDraw.disableDoubleBuffering();
             StdDraw.clear();
             StdDraw.text(50, 60, "How many canons do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
             StdDraw.text(40, 55, "Number of canons : ");
@@ -248,6 +263,7 @@ public class GameGestion {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
                 xTextCanon[it] = (45 + it * 2) + 2;
             }
+            StdDraw.show();
             StdDraw.pause(5000);
             boolean numberOfCanonChosen = false;
             int nbCanonAttacker = 0;
@@ -283,30 +299,33 @@ public class GameGestion {
             }
             // no mouvement
             if(nbCanonAttacker + nbCavaleryAttacker + nbSoldierAttacker ==0){
+                StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
                 StdDraw.text(50,50,"No units were moved !");
+                StdDraw.show();
                 StdDraw.pause(1500);
                 return;
             }
 
             if(unitsTerritory<=units){
+                StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
                 StdDraw.text(50,50,"At least one unit needs to remain in " + territoryGivingUnits.getNameTerritory());
+                StdDraw.show();
                 StdDraw.pause(1500);
             }
         }
     }
 
     public ArrayList<Territory> chosingTwoTerritories(Player player, int numberOfPlayers, ArrayList<Territory> territories, String button){
-        System.out.println(player.getArraylistTerritories());
         ArrayList<Territory> territoryArrayList = new ArrayList<>();
         boolean attackingTerritoryChosen = false;
         while (!attackingTerritoryChosen) {
+            StdDraw.disableDoubleBuffering();
             if (StdDraw.isMousePressed()) {
                 double xAttackingTerritory = StdDraw.mouseX();
                 double yAttackingTerritory = StdDraw.mouseY();
                 StdDraw.pause(200);
-                System.out.println("attack = " + xAttackingTerritory + " " + yAttackingTerritory);
                 if (xAttackingTerritory < 89) {
                     for (int a = 0; a < player.getArraylistTerritories().size(); a++) {
                         Territory territory = player.getArraylistTerritories().get(a);
@@ -316,10 +335,12 @@ public class GameGestion {
                             StdDraw.clear();
                             if(button.equals("attack")){
                                 StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory());
+                                StdDraw.show();
 
                             }
                             else if(button.equals("move")){
                                 StdDraw.text(50,50,"You chose to move units from " + attackingTerritory.getNameTerritory());
+                                StdDraw.show();
 
                             }
                             StdDraw.pause(2000);
@@ -330,7 +351,6 @@ public class GameGestion {
                                     double xDefendingTerritory = StdDraw.mouseX();
                                     double yDefendingTerritory = StdDraw.mouseY();
                                     StdDraw.pause(200);
-                                    System.out.println("defense= " + xAttackingTerritory + " " + yAttackingTerritory);
                                     if (xDefendingTerritory < 89) {
                                         for (a = 0; a < territories.size(); a++) {
                                             Territory territory2 = territories.get(a);
@@ -349,6 +369,7 @@ public class GameGestion {
                                                         defendingTerritoryChosen = true;
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"You chose to attack " + defendingTerritory.getNameTerritory());
+                                                        StdDraw.show();
                                                         StdDraw.pause(1000);
                                                         updateBackground(territories,numberOfPlayers);
                                                         territoryArrayList.add(0, attackingTerritory);
@@ -357,6 +378,7 @@ public class GameGestion {
                                                     else{
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"Please choose another territory");
+                                                        StdDraw.show();
                                                         StdDraw.pause(1000);
                                                         updateBackground(territories, numberOfPlayers);
                                                     }
@@ -373,6 +395,7 @@ public class GameGestion {
                                                         defendingTerritoryChosen = true;
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"You chose to move your units to " + defendingTerritory.getNameTerritory());
+                                                        StdDraw.show();
                                                         StdDraw.pause(1000);
                                                         updateBackground(territories,numberOfPlayers);
                                                         territoryArrayList.add(0, attackingTerritory);
@@ -381,6 +404,7 @@ public class GameGestion {
                                                     else{
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"Please choose another territory");
+                                                        StdDraw.show();
                                                         StdDraw.pause(1000);
                                                         updateBackground(territories, numberOfPlayers);
                                                     }
@@ -423,6 +447,7 @@ public class GameGestion {
     // placing the player's units
     public void placingUnits(Player player, int k, ArrayList<Territory> territoryArrayList, ArrayList<Player> playerArrayList){
         while (player.getReinforcement()!=0) {
+            StdDraw.disableDoubleBuffering();
             // going through the player's territories when there is a click
             if (StdDraw.isMousePressed()) {
                 //coordinates of the click
@@ -522,6 +547,7 @@ public class GameGestion {
     public void initiateBackground(ArrayList<Territory> territoryArrayList, int numberOfPlayers ){
         // map of the world
         StdDraw.setCanvasSize(1200,737);
+        StdDraw.enableDoubleBuffering();
         StdDraw.setXscale(0,100);
         StdDraw.setYscale(0,100);
         StdDraw.clear();
@@ -643,6 +669,7 @@ public class GameGestion {
 
     //updating the game's background
     public void updateBackground(ArrayList<Territory> territoryArrayList, int numberOfPlayers){
+        StdDraw.enableDoubleBuffering();
         StdDraw.clear();
         StdDraw.picture(50,50, "img/riskmap.jpg");
         for(int a=0;a<numberOfPlayers;a++){
