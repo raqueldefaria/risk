@@ -26,9 +26,7 @@ public class GameGestion {
             int a= random.nextInt(missionList.size());// on tire l'id de mission
             Player player = new Player();
             player.setID(i);
-            System.out.println(a);
-            System.out.println(missionList.size());
-            player.setMission(missionList.get(a)); //on set la mission d'ID a;
+                        player.setMission(missionList.get(a)); //on set la mission d'ID a;
             while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
                 int b = random.nextInt(missionList.size()); // on tire l'id d'une nouvelle mission
                 player.setMission(missionList.get(b)); // qu'on affecte au joueur
@@ -46,7 +44,7 @@ public class GameGestion {
         // ---------- Initialising the background---------- //
         StdDraw.pause(1000);
         StdDraw.clear();
-        StdDraw.text(50,50,"Please put your armies in the territories");
+        StdDraw.text(50,50,"Let's get ready to war ! Choose the starting location of you forces, my general !");
         StdDraw.show();
         StdDraw.pause(2000);
 
@@ -59,7 +57,7 @@ public class GameGestion {
         while (!gameOver) {
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
-            StdDraw.text(50,50,"Let the game begin !");
+            StdDraw.text(50,50,"War is upon us! To arms !");
             StdDraw.show();
             StdDraw.pause(1000);
             StdDraw.clear();
@@ -78,17 +76,23 @@ public class GameGestion {
                         gameOver = false;
                 }
 
-                for (int region=0; region<regionArrayList.size(); region++ ){
+                for (int region=0; region<regionArrayList.size(); region++ ){ // on check si la région a un propriétaire
+
                     regionArrayList.get(region).checkRuler();
                 }
 
-                for (int playerCheckRegion=0; playerCheckRegion<playerArrayList.size(); playerCheckRegion++){
-                    for (int region=0; region<regionArrayList.size(); region++ ){
-                        ArrayList<Region> regionRuled = new ArrayList<Region>();
+                for (int playerCheckRegion=0; playerCheckRegion<playerArrayList.size(); playerCheckRegion++){ //parmis tous les joueurs
+
+                    ArrayList<Region> regionRuled = new ArrayList<Region>();
+                    for (int region=0; region<regionArrayList.size(); region++ ){ // parmis toutes les régions
+
+                        // on crée une arraylist des régons que contrôle le joueur
                         if (regionArrayList.get(region).getRuler()==playerArrayList.get(playerCheckRegion)){
+
                             regionRuled.add(regionArrayList.get(region));
                         }
                         playerArrayList.get(playerCheckRegion).setArraylistRegion(regionRuled);
+
                     }
                 }
 
@@ -97,7 +101,7 @@ public class GameGestion {
                 player.getMission().chekcMissionFinished(playerArrayList, player);
                 if (player.getMission().missionAccomplished) {
                     gameOver = true;
-                    System.out.println("Player "+ player+ "won the game !");
+                    System.out.println("Player "+ player+ "is the new ruler of the world ! Bend the knee before your new tyrant");
 
                 }
                 compteur++;
@@ -918,22 +922,23 @@ public class GameGestion {
         for (int it=19; it<26; it++){
             territoryArrayListEurope.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires europées les 7 elements suivants
         }
-        Region europe = new Region(1, "Europe", null, territoryArrayListNorthamerica);
+        Region europe = new Region(1, "Europe", null, territoryArrayListEurope);
         regionArrayList.add(europe);
 
         ArrayList<Territory> territoryArrayListAsia = new ArrayList<Territory>();
-        for (int it=26; it<37; it++){
+        for (int it=26; it<38; it++){
             territoryArrayListAsia.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 11 elements suivants
         }
         Region asia = new Region(1, "Asia", null, territoryArrayListAsia);
         regionArrayList.add(asia);
 
         ArrayList<Territory> territoryArrayListOceania = new ArrayList<Territory>();
-        for (int it=37; it<41; it++){
-            territoryArrayListNorthamerica.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 4 elements suivants
+        for (int it=38; it<42; it++){
+            territoryArrayListOceania.add(territoryArrayList.get(it)); // on ajoute à la liste des territoires americains les 4 elements suivants
         }
-        Region oceania = new Region(1, "Oceania", null, territoryArrayListNorthamerica);
+        Region oceania = new Region(1, "Oceania", null, territoryArrayListOceania);
         regionArrayList.add(oceania);
+
 
         return regionArrayList;
 

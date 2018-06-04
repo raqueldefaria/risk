@@ -57,18 +57,22 @@ public class Region {
     // -------------- Methods --------------  //
 
     public int computeReinforcementGiven(){
+
         int a = this.Territories.size();
+
         int regionReinforcement = (int)a/2;
-        return a;
+        return regionReinforcement;
     }
 
     public void checkRuler(){
+
         boolean united = true;
         Player former;
         former = this.Territories.get(0).getProprietary();
         Player current;
         for (int it=1; it<Territories.size();it++){
             current = this.Territories.get(it).getProprietary();
+   ;
             if(current!= former){
                 united= false;
             }
@@ -77,6 +81,7 @@ public class Region {
         }
         if (united){
             this.setRuler(former);
+
         }
         else{
             this.setRuler(null);

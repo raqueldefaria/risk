@@ -107,7 +107,7 @@ public class Player {
     public int reinforcementByCapture(){ // fonction de calcul des renforts dus aux captures
         Random random = new Random(); //on initialise notre fonction qui va gérer l'aléatoire
         int amoutByCapture=0;
-        if (this.capture !=0){
+        if (this.getCapture()!=0){
             for (int it = 0; it < capture; it ++){ // cette boucle tourne autant de fois que des territoires ont été capturés
                 int num = random.nextInt(2); // on sélectionne un nombre entre 0 et 1 aléatoirement
                 if (num == 1){ // si on a tiré 1
@@ -115,12 +115,14 @@ public class Player {
                 }
             }
         }
+        this.setCapture(0);
         return amoutByCapture;
     }
 
     public int reinforcementByRegion(){
         int amoutByRegion=0;
-        if (arraylistRegion!= null){
+
+        if (this.arraylistRegion!= null){
             for (int it = 0; it <arraylistRegion.size(); it++){
                 Region region = arraylistRegion.get(it); // On sélectionne la région
                 amoutByRegion = amoutByRegion + region.computeReinforcementGiven(); // on ajoute aux renforts les renforts lié au contrôle de la région

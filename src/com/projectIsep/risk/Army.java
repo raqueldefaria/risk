@@ -109,8 +109,8 @@ public class Army {
             int [] xTextCavalier = new int[this.getTerritory().getNbCavalery()+1];
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
-            StdDraw.text(50,60,"How many cavaliers do you want to attack ?");
-            StdDraw.text(40,55,"Number of cavaliers : ");
+            StdDraw.text(50,60,"How many cavaleries do you want to attack ?");
+            StdDraw.text(40,55,"Number of cavaleries : ");
             for(int it=0;it<=this.getTerritory().getNbCavalery();it++){
                 StdDraw.text((45+it*2)+2,55, String.valueOf(it));
                 xTextCavalier[it] = (45+it*2)+2;
@@ -137,7 +137,7 @@ public class Army {
             if (this.getTerritory().getNbCavalery()<nbCavaleryAttacker){
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"Not enough cavaliers");
+                StdDraw.text(50,50,"Not enough cavaleries");
                 StdDraw.show();
                 StdDraw.pause(1500);
             }
@@ -186,7 +186,7 @@ public class Army {
             if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) ==0){
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"You need to at least chose one unit ");
+                StdDraw.text(50,50,"At least one man must attack ! ");
                 StdDraw.show();
                 StdDraw.pause(1500);
             }
@@ -194,7 +194,7 @@ public class Army {
             else if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) > 3){
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"You cannot choose more than three units ");
+                StdDraw.text(50,50,"You cannot attack with more than three units, you need to be patient... ");
                 StdDraw.show();
                 StdDraw.pause(1500);
             }
@@ -202,7 +202,7 @@ public class Army {
             else if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) >= (this.getTerritory().getNbCanon()+this.getTerritory().getNbSoldier()+this.getTerritory().getNbCavalery() )){
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"At least one unit needs to stay in the territory ");
+                StdDraw.text(50,50,"At least one unit needs to stay in the territory to keep it under your rightful domination ");
                 StdDraw.show();
                 StdDraw.pause(1500);
                 return false;
@@ -232,7 +232,7 @@ public class Army {
             int[] xTextSoldier = new int[this.getTerritory().getNbSoldier() + 1];
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many soldiers do you want to defend ?");
+            StdDraw.text(50, 60, "How many soldiers do you want to hold the line ?");
             StdDraw.text(40, 55, "Number of soldiers : ");
             for (int it = 0; it <= this.getTerritory().getNbSoldier(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -270,7 +270,7 @@ public class Army {
             int[] xTextCavalier = new int[this.getTerritory().getNbCavalery() + 1];
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many cavaliers do you want to defend ?");
+            StdDraw.text(50, 60, "How many cavaliers do you want to protect this land ?");
             StdDraw.text(40, 55, "Number of cavaliers : ");
             for (int it = 0; it <= this.getTerritory().getNbCavalery(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -308,7 +308,7 @@ public class Army {
             int[] xTextCanon = new int[this.getTerritory().getNbCanon() + 1];
             StdDraw.disableDoubleBuffering();
             StdDraw.clear();
-            StdDraw.text(50, 60, "How many canons do you want to defend ?");
+            StdDraw.text(50, 60, "How many canons do you want to break their assault ?");
             StdDraw.text(40, 55, "Number of canons : ");
             for (int it = 0; it <= this.getTerritory().getNbCanon(); it++) {
                 StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
@@ -347,7 +347,7 @@ public class Army {
             if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) == 0) {
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50, 50, "You need to have at least one unit defending");
+                StdDraw.text(50, 50, "You need to have at least one unit defending, or this territory will become a wasteland !");
                 StdDraw.show();
                 StdDraw.pause(1500);
             }
@@ -355,7 +355,7 @@ public class Army {
             else if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) > 2) {
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50, 50, "You cannot have more than two units defending");
+                StdDraw.text(50, 50, "You cannot have more than two units defending at the same time, let's save our troops");
                 StdDraw.show();
                 StdDraw.pause(1500);
             }
@@ -518,6 +518,7 @@ public class Army {
             newArraylistTerritoryAttacker.add(defender.territory); // je lui ajoute le nouveau territoire
             attacker.territory.getProprietary().setArraylistTerritories(newArraylistTerritoryAttacker); // je l'implémente à la place de l'ancienne
             defender.territory.getProprietary().arraylistTerritories.remove(territory);
+            attacker.territory.getProprietary().setCapture(attacker.territory.getProprietary().getCapture()+1);
 
 
         }
