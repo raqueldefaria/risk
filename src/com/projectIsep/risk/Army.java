@@ -198,6 +198,7 @@ public class Army {
                 StdDraw.text(50,50,"You cannot attack with more than three units, you need to be patient... ");
                 StdDraw.show();
                 StdDraw.pause(1500);
+                return false;
             }
 
             else if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) >= (this.getTerritory().getNbCanon()+this.getTerritory().getNbSoldier()+this.getTerritory().getNbCavalery() )){
@@ -208,6 +209,7 @@ public class Army {
                 StdDraw.pause(1500);
                 return false;
             }
+
             else{
                 unitsChosen = true;
                 this.territory.setNbSoldier(this.territory.getNbSoldier()-nbSoldierAttacker); // on retire les troupes qui partent au combat de leur territoire de base
@@ -224,7 +226,7 @@ public class Army {
     public boolean generateDefender(){
         StdDraw.disableDoubleBuffering();
         StdDraw.clear();
-        StdDraw.text(50, 60, "Player " + this.getTerritory().getProprietary() +" you need to defend " + this.getTerritory().getNameTerritory());
+        StdDraw.text(50, 60, "Player " + this.getTerritory().getProprietary().getID()+1 +" you need to defend " + this.getTerritory().getNameTerritory());
         StdDraw.show();
         StdDraw.pause(2000);
         // ---------------------- Generating army -----------------//

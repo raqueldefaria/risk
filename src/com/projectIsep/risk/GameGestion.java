@@ -26,7 +26,13 @@ public class GameGestion {
             int a= random.nextInt(missionList.size());// on tire l'id de mission
             Player player = new Player();
             player.setID(i);
-                        player.setMission(missionList.get(a)); //on set la mission d'ID a;
+            if(i>=numberOfPlayers-numberOfAI){
+                player.setIA(true);
+            }
+            else{
+                player.setIA(false);
+            }
+            player.setMission(missionList.get(a)); //on set la mission d'ID a;
             while (player.getMission().getMissionType() == 1 && player.getMission().getIDtarget() == i ){ // si le joueur a comme consigne de se tuer lui-même
                 int b = random.nextInt(missionList.size()); // on tire l'id d'une nouvelle mission
                 player.setMission(missionList.get(b)); // qu'on affecte au joueur
@@ -76,10 +82,23 @@ public class GameGestion {
             int compteur = 0;
             while (compteur < numberOfPlayers) {
                 Player player = playerArrayList.get(compteur); // On sélectionne le joueur
-                playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
-                player.computerReinforcement(); //on calcule le nombre de renforts
-                //on permet au joueur de placer ses renforts
-
+                if(player.getIA()){
+                    player.IAReinforcement(territoryArrayList);
+                    ArrayList<Territory> conflictList = player.IAListOfPossibleConflicts(territoryArrayList);
+                    for(int laotseu=0; laotseu<conflictList.size(); laotseu+=2){
+                        if(conflictList.get(laotseu).getProprietary()!=conflictList.get(laotseu+1).getProprietary() ){ // si le territoire n'as pas été conquis paar une attaque précédente
+                            conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1));
+                            updateBackground(territoryArrayList,numberOfPlayers);
+                            StdDraw.pause(3000);
+                        }
+                    }
+                    player.IAMovement(territoryArrayList);
+                }
+                else{
+                    playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
+                    player.computerReinforcement(); //on calcule le nombre de renforts
+                    //on permet au joueur de placer ses renforts
+                }
 
                 //checking if the player has conquered all the territories
                 for(int k=0; k<territoryArrayList.size();k++){
@@ -113,7 +132,6 @@ public class GameGestion {
                 player.getMission().chekcMissionFinished(playerArrayList, player);
                 if (player.getMission().missionAccomplished) {
                     gameOver = true;
-                    System.out.println("Player "+ player+ "is the new ruler of the world ! Bend the knee before your new tyrant");
 
                 }
                 compteur++;
@@ -174,7 +192,6 @@ public class GameGestion {
                         else if(yAction>=54.9 && yAction<=57.4){
                             ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"move");
                             int distanceBetweenTerritories = calculateMovement(listTerritories.get(0), listTerritories.get(1), territoryArrayList);
-                            System.out.println("distance = " + distanceBetweenTerritories);
                             if (distanceBetweenTerritories<4 && distanceBetweenTerritories>0){
                                 movingUnits(listTerritories.get(0),listTerritories.get(1),distanceBetweenTerritories);
                             }
@@ -547,20 +564,24 @@ public class GameGestion {
 
         for (int k = 0; k<playerArrayList.size();k++){
             Player player = playerArrayList.get(k);
+            if(!player.getIA()){
+                //updating player's reinforcements with 1 unit in each territory
+                player.setReinforcement(player.getReinforcement()-player.getArraylistTerritories().size());
+                StdDraw.disableDoubleBuffering();
+                StdDraw.clear();
+                StdDraw.text(50,50,"Player " + (k+1) +" it's your turn to play !");
+                StdDraw.show();
+                StdDraw.pause(2000);
 
-            //updating player's reinforcements with 1 unit in each territory
-            player.setReinforcement(player.getReinforcement()-player.getArraylistTerritories().size());
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50,50,"Player " + (k+1) +" it's your turn to play !");
-            StdDraw.show();
-            StdDraw.pause(2000);
+                updateBackground(territoryArrayList, playerArrayList.size());
 
-            updateBackground(territoryArrayList, playerArrayList.size());
-
-            // placing units
-            placingUnits(player, k, territoryArrayList, playerArrayList);
-
+                // placing units
+                placingUnits(player, k, territoryArrayList, playerArrayList);
+            }
+            else{
+                 player.IAReinforcement(territoryArrayList);
+                 updateBackground(territoryArrayList, playerArrayList.size());
+            }
         }
     }
 
@@ -1091,7 +1112,6 @@ public class GameGestion {
         attacker.setAttacker(true);
         attacker.setTerritory(attackerTerritory);
         if (!attacker.generateAttacker()){ // si l'armée n'est pas générée correctement
-            //conflict(attackerTerritory,defenderTerritory); // on reboot
             return;
         }
 
@@ -1099,9 +1119,68 @@ public class GameGestion {
         Army defender = new Army();
         defender.setAttacker(false);
         defender.setTerritory(defenderTerritory);
-        if (!defender.generateDefender()){ // si l'armée n'est pas générée correctement
-            //conflict(attackerTerritory,defenderTerritory); // on reboot
+        if(!defenderTerritory.getProprietary().getIA()){
+            if (!defender.generateDefender()){ // si l'armée n'est pas générée correctement
+                return;
+            }
+        }
+        else{
+            if(defenderTerritory.getNbSoldier()==1){
+                defender.setNbSoldier(1);
+            }
+            else if(defenderTerritory.getNbSoldier()>1){
+                defender.setNbSoldier(2);
+            }
+        }
+
+        // ------------------- On résout un round de combat -------------------//
+
+        attacker.battle(defender);
+
+        // ------------------- On vérifie que les territoires sont voisins -------------------//
+        boolean frontierValidation = false;
+        for(int it=0; it<attackerTerritory.getFrontier().length; it++){
+            if (attackerTerritory.getFrontier()[it]== defenderTerritory.getIdTerritory()){ // si on trouve l'ID du territoire attaqué dans la liste des voisins de l'attaquand
+                frontierValidation = true; // l'attaque est validée
+            }
+        }
+        if (!frontierValidation){ // sinon on stoppe la fonction
             return;
+        }
+
+    }
+
+    public void conflictAI(Territory attackerTerritory, Territory defenderTerritory){
+        // ------------------- On crée l'armée attaquante -------------------//
+        Army attacker = new Army();
+        attacker.setAttacker(true);
+        attacker.setTerritory(attackerTerritory);
+        if(attackerTerritory.getNbSoldier()==3){
+            attacker.setNbSoldier(3);
+        }
+        else if(attackerTerritory.getNbSoldier()==2){
+            attacker.setNbSoldier(2);
+        }
+        else if(attackerTerritory.getNbSoldier()==1){
+            attacker.setNbSoldier(1);
+        }
+
+        // ------------------- On crée l'armée défenseuse -------------------//
+        Army defender = new Army();
+        defender.setAttacker(false);
+        defender.setTerritory(defenderTerritory);
+        if(!defenderTerritory.getProprietary().getIA()){
+            if (!defender.generateDefender()){ // si l'armée n'est pas générée correctement
+                return;
+            }
+        }
+        else{
+            if(defenderTerritory.getNbSoldier()==1){
+                defender.setNbSoldier(1);
+            }
+            else if(defenderTerritory.getNbSoldier()==2){
+                defender.setNbSoldier(2);
+            }
         }
 
         // ------------------- On résout un round de combat -------------------//

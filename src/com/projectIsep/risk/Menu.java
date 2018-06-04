@@ -90,6 +90,7 @@ public class Menu  {
                 double yIA = StdDraw.mouseY();
                 System.out.println(xIA);
                 this.IA = numberOfIAChosen(xIA,yIA, numberIACoordinates);
+                System.out.println("ia " + this.getIA());
                 if(this.IA!=-1){
                     numberOfIAChosen = true;
                 }
@@ -131,8 +132,7 @@ public class Menu  {
     public int numberOfIAChosen(double xIA, double yIA, int [] numberIACoordinates){
         int variable = -1;
         if((yIA>=2.7 && yIA<=3.4)){
-            for (int k=0; k<this.getNumberOfplayers();k++){
-                System.out.println("k = " +k);
+            for (int k=0; k<=this.getNumberOfplayers();k++){
                 if((xIA>=numberIACoordinates[k]-0.1) && (xIA<=numberIACoordinates[k]+0.1)){
                     variable = k;
                 }

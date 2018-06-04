@@ -86,6 +86,13 @@ public class Player {
         this.capture = capture;
     }
 
+    public boolean getIA() {
+        return IA;
+    }
+
+    public void setIA(boolean IA) {
+        this.IA = IA;
+    }
 
     // -------------- Methods --------------  //
 
@@ -130,6 +137,85 @@ public class Player {
         }
 
         return amoutByRegion;
+    }
+
+    //-----------------------IA----------------------//
+
+    public void IAReinforcement(ArrayList<Territory> territoryTotal) {
+
+        int currentReinforcement = this.getReinforcement();
+        for(int i =0; i<this.getArraylistTerritories().size(); i++){ // pour chaque territoire du joueur
+            for(int e=0; e<this.getArraylistTerritories().get(i).getFrontier().length; e++){
+                boolean ennemy=false;
+                Territory frontierTerritory = territoryTotal.get(this.getArraylistTerritories().get(i).getFrontier()[e]-1);
+                if(frontierTerritory.getProprietary().getID()!=this.getID()){
+                    ennemy = true;
+                }
+                if(this.getReinforcement()>0){
+                    if (ennemy){ // si il y a un territoire ennemi
+                        if(this.getArraylistTerritories().get(i).getNbSoldier()< frontierTerritory.getNbSoldier() + 3*frontierTerritory.getNbCavalery() + 7*frontierTerritory.getNbCanon() ){ // si le territoire ennemi a plus de troupes
+                            this.getArraylistTerritories().get(i).setNbSoldier(this.getArraylistTerritories().get(i).getNbSoldier()+1);
+                            this.setReinforcement(this.getReinforcement()-1);
+                        }
+                    }
+                }
+
+            }
+        }
+
+        // si jamais on a des renforts qui restent
+        Random random = new Random();
+        int idTerritory = random.nextInt(this.getArraylistTerritories().size());
+        while (this.getReinforcement()>0){
+            this.getArraylistTerritories().get(idTerritory).setNbSoldier(this.getArraylistTerritories().get(idTerritory).getNbSoldier()+1);
+            this.setReinforcement(this.getReinforcement()-1);
+            idTerritory = random.nextInt(this.getArraylistTerritories().size());
+        }
+
+    }
+
+    public ArrayList<Territory> IAListOfPossibleConflicts( ArrayList<Territory> territoryTotal){
+        ArrayList<Territory> conflictTerritories = new ArrayList<Territory>();
+        for(int i =0; i<this.getArraylistTerritories().size(); i++){ // pour chaque territoire du joueur
+
+            for(int e=0; e<this.getArraylistTerritories().get(i).getFrontier().length; e++){
+                boolean ennemy=false;
+                Territory frontierTerritory = territoryTotal.get(this.getArraylistTerritories().get(i).getFrontier()[e]-1);
+                if(frontierTerritory.getProprietary().getID()!=this.getID()){
+                    ennemy = true;
+                }
+                if (ennemy){ // si il y a un territoire ennemi
+                    if(this.getArraylistTerritories().get(i).getNbSoldier()> frontierTerritory.getNbSoldier() + 3*frontierTerritory.getNbCavalery() + 7*frontierTerritory.getNbCanon() ){ // si le territoire de l'IA a plus de troupes
+                        conflictTerritories.add(this.getArraylistTerritories().get(i));
+                        conflictTerritories.add(frontierTerritory);
+
+                    }
+                }
+            }
+
+        }
+        return conflictTerritories; // on dispose d'une arraylist contenant une alternance de territoires attaquants/attaqués
+
+    }
+
+    public void IAMovement(ArrayList<Territory> territoryTotal){
+        for(int i =0; i<this.getArraylistTerritories().size(); i++){ // pour chaque territoire du joueur
+
+            for(int e=0; e<this.getArraylistTerritories().get(i).getFrontier().length; e++){
+                boolean ennemy=false;
+                Territory frontierTerritory = territoryTotal.get(this.getArraylistTerritories().get(i).getFrontier()[e]-1);
+                if(frontierTerritory.getProprietary().getID()!=this.getID()){
+                    ennemy = true;
+                }
+                if (!ennemy){ // si il y a un territoire allié
+                    while((this.getArraylistTerritories().get(i).getNbSoldier()> frontierTerritory.getNbSoldier())&&(this.getArraylistTerritories().get(i).getNbSoldier()>2)){ // si le territoire allié a moins de troupes, on équilibre
+                        this.getArraylistTerritories().get(i).setNbSoldier(this.getArraylistTerritories().get(i).getNbSoldier()-1); // un soldat part du premier territoire
+                        frontierTerritory.setNbSoldier(frontierTerritory.getNbSoldier()+1); // et va dans le second
+                    }
+                }
+            }
+
+        }
     }
 
 
