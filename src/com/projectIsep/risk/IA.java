@@ -64,7 +64,7 @@ public class IA extends Player {
                     ennemy = true;
                 }
                 if (!ennemy){ // si il y a un territoire allié
-                    while(territoryOfIA.get(i).getNbSoldier()< frontierTerritory.getNbSoldier()){ // si le territoire allié a plus de troupes, on équilibre
+                    while((territoryOfIA.get(i).getNbSoldier()< (frontierTerritory.getNbSoldier())&&territoryOfIA.get(i).getNbSoldier()>2)){ // si le territoire allié a plus de troupes, on équilibre
                         territoryOfIA.get(i).setNbSoldier(territoryOfIA.get(i).getNbSoldier()-1); // un soldat part du premier territoire
                         frontierTerritory.setNbSoldier(frontierTerritory.getNbSoldier()+1); // et va dans le second
                     }
