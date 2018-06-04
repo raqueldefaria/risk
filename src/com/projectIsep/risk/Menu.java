@@ -4,6 +4,7 @@ import edu.princeton.cs.introcs.StdDraw;
 
 public class Menu  {
     private int numberOfplayers;
+    private int IA;
 
 
     //------------------Constructor------------------//
@@ -17,6 +18,9 @@ public class Menu  {
         return numberOfplayers;
     }
 
+    public int getIA() {
+        return IA;
+    }
 
     //------------------Methods------------------//
 
@@ -28,12 +32,18 @@ public class Menu  {
         StdDraw.clear();
         StdDraw.picture(5.1,7, "img/risk_logo.png");
         // Number of players
-        StdDraw.text(2.5,3,"Nombre de joueurs : ");
+        StdDraw.setPenRadius(0.004);
+        StdDraw.text(2.5,3,"Number of players : ");
         StdDraw.text(4,3,"2");
+        StdDraw.ellipse(4,3.05,0.12,0.3);
         StdDraw.text(5,3,"3");
+        StdDraw.ellipse(5,3.05,0.12,0.3);
         StdDraw.text(6,3,"4");
+        StdDraw.ellipse(6,3.05,0.12,0.3);
         StdDraw.text(7,3,"5");
+        StdDraw.ellipse(7,3.05,0.12,0.3);
         StdDraw.text(8,3,"6");
+        StdDraw.ellipse(8,3.05,0.12,0.3);
         // display and pause for 20 ms
         StdDraw.show();
         //StdDraw.pause(20);
@@ -55,8 +65,40 @@ public class Menu  {
                 //x 2.9, 3.1
             }
         }
+
         StdDraw.clear();
-        StdDraw.text(5,5,"You chose "+this.numberOfplayers+" players");
+        StdDraw.picture(5.1,7, "img/risk_logo.png");
+        // Number of players
+        StdDraw.text(2.5,3,"Number of IAs :");
+        int [] numberIACoordinates = new int[7];
+        for(int k=0; k<=this.numberOfplayers; k++){
+            StdDraw.text(3+(k)+1,3, String.valueOf((k)));
+            StdDraw.ellipse(3+(k)+1,3.05,0.12,0.3);
+            numberIACoordinates[k] = 4+k;
+        }
+
+        // display and pause for 20 ms
+        StdDraw.show();
+        //StdDraw.pause(20);
+
+        boolean numberOfIAChosen = false;
+        while (!numberOfIAChosen){
+            // Choosing the number of players
+            if(StdDraw.isMousePressed()) {
+                //coordinates of the click
+                double xIA = StdDraw.mouseX();
+                double yIA = StdDraw.mouseY();
+                System.out.println(xIA);
+                this.IA = numberOfIAChosen(xIA,yIA, numberIACoordinates);
+                if(this.IA!=-1){
+                    numberOfIAChosen = true;
+                }
+                StdDraw.pause(90);
+            }
+        }
+
+        StdDraw.clear();
+        StdDraw.text(5,5,"You chose "+this.numberOfplayers+" players with " + this.IA +" AI playing.");
         StdDraw.pause(2000);
         StdDraw.clear();
 
@@ -84,6 +126,19 @@ public class Menu  {
         }
         return 0;
 
+    }
+
+    public int numberOfIAChosen(double xIA, double yIA, int [] numberIACoordinates){
+        int variable = -1;
+        if((yIA>=2.7 && yIA<=3.4)){
+            for (int k=0; k<this.getNumberOfplayers();k++){
+                System.out.println("k = " +k);
+                if((xIA>=numberIACoordinates[k]-0.1) && (xIA<=numberIACoordinates[k]+0.1)){
+                    variable = k;
+                }
+            }
+        }
+        return variable;
     }
 
 

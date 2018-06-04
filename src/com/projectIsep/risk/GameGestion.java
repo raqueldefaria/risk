@@ -8,7 +8,7 @@ import java.util.Random;
 
 public class GameGestion {
 
-    public void worldMap(int numberOfPlayers) {
+    public void worldMap(int numberOfPlayers, int numberOfAI) {
 
         boolean gameOver = false;
 
@@ -37,7 +37,19 @@ public class GameGestion {
             playerArrayList.add(player); // adding a player to the list
 
             //giving the player his territories
-            territoryInitialisation(player, player.getID(),numberOfPlayers, territoryArrayList); // on affecte ses territoires au joueur
+            territoryInitialisation(player, numberOfPlayers, territoryArrayList, playerArrayList); // on affecte ses territoires au joueur
+        }
+
+        // donner les territoires restants aléatoirement aux joueurs
+        if (numberOfPlayers==4 || numberOfPlayers == 5){
+            //repartition aleatoire des territoires restants
+            Random random = new Random();
+            Player player = playerArrayList.get(0);
+            for(int k =0; k<territoryArrayList.size(); k++){
+                if(territoryArrayList.get(k).getProprietary()==null){
+                    addTerritory(player,territoryArrayList.get(k).getIdTerritory(),territoryArrayList);
+                }
+            }
         }
 
         // ---------- Initialising the background---------- //
@@ -157,15 +169,22 @@ public class GameGestion {
                         // move
                         else if(yAction>=54.9 && yAction<=57.4){
                             ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"move");
-                            int numberOfUnits = listTerritories.get(0).getNbSoldier() + listTerritories.get(0).getNbCavalery() + listTerritories.get(0).getNbCanon();
-                            movingUnits(listTerritories.get(0),listTerritories.get(1));
+                            int distanceBetweenTerritories = calculateMovement(listTerritories.get(0), listTerritories.get(1), territoryArrayList);
+                            System.out.println("distance = " + distanceBetweenTerritories);
+                            if (distanceBetweenTerritories<4 && distanceBetweenTerritories>0){
+                                movingUnits(listTerritories.get(0),listTerritories.get(1),distanceBetweenTerritories);
+                            }
+                            else{
+                                StdDraw.clear();
+                                StdDraw.text(50,50,"The territory you chose is too far away !");
+                                StdDraw.pause(2000);
+                            }
                             updateBackground(territoryArrayList,numberOfPlayers);
                         }
                         // pass
                         else if(yAction>=50.8 && yAction<=53.3){
                             StdDraw.clear();
                             StdDraw.show();
-                            actionChosen = true;
                             return;
                         }
                         // clicking on the mission
@@ -174,7 +193,6 @@ public class GameGestion {
                             StdDraw.clear();
                             StdDraw.text(50, 50, "Player " + (compteur + 1) + ", your mission is :  " + player.getMission().getBriefing());
                             StdDraw.show();
-                            StdDraw.pause(5000);
                             StdDraw.clear();
                             updateBackground(territoryArrayList, playerArrayList.size());
                         }
@@ -203,7 +221,7 @@ public class GameGestion {
                                             StdDraw.text(50, 50, "Cavalry effective : " + territory.getNbCavalery());
                                             StdDraw.text(70, 50, "Number of Canons : " + territory.getNbCanon());
                                             StdDraw.show();
-                                            StdDraw.pause(5000);
+                                            StdDraw.pause(4000);
                                             territoryChecked = true;
                                             updateBackground(territoryArrayList, playerArrayList.size());
                                         }
@@ -215,120 +233,167 @@ public class GameGestion {
                 }
             }
 
+    }
+
+    // calculating the movement between two territories
+    public int calculateMovement(Territory territoryGivingUnits, Territory territoryReceivingUnits, ArrayList<Territory> territoryArrayList){
+        ArrayList<Territory> frontier2Territories = new ArrayList<>();
+        ArrayList<Territory> frontier3Territories = new ArrayList<>();
+
+        // direct neighbour
+        for(int it=0; it<territoryGivingUnits.getFrontier().length; it++) {
+            if(territoryReceivingUnits.getIdTerritory() == territoryGivingUnits.getFrontier()[it]-1){
+                return 1;
+            }
+            Territory territoryFrontier = territoryArrayList.get(territoryGivingUnits.getFrontier()[it]-1);
+            for(int i=0; i<territoryFrontier.getFrontier().length;i++){
+                frontier2Territories.add(territoryArrayList.get(territoryFrontier.getFrontier()[i]-1));
+                Territory territoryFrontier2 = territoryArrayList.get(territoryFrontier.getFrontier()[i]-1);
+                for(int k = 0; k<territoryFrontier2.getFrontier().length; k++){
+                    frontier3Territories.add(territoryArrayList.get(territoryFrontier2.getFrontier()[k]-1));
+                }
+            }
         }
 
 
-    public void movingUnits(Territory territoryGivingUnits, Territory territoryReceivingUnits){
+        for(int a=0; a<frontier2Territories.size(); a++){
+            if(frontier2Territories.get(a).getIdTerritory()==territoryReceivingUnits.getIdTerritory()){
+                return 2;
+            }
+        }
+
+        for(int a=0; a<frontier3Territories.size(); a++){
+            if(frontier3Territories.get(a).getIdTerritory()==territoryReceivingUnits.getIdTerritory()){
+                return 3;
+            }
+        }
+
+        return 0;
+
+
+    }
+
+    public void movingUnits(Territory territoryGivingUnits, Territory territoryReceivingUnits, int distance){
         boolean unitsChosen = false;
+        int nbSoldier =0;
+        int nbCavalery=0;
+        int nbCanon=0;
+        boolean numberOfCavaliersChosen = false;
+        boolean numberOfSoldiersChosen = false;
+        boolean numberOfCanonChosen = false;
+
         while (!unitsChosen) {
-            int[] xTextSoldier = new int[territoryGivingUnits.getNbSoldier() + 1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50, 60, "How many soldiers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
-            StdDraw.text(40, 55, "Number of soldiers : ");
-            for (int it = 0; it <= territoryGivingUnits.getNbSoldier(); it++) {
-                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
-                xTextSoldier[it] = (45 + it * 2) + 2;
-            }
-            StdDraw.show();
-            StdDraw.pause(5000);
-            boolean numberOfSoldiersChosen = false;
-            int nbSoldierAttacker = 0;
-            while (!numberOfSoldiersChosen) {
-                if (StdDraw.isMousePressed()) {
-                    double xSoldier = StdDraw.mouseX();
-                    double ySoldier = StdDraw.mouseY();
-                    if (ySoldier >= 53.7 && ySoldier <= 56.3) {
-                        for (int k = 0; k <= territoryGivingUnits.getNbSoldier(); k++) {
-                            if (xSoldier >= xTextSoldier[k] - 1.1 && xSoldier <= xTextSoldier[k] + 1.1) {
-                                nbSoldierAttacker = k;
-                                numberOfSoldiersChosen = true;
+            // cavalery
+            if(distance<3){
+                int[] xTextCavalier = new int[territoryGivingUnits.getNbCavalery() + 1];
+                StdDraw.disableDoubleBuffering();
+                StdDraw.clear();
+                StdDraw.text(50, 60, "How many cavaliers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
+                StdDraw.text(40, 55, "Number of cavaliers : ");
+                for (int it = 0; it <= territoryGivingUnits.getNbCavalery(); it++) {
+                    StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                    xTextCavalier[it] = (45 + it * 2) + 2;
+                }
+                StdDraw.show();
+                while (!numberOfCavaliersChosen) {
+                    if (StdDraw.isMousePressed()) {
+                        double xCavalery = StdDraw.mouseX();
+                        double yCavalery = StdDraw.mouseY();
+
+                        if (yCavalery >= 53.7 && yCavalery <= 56.3) {
+                            for (int k = 0; k <= territoryGivingUnits.getNbCavalery(); k++) {
+                                if (xCavalery >= xTextCavalier[k] - 1.1 && xCavalery <= xTextCavalier[k] + 1.1) {
+                                    nbCavalery = k;
+                                    numberOfCavaliersChosen = true;
+                                }
                             }
                         }
+                        StdDraw.pause(100);
                     }
-                    StdDraw.pause(90);
                 }
             }
-
-
-
-            int[] xTextCavalier = new int[territoryGivingUnits.getNbCavalery() + 1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50, 60, "How many cavaliers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
-            StdDraw.text(40, 55, "Number of cavaliers : ");
-            for (int it = 0; it <= territoryGivingUnits.getNbCavalery(); it++) {
-                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
-                xTextCavalier[it] = (45 + it * 2) + 2;
-            }
-            StdDraw.show();
-            StdDraw.pause(5000);
-            boolean numberOfCavaliersChosen = false;
-            int nbCavaleryAttacker = 0;
-            while (!numberOfCavaliersChosen) {
-                if (StdDraw.isMousePressed()) {
-                    double xCavalery = StdDraw.mouseX();
-                    double yCavalery = StdDraw.mouseY();
-
-                    if (yCavalery >= 53.7 && yCavalery <= 56.3) {
-                        for (int k = 0; k <= territoryGivingUnits.getNbCavalery(); k++) {
-                            if (xCavalery >= xTextCavalier[k] - 1.1 && xCavalery <= xTextCavalier[k] + 1.1) {
-                                nbCavaleryAttacker = k;
-                                numberOfCavaliersChosen = true;
+            //soldier
+            if(distance<4){
+                int[] xTextSoldier = new int[territoryGivingUnits.getNbSoldier()+ 1];
+                StdDraw.disableDoubleBuffering();
+                StdDraw.clear();
+                StdDraw.text(50, 60, "How many soldiers do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
+                StdDraw.text(40, 55, "Number of soldiers : ");
+                for (int it = 0; it <= territoryGivingUnits.getNbSoldier(); it++) {
+                    StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                    xTextSoldier[it] = (45 + it * 2) + 2;
+                }
+                StdDraw.show();
+                while (!numberOfSoldiersChosen) {
+                    if (StdDraw.isMousePressed()) {
+                        double xSoldier = StdDraw.mouseX();
+                        double ySoldier = StdDraw.mouseY();
+                        if (ySoldier >= 53.7 && ySoldier <= 56.3) {
+                            for (int k = 0; k <= territoryGivingUnits.getNbSoldier(); k++) {
+                                if (xSoldier >= xTextSoldier[k] - 1.1 && xSoldier <= xTextSoldier[k] + 1.1) {
+                                    nbSoldier = k;
+                                    numberOfSoldiersChosen = true;
+                                }
                             }
                         }
+                        StdDraw.pause(100);
                     }
-                    StdDraw.pause(90);
                 }
+
             }
-
-
-
-            int[] xTextCanon = new int[territoryGivingUnits.getNbCanon() + 1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50, 60, "How many canons do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
-            StdDraw.text(40, 55, "Number of canons : ");
-            for (int it = 0; it <= territoryGivingUnits.getNbCanon(); it++) {
-                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
-                xTextCanon[it] = (45 + it * 2) + 2;
-            }
-            StdDraw.show();
-            StdDraw.pause(5000);
-            boolean numberOfCanonChosen = false;
-            int nbCanonAttacker = 0;
-            while (!numberOfCanonChosen) {
-                if (StdDraw.isMousePressed()) {
-                    double xCanon = StdDraw.mouseX();
-                    double yCanon = StdDraw.mouseY();
-                    if (yCanon >= 53.7 && yCanon <= 56.3) {
-                        for (int k = 0; k <= territoryGivingUnits.getNbCanon(); k++) {
-                            if (xCanon >= xTextCanon[k] - 1.1 && xCanon <= xTextCanon[k] + 1.1) {
-                                nbCanonAttacker = k;
-                                numberOfCanonChosen = true;
+            //canon
+            if(distance<2){
+                int[] xTextCanon = new int[territoryGivingUnits.getNbCanon() + 1];
+                StdDraw.disableDoubleBuffering();
+                StdDraw.clear();
+                StdDraw.text(50, 60, "How many canons do you want to go from " + territoryGivingUnits.getNameTerritory()+" to " + territoryReceivingUnits.getNameTerritory() + " ?");
+                StdDraw.text(40, 55, "Number of canons : ");
+                for (int it = 0; it <= territoryGivingUnits.getNbCanon(); it++) {
+                    StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                    xTextCanon[it] = (45 + it * 2) + 2;
+                }
+                StdDraw.show();
+                while (!numberOfCanonChosen) {
+                    if (StdDraw.isMousePressed()) {
+                        double xCanon = StdDraw.mouseX();
+                        double yCanon = StdDraw.mouseY();
+                        if (yCanon >= 53.7 && yCanon <= 56.3) {
+                            for (int k = 0; k <= territoryGivingUnits.getNbCanon(); k++) {
+                                if (xCanon >= xTextCanon[k] - 1.1 && xCanon <= xTextCanon[k] + 1.1) {
+                                    nbCanon = k;
+                                    numberOfCanonChosen = true;
+                                }
                             }
                         }
+                        StdDraw.pause(100);
                     }
-                    StdDraw.pause(90);
                 }
+
             }
 
-            int unitsTerritory = territoryGivingUnits.getNbSoldier() + territoryGivingUnits.getNbCanon() + territoryGivingUnits.getNbCavalery();
-            int units = nbSoldierAttacker + nbCavaleryAttacker + nbCanonAttacker;
 
-            if((nbCanonAttacker + nbCavaleryAttacker + nbSoldierAttacker !=0) && (unitsTerritory>units)){
+            int unitsTerritory = territoryGivingUnits.getNbSoldier() + territoryGivingUnits.getNbCavalery() + territoryGivingUnits.getNbCanon();
+            int units = nbSoldier + nbCavalery + nbCanon;
+
+            if((nbCanon + nbCavalery + nbSoldier !=0) && (unitsTerritory>units)){
                 // giving units
-                territoryGivingUnits.setNbSoldier(territoryGivingUnits.getNbSoldier()-nbSoldierAttacker);
-                territoryGivingUnits.setNbCavalery(territoryGivingUnits.getNbCavalery()-nbCavaleryAttacker);
-                territoryGivingUnits.setNbCanon(territoryGivingUnits.getNbCanon()-nbCanonAttacker);
+                if(numberOfSoldiersChosen){
+                    territoryGivingUnits.setNbSoldier(territoryGivingUnits.getNbSoldier()-nbSoldier);
+                    territoryReceivingUnits.setNbSoldier(territoryReceivingUnits.getNbSoldier()+nbSoldier);
+                }
+                if(numberOfCavaliersChosen){
+                    territoryGivingUnits.setNbCavalery(territoryGivingUnits.getNbCavalery()-nbCavalery);
+                    territoryReceivingUnits.setNbCavalery(territoryReceivingUnits.getNbCavalery()+nbCavalery);
+                }
+                if(numberOfCanonChosen){
+                    territoryGivingUnits.setNbCanon(territoryGivingUnits.getNbCanon()-nbCanon);
+                    territoryReceivingUnits.setNbCanon(territoryReceivingUnits.getNbCanon()+nbCanon);
+                }
                 //receiving units
-                territoryReceivingUnits.setNbSoldier(territoryReceivingUnits.getNbSoldier()+nbSoldierAttacker);
-                territoryReceivingUnits.setNbCavalery(territoryReceivingUnits.getNbCavalery()+nbCavaleryAttacker);
-                territoryReceivingUnits.setNbCanon(territoryReceivingUnits.getNbCanon()+nbCanonAttacker);
                 unitsChosen = true;
             }
             // no mouvement
-            if(nbCanonAttacker + nbCavaleryAttacker + nbSoldierAttacker ==0){
+            if(nbCanon + nbCavalery + nbSoldier ==0){
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
                 StdDraw.text(50,50,"No units were moved !");
@@ -343,6 +408,7 @@ public class GameGestion {
                 StdDraw.text(50,50,"At least one unit needs to remain in " + territoryGivingUnits.getNameTerritory());
                 StdDraw.show();
                 StdDraw.pause(1500);
+                return;
             }
         }
     }
@@ -362,8 +428,21 @@ public class GameGestion {
                         if ((xAttackingTerritory >= territory.getX() - 2 && xAttackingTerritory <= territory.getX() + 2) && (yAttackingTerritory >= territory.getY() - 4 && yAttackingTerritory <= territory.getY() + 4)) {
                             Territory attackingTerritory = territory;
                             attackingTerritoryChosen = true;
+//                            for(int e=0; e<attackingTerritory.getFrontier().length; e++){
+//                                Territory frontierTerritory = territories.get(attackingTerritory.getFrontier()[e]);
+//                                if(frontierTerritory.getProprietary().getID()!=player.getID()){
+//                                    attackingTerritoryChosen = true;
+//                                }
+//                            }
+//                            if(!attackingTerritoryChosen){
+//                                StdDraw.clear();
+//                                StdDraw.text(50,50,"Please choose another territory");
+//                                StdDraw.show();
+//                                StdDraw.pause(1000);
+//                                updateBackground(territories, numberOfPlayers);
+//                            }
                             StdDraw.clear();
-                            if(button.equals("attack")){
+                            if(button.equals("attack") && attackingTerritoryChosen){
                                 StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory());
                                 StdDraw.show();
 
@@ -376,7 +455,7 @@ public class GameGestion {
                             StdDraw.pause(2000);
                             updateBackground(territories,numberOfPlayers);
                             boolean defendingTerritoryChosen = false;
-                            while (!defendingTerritoryChosen) {
+                            while (!defendingTerritoryChosen && attackingTerritoryChosen) {
                                 if (StdDraw.isMousePressed()) {
                                     double xDefendingTerritory = StdDraw.mouseX();
                                     double yDefendingTerritory = StdDraw.mouseY();
@@ -415,13 +494,13 @@ public class GameGestion {
                                                 }
                                                 else if(button.equals("move")){
                                                     // verifying that the defending territory is next to the attacking one
-                                                    boolean frontier = false;
-                                                    for(int d=0; d<attackingTerritory.getFrontier().length;d++){
-                                                        if(defendingTerritory.getIdTerritory() == attackingTerritory.getFrontier()[d]){
-                                                            frontier = true;
-                                                        }
-                                                    }
-                                                    if(territory2 != territory && territory2.getProprietary() == territory.getProprietary() && frontier){
+//                                                    boolean frontier = false;
+//                                                    for(int d=0; d<attackingTerritory.getFrontier().length;d++){
+//                                                        if(defendingTerritory.getIdTerritory() == attackingTerritory.getFrontier()[d]){
+//                                                            frontier = true;
+//                                                        }
+//                                                    }
+                                                    if(territory2 != territory && territory2.getProprietary() == territory.getProprietary() ){
                                                         defendingTerritoryChosen = true;
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"You chose to move your units to " + defendingTerritory.getNameTerritory());
@@ -939,7 +1018,7 @@ public class GameGestion {
 
     }
 
-    public void territoryInitialisation(Player player, int playerId, int numberOfPlayers, ArrayList<Territory> territories){
+    public void territoryInitialisation(Player player, int numberOfPlayers, ArrayList<Territory> territories, ArrayList<Player> playerArrayList){
         Random random = new Random();
         int numberTerritories = territories.size();
         switch(numberOfPlayers){
@@ -947,35 +1026,35 @@ public class GameGestion {
                 player.setReinforcement(40);
                 for (int twoPlayers = 0; twoPlayers < numberTerritories/2; twoPlayers++){
                     int territoryId2 = random.nextInt(numberTerritories);
-                    addTerritory(player, playerId,territoryId2,territories);
+                    addTerritory(player, territoryId2,territories);
                 }
                 break;
             case 3:
                 player.setReinforcement(35);
                 for (int threePlayers = 0; threePlayers < numberTerritories/3; threePlayers++){
                     int territoryId3 = random.nextInt(numberTerritories);
-                    addTerritory(player, playerId,territoryId3,territories);
+                    addTerritory(player,territoryId3,territories);
                 }
                 break;
             case 4:
                 player.setReinforcement(30);
                 for (int fourPlayers = 0; fourPlayers < numberTerritories/4; fourPlayers++){ // il restera deux territoires à distribuer
                     int territoryId4 = random.nextInt(numberTerritories);
-                    addTerritory(player, playerId,territoryId4,territories);
+                    addTerritory(player,territoryId4,territories);
                 }
                 break;
             case 5:
                 player.setReinforcement(25);
                 for (int fivePlayers = 0; fivePlayers < numberTerritories/5; fivePlayers++){ // il restera deux territoires à distribuer
                     int territoryId5 = random.nextInt(numberTerritories);
-                    addTerritory(player, playerId,territoryId5,territories);
+                    addTerritory(player,territoryId5,territories);
                 }
                 break;
             case 6:
                 player.setReinforcement(20);
                 for (int sixPlayers = 0; sixPlayers < numberTerritories/6; sixPlayers++){
                     int territoryId6 = random.nextInt(numberTerritories);
-                    addTerritory(player, playerId,territoryId6,territories);
+                    addTerritory(player,territoryId6,territories);
                 }
                 break;
             default:
@@ -983,7 +1062,7 @@ public class GameGestion {
         }
     }
 
-    public void addTerritory(Player player, int playerId, int id, ArrayList<Territory> territoryArrayList){
+    public void addTerritory(Player player, int id, ArrayList<Territory> territoryArrayList){
         Random random = new Random();
         Territory territory = territoryArrayList.get(id);
         if (territory.getProprietary()==null){
@@ -995,7 +1074,7 @@ public class GameGestion {
         }
         else {
             int toAdd= random.nextInt(territoryArrayList.size());
-            addTerritory(player, playerId, toAdd, territoryArrayList);
+            addTerritory(player, toAdd, territoryArrayList);
 
         }
     }

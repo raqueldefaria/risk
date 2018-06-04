@@ -189,6 +189,7 @@ public class Army {
                 StdDraw.text(50,50,"You need to at least chose one unit ");
                 StdDraw.show();
                 StdDraw.pause(1500);
+                return false;
             }
 
             else if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) > 3){
