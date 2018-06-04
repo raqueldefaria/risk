@@ -8,7 +8,7 @@ public class Main{
         Menu menu = new Menu();
         menu.startGame();
         GameGestion gestion = new GameGestion();
-        gestion.worldMap(menu.getNumberOfplayers());
+        gestion.worldMap(menu.getNumberOfplayers(), menu.getIA());
     }
 
 }
