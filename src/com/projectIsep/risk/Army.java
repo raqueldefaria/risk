@@ -130,7 +130,7 @@ public class Army {
                             }
                         }
                     }
-                    StdDraw.pause(200);
+                    StdDraw.pause(90);
                 }
             }
 
@@ -169,7 +169,7 @@ public class Army {
                             }
                         }
                     }
-                    StdDraw.pause(200);
+                    StdDraw.pause(90);
                 }
             }
 

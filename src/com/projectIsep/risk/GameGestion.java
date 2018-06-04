@@ -70,7 +70,7 @@ public class GameGestion {
         initiateArmy(playerArrayList, territoryArrayList);
 
 
-
+        int compteur = 0;
 
         while (!gameOver) {
             StdDraw.disableDoubleBuffering();
@@ -79,7 +79,6 @@ public class GameGestion {
             StdDraw.show();
             StdDraw.pause(1000);
             StdDraw.clear();
-            int compteur = 0;
             while (compteur < numberOfPlayers) {
                 Player player = playerArrayList.get(compteur); // On sélectionne le joueur
                 if(player.getIA()){
@@ -139,8 +138,11 @@ public class GameGestion {
                     compteur=0;
                 }
             }
-
         }
+        StdDraw.clear();
+        StdDraw.text(50,50,"Player " + compteur+ "has won !");
+        StdDraw.show();
+        StdDraw.pause(1000);
     }
 
     public void playing(ArrayList<Player> playerArrayList, ArrayList<Territory> territoryArrayList, int compteur, int numberOfPlayers, int reinforcement){
@@ -305,7 +307,7 @@ public class GameGestion {
 
         while (!unitsChosen) {
             // cavalery
-            if(distance<3){
+            if(distance<4){
                 int[] xTextCavalier = new int[territoryGivingUnits.getNbCavalery() + 1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
@@ -334,7 +336,7 @@ public class GameGestion {
                 }
             }
             //soldier
-            if(distance<4){
+            if(distance<3){
                 int[] xTextSoldier = new int[territoryGivingUnits.getNbSoldier()+ 1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
