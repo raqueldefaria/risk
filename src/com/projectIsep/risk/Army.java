@@ -520,7 +520,7 @@ public class Army {
             ArrayList<Territory> newArraylistTerritoryAttacker = attacker.territory.getProprietary().getArraylistTerritories(); // je copie la liste de territoires de l'attaquant
             newArraylistTerritoryAttacker.add(defender.territory); // je lui ajoute le nouveau territoire
             attacker.territory.getProprietary().setArraylistTerritories(newArraylistTerritoryAttacker); // je l'implémente à la place de l'ancienne
-            defender.territory.getProprietary().arraylistTerritories.remove(territory);
+            defender.territory.getProprietary().getArraylistTerritories().remove(territory);
             attacker.territory.getProprietary().setCapture(attacker.territory.getProprietary().getCapture()+1);
 
 

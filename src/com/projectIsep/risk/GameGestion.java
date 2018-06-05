@@ -218,6 +218,7 @@ public class GameGestion {
                             StdDraw.clear();
                             StdDraw.text(50, 50, "Player " + (compteur + 1) + ", your mission is :  " + player.getMission().getBriefing());
                             StdDraw.show();
+                            StdDraw.pause(3000);
                             StdDraw.clear();
                             updateBackground(territoryArrayList, playerArrayList.size());
                         }
@@ -625,6 +626,7 @@ public class GameGestion {
                                 for (int u = 0; u < territoryArrayList.size(); u++) {
                                     Territory territory = territoryArrayList.get(u);
                                     if ((xTerritory >= territory.getX() - 2 && xTerritory <= territory.getX() + 2) && (yTerritory >= territory.getY() - 4 && yTerritory <= territory.getY() + 4)) {
+                                        StdDraw.disableDoubleBuffering();
                                         StdDraw.clear();
                                         StdDraw.text(50, 60, "Here are the units available in " + territory.getNameTerritory());
                                         StdDraw.text(30, 50, "Number of Soldiers : " + territory.getNbSoldier());
