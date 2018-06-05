@@ -604,9 +604,10 @@ public class GameGestion {
                 if(x>=89) {
                     // clicking on the mission
                     if (y >= 43.96 && y <= 46.96) {
+                        StdDraw.disableDoubleBuffering();
                         StdDraw.clear();
                         StdDraw.text(50, 50, "Player " + (k + 1) + ", your mission is :  " + player.getMission().getBriefing());
-                        StdDraw.pause(5000);
+                        StdDraw.pause(3000);
                         StdDraw.clear();
                         updateBackground(territoryArrayList, playerArrayList.size());
                     }
