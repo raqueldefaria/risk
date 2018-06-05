@@ -7,11 +7,11 @@ import java.util.Collections;
 import java.util.Random;
 
 public class Army {
-    public int nbSoldier;
-    public int nbCavalery;
-    public int nbCanon;
-    public boolean attacker;
-    public Territory territory;
+    private int nbSoldier;
+    private int nbCavalery;
+    private int nbCanon;
+    private boolean attacker;
+    private Territory territory;
 
     public Army() {
     }

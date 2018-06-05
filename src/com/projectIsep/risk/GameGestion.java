@@ -14,7 +14,6 @@ public class GameGestion {
 
         // ---------- Initialising players and territories and missions ---------- //
         ArrayList<Territory> territoryArrayList = initiateTerritories();
-        int it = 0; // initialising the number of players
         ArrayList<Player> playerArrayList = new ArrayList<>();
         Mission mission = new Mission();
         ArrayList<Mission> missionList = mission.generateMission(playerArrayList);
@@ -41,7 +40,7 @@ public class GameGestion {
             playerArrayList.add(player); // adding a player to the list
 
             //giving the player his territories
-            territoryInitialisation(player, numberOfPlayers, territoryArrayList, playerArrayList); // on affecte ses territoires au joueur
+            territoryInitialisation(player, numberOfPlayers, territoryArrayList); // on affecte ses territoires au joueur
         }
 
         // donner les territoires restants aléatoirement aux joueurs
@@ -81,61 +80,64 @@ public class GameGestion {
             StdDraw.clear();
             while (compteur < numberOfPlayers) {
                 Player player = playerArrayList.get(compteur); // On sélectionne le joueur
-                if(player.getIA()){
-                    player.IAReinforcement(territoryArrayList);
-                    ArrayList<Territory> conflictList = player.IAListOfPossibleConflicts(territoryArrayList);
-                    for(int laotseu=0; laotseu<conflictList.size(); laotseu+=2){
-                        if(conflictList.get(laotseu).getProprietary()!=conflictList.get(laotseu+1).getProprietary() ){ // si le territoire n'as pas été conquis paar une attaque précédente
-                            conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1));
-                            updateBackground(territoryArrayList,numberOfPlayers);
-                            StdDraw.pause(3000);
+                // if the player has territories, he can play
+                if(player.getArraylistTerritories().size()!=0){
+                    if(player.getIA()){
+                        player.IAReinforcement(territoryArrayList);
+                        ArrayList<Territory> conflictList = player.IAListOfPossibleConflicts(territoryArrayList);
+                        for(int laotseu=0; laotseu<conflictList.size(); laotseu+=2){
+                            if(conflictList.get(laotseu).getProprietary()!=conflictList.get(laotseu+1).getProprietary() ){ // si le territoire n'as pas été conquis paar une attaque précédente
+                                conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1));
+                                updateBackground(territoryArrayList,numberOfPlayers);
+                                StdDraw.pause(3000);
+                            }
                         }
+                        player.IAMovement(territoryArrayList);
                     }
-                    player.IAMovement(territoryArrayList);
-                }
-                else{
-                    playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
-                    player.computerReinforcement(); //on calcule le nombre de renforts
-                    //on permet au joueur de placer ses renforts
-                }
+                    else{
+                        playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
+                        player.computerReinforcement(); //on calcule le nombre de renforts
+                        //on permet au joueur de placer ses renforts
+                    }
 
-                //checking if the player has conquered all the territories
-                for(int k=0; k<territoryArrayList.size();k++){
-                    gameOver = true;
-                    if(territoryArrayList.get(k).getProprietary().getID() != (compteur+1)){
-                        gameOver = false;
-                }
-
-                for (int region=0; region<regionArrayList.size(); region++ ){ // on check si la région a un propriétaire
-
-                    regionArrayList.get(region).checkRuler();
-                }
-
-                for (int playerCheckRegion=0; playerCheckRegion<playerArrayList.size(); playerCheckRegion++){ //parmis tous les joueurs
-
-                    ArrayList<Region> regionRuled = new ArrayList<Region>();
-                    for (int region=0; region<regionArrayList.size(); region++ ){ // parmis toutes les régions
-
-                        // on crée une arraylist des régons que contrôle le joueur
-                        if (regionArrayList.get(region).getRuler()==playerArrayList.get(playerCheckRegion)){
-
-                            regionRuled.add(regionArrayList.get(region));
+                    //checking if the player has conquered all the territories
+                    for(int k=0; k<territoryArrayList.size();k++){
+                        gameOver = true;
+                        if(territoryArrayList.get(k).getProprietary().getID() != (compteur+1)){
+                            gameOver = false;
                         }
-                        playerArrayList.get(playerCheckRegion).setArraylistRegion(regionRuled);
+
+                        for (int region=0; region<regionArrayList.size(); region++ ){ // on check si la région a un propriétaire
+
+                            regionArrayList.get(region).checkRuler();
+                        }
+
+                        for (int playerCheckRegion=0; playerCheckRegion<playerArrayList.size(); playerCheckRegion++){ //parmis tous les joueurs
+
+                            ArrayList<Region> regionRuled = new ArrayList<Region>();
+                            for (int region=0; region<regionArrayList.size(); region++ ){ // parmis toutes les régions
+
+                                // on crée une arraylist des régons que contrôle le joueur
+                                if (regionArrayList.get(region).getRuler()==playerArrayList.get(playerCheckRegion)){
+
+                                    regionRuled.add(regionArrayList.get(region));
+                                }
+                                playerArrayList.get(playerCheckRegion).setArraylistRegion(regionRuled);
+
+                            }
+                        }
 
                     }
-                }
+                    // on check si le joueur a gagné avec sa mission
+                    player.getMission().chekcMissionFinished(playerArrayList, player);
+                    if (player.getMission().isMissionAccomplished()) {
+                        gameOver = true;
 
-                }
-               // on check si le joueur a gagné avec sa mission
-                player.getMission().chekcMissionFinished(playerArrayList, player);
-                if (player.getMission().missionAccomplished) {
-                    gameOver = true;
-
-                }
-                compteur++;
-                if(compteur == numberOfPlayers){
-                    compteur=0;
+                    }
+                    compteur++;
+                    if(compteur == numberOfPlayers){
+                        compteur=0;
+                    }
                 }
             }
         }
@@ -1046,7 +1048,7 @@ public class GameGestion {
 
     }
 
-    public void territoryInitialisation(Player player, int numberOfPlayers, ArrayList<Territory> territories, ArrayList<Player> playerArrayList){
+    public void territoryInitialisation(Player player, int numberOfPlayers, ArrayList<Territory> territories){
         Random random = new Random();
         int numberTerritories = territories.size();
         switch(numberOfPlayers){

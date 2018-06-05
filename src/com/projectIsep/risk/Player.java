@@ -6,9 +6,8 @@ import java.util.Random;
 public class Player {
     private int ID;
     private Mission mission;
-    private String namePlayer;
-    public ArrayList<Territory> arraylistTerritories= new ArrayList<Territory>();
-    public ArrayList<Region> arraylistRegion = new ArrayList<Region>();
+    private ArrayList<Territory> arraylistTerritories= new ArrayList<Territory>();
+    private ArrayList<Region> arraylistRegion = new ArrayList<Region>();
     private int reinforcement;
     private int capture;
     private boolean alive;
@@ -36,14 +35,6 @@ public class Player {
 
     public void setAlive(boolean alive) {
         this.alive = alive;
-    }
-
-    public String getNamePlayer() {
-        return namePlayer;
-    }
-
-    public void setNamePlayer(String namePlayer) {
-        this.namePlayer = namePlayer;
     }
 
     public ArrayList<Territory> getArraylistTerritories() {

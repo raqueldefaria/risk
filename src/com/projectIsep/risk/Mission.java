@@ -13,7 +13,7 @@ public class Mission {
     private int IDtarget; // peut faire référence au nombre de territoires à capturer, à l'id du joueur à tuer
     private String briefing;
     private boolean missionAvalaible;
-    public boolean missionAccomplished;
+    private boolean missionAccomplished;
 
     // -------------- Constructors --------------  //
 
@@ -32,12 +32,12 @@ public class Mission {
     // -------------- Getters & Setters --------------  //
 
 
-    public int getIDtarget() {
-        return IDtarget;
+    public int getId() {
+        return id;
     }
 
-    public void setIDtarget(int IDtarget) {
-        this.IDtarget = IDtarget;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getMissionType() {
@@ -48,20 +48,12 @@ public class Mission {
         this.missionType = missionType;
     }
 
-    public boolean isMissionAccomplished() {
-        return missionAccomplished;
+    public int getIDtarget() {
+        return IDtarget;
     }
 
-    public void setMissionAccomplished(boolean missionAccomplished) {
-        this.missionAccomplished = missionAccomplished;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setIDtarget(int IDtarget) {
+        this.IDtarget = IDtarget;
     }
 
     public String getBriefing() {
@@ -78,6 +70,14 @@ public class Mission {
 
     public void setMissionAvalaible(boolean missionAvalaible) {
         this.missionAvalaible = missionAvalaible;
+    }
+
+    public boolean isMissionAccomplished() {
+        return missionAccomplished;
+    }
+
+    public void setMissionAccomplished(boolean missionAccomplished) {
+        this.missionAccomplished = missionAccomplished;
     }
 
     public ArrayList<Mission> generateMission(ArrayList<Player> listOfPlayers){
