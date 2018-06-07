@@ -440,25 +440,20 @@ public class Army {
         for (Unit unit : army) {
             Random random = new Random();
             cost = unit.getCost(); // defining the type of unit by its cost
-            System.out.println(cost);
             //soldier
             if(cost == 1){
                 value = random.nextInt(6) + 1;
-                System.out.println("soldier " + value);
             }
             //cavalery
             else if(cost == 3){
                 value = random.nextInt(6) + 2;
-                System.out.println("cavalier" + value);
             }
             //canon
             else if (cost == 7){
                 value = random.nextInt(5) + 4;
-                System.out.println("canon" + value);
             }
             result.add(value);
         }
-        System.out.println("generated dice" + result);
         return result;
     }
 

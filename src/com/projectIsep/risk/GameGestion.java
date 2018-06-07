@@ -89,10 +89,10 @@ public class GameGestion {
                             if(conflictList.get(laotseu).getProprietary()!=conflictList.get(laotseu+1).getProprietary() ){ // si le territoire n'as pas été conquis paar une attaque précédente
                                 conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1));
                                 updateBackground(territoryArrayList,numberOfPlayers);
-                                StdDraw.pause(3000);
                             }
                         }
                         player.IAMovement(territoryArrayList);
+                        System.out.println("Player " + (compteur+1) +" : "+player.getArraylistTerritories().size());
                     }
                     else{
                         playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
@@ -138,6 +138,9 @@ public class GameGestion {
                     if(compteur == numberOfPlayers){
                         compteur=0;
                     }
+                }
+                if(player.getIA()){
+                    updateBackground(territoryArrayList, numberOfPlayers);
                 }
             }
         }
@@ -453,27 +456,29 @@ public class GameGestion {
                         Territory territory = player.getArraylistTerritories().get(a);
                         if ((xAttackingTerritory >= territory.getX() - 2 && xAttackingTerritory <= territory.getX() + 2) && (yAttackingTerritory >= territory.getY() - 4 && yAttackingTerritory <= territory.getY() + 4)) {
                             Territory attackingTerritory = territory;
-                            attackingTerritoryChosen = true;
-//                            for(int e=0; e<attackingTerritory.getFrontier().length; e++){
-//                                Territory frontierTerritory = territories.get(attackingTerritory.getFrontier()[e]);
-//                                if(frontierTerritory.getProprietary().getID()!=player.getID()){
-//                                    attackingTerritoryChosen = true;
-//                                }
-//                            }
-//                            if(!attackingTerritoryChosen){
-//                                StdDraw.clear();
-//                                StdDraw.text(50,50,"Please choose another territory");
-//                                StdDraw.show();
-//                                StdDraw.pause(1000);
-//                                updateBackground(territories, numberOfPlayers);
-//                            }
-                            StdDraw.clear();
-                            if(button.equals("attack") && attackingTerritoryChosen){
+                            if(button.equals("attack")){
+                                for(int e=0; e<attackingTerritory.getFrontier().length; e++){
+                                    Territory frontierTerritory = territories.get(attackingTerritory.getFrontier()[e]);
+                                    if(frontierTerritory.getProprietary().getID()!=player.getID()){
+                                        attackingTerritoryChosen = true;
+                                    }
+                                }
+                                if(!attackingTerritoryChosen){
+                                    StdDraw.disableDoubleBuffering();
+                                    StdDraw.clear();
+                                    StdDraw.text(50,50,"Please choose another territory");
+                                    StdDraw.show();
+                                    StdDraw.pause(1000);
+                                    updateBackground(territories, numberOfPlayers);
+                                }
                                 StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory());
                                 StdDraw.show();
+                                StdDraw.clear();
 
                             }
                             else if(button.equals("move")){
+                                StdDraw.disableDoubleBuffering();
+                                StdDraw.clear();
                                 StdDraw.text(50,50,"You chose to move units from " + attackingTerritory.getNameTerritory());
                                 StdDraw.show();
 
@@ -936,10 +941,10 @@ public class GameGestion {
 
     public ArrayList<Territory> initiateTerritories(){
         ArrayList<Territory> territoryArrayList = new ArrayList<>();
-        String [] territorylist = {"Alaska", "North West Territory", "Alberta", "Ontario", "Quebec", "Groenland","Western United States",
+        String [] territorylist = {"Alaska", "North West Territory", "Alberta", "Ontario", "Quebec", "Greenland","Western United States",
                 "Eastern United States", "Central America", "Venezuela", "Brazil", "Peru", "Argentina", "Congo","South Africa", "Madagascar",
                 "East Africa","Egypt","North Africa","Iceland","Western Europe","Northern Europe","Great Britain","Southern Europe","Scandinavia",
-                "Ukraine","Middle East","Afghanistan","Ural","Siberia","Yakutsk","Kamchatka","Irkustsk","Mongolia","China",
+                "Ukraine","Middle East","Afghanistan","Ural","Siberia","Yakutsk","Kamchatka","Irkutsk","Mongolia","China",
                 "India","Siam","Japan","Indonesia","New Guinea","Western Australia","Eastern Australia"};
 
         ArrayList<int [][]> listoffrontiers = new ArrayList<int [][]>();
@@ -983,7 +988,7 @@ public class GameGestion {
                 {35, 36, 39},//"Siam", 37
                 {32, 34},//"Japan",38
                 {37, 40, 41},//"Indonesia",39
-                {39, 40, 41},//"New Guinea",40
+                {39, 40, 41,42},//"New Guinea",40
                 {39,40,42},//"Western Australia"41
                 {40,41},//, "Eastern Australia"42
         };
@@ -1162,7 +1167,7 @@ public class GameGestion {
         Army attacker = new Army();
         attacker.setAttacker(true);
         attacker.setTerritory(attackerTerritory);
-        if(attackerTerritory.getNbSoldier()==3){
+        if(attackerTerritory.getNbSoldier()>=3){
             attacker.setNbSoldier(3);
         }
         else if(attackerTerritory.getNbSoldier()==2){
@@ -1185,7 +1190,7 @@ public class GameGestion {
             if(defenderTerritory.getNbSoldier()==1){
                 defender.setNbSoldier(1);
             }
-            else if(defenderTerritory.getNbSoldier()==2){
+            else if(defenderTerritory.getNbSoldier()>1){
                 defender.setNbSoldier(2);
             }
         }
