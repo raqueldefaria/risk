@@ -69,12 +69,12 @@ public class Menu  {
         StdDraw.clear();
         StdDraw.picture(5.1,7, "img/risk_logo.png");
         // Number of players
-        StdDraw.text(2.5,3,"Number of IAs :");
+        StdDraw.text(1.5,3,"Number of IAs :");
         int [] numberIACoordinates = new int[7];
         for(int k=0; k<=this.numberOfplayers; k++){
-            StdDraw.text(3+(k)+1,3, String.valueOf((k)));
-            StdDraw.ellipse(3+(k)+1,3.05,0.12,0.3);
-            numberIACoordinates[k] = 4+k;
+            StdDraw.text(2+(k)+1,3, String.valueOf((k)));
+            StdDraw.ellipse(2+(k)+1,3.05,0.12,0.3);
+            numberIACoordinates[k] = 3+k;
         }
 
         // display and pause for 20 ms
@@ -88,9 +88,7 @@ public class Menu  {
                 //coordinates of the click
                 double xIA = StdDraw.mouseX();
                 double yIA = StdDraw.mouseY();
-                System.out.println(xIA);
                 this.IA = numberOfIAChosen(xIA,yIA, numberIACoordinates);
-                System.out.println("ia " + this.getIA());
                 if(this.IA!=-1){
                     numberOfIAChosen = true;
                 }

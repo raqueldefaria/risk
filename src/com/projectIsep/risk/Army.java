@@ -493,8 +493,8 @@ public class Army {
     }
 
     public void deleteUnit(int it, ArrayList <Unit>  armyList, Army army ){
-        Unit casulatie = armyList.get(it); // on sélectionne le it-ième terme de la liste de troupes de l'armée
-        int cost = casulatie.getCost(); // on regarde le cout de l'unité
+        Unit casualties = armyList.get(it); // on sélectionne le it-ième terme de la liste de troupes de l'armée
+        int cost = casualties.getCost(); // on regarde le cout de l'unité
         if(cost == 1){ // si le prix est 1 alors c'est un soldat
             army.setNbSoldier(army.getNbSoldier()-1); // on supprime un soldat dans l'armée
         }

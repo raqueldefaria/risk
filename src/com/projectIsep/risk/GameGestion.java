@@ -92,7 +92,6 @@ public class GameGestion {
                             }
                         }
                         player.IAMovement(territoryArrayList);
-                        System.out.println("Player " + (compteur+1) +" : "+player.getArraylistTerritories().size());
                     }
                     else{
                         playing(playerArrayList,territoryArrayList,compteur,numberOfPlayers, player.getReinforcement());
