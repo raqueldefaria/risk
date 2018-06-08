@@ -47,9 +47,12 @@ public class GameGestion {
         if (numberOfPlayers==4 || numberOfPlayers == 5){
             //repartition aleatoire des territoires restants
             Random random = new Random();
-            Player player = playerArrayList.get(0);
             for(int k =0; k<territoryArrayList.size(); k++){
+                int playerNumber = random.nextInt(numberOfPlayers);
                 if(territoryArrayList.get(k).getProprietary()==null){
+                    Player player = playerArrayList.get(playerNumber);
+                    playerNumber = random.nextInt(numberOfPlayers);
+                    territoryArrayList.get(k).setProprietary(player);
                     addTerritory(player,territoryArrayList.get(k).getIdTerritory(),territoryArrayList);
                 }
             }
