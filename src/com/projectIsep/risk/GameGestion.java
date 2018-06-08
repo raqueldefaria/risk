@@ -1206,6 +1206,7 @@ public class GameGestion {
 
 
         updateBackground(territoryArrayList, numberOfPlayers );
+        StdDraw.pause(1500);
 
         // ------------------- On crée l'armée défenseuse -------------------//
         Army defender = new Army();
