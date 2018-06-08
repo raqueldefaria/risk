@@ -64,7 +64,7 @@ public class GameGestion {
         // ---------- Initialising the background---------- //
         StdDraw.pause(1000);
         StdDraw.clear();
-        StdDraw.text(50,50,"Let's get ready to war ! Choose the starting location of you forces, my general !");
+        StdDraw.text(50,50,"Let's get ready to war ! Choose the starting location of your forces, my general !");
         StdDraw.show();
         StdDraw.pause(2000);
 
@@ -90,7 +90,7 @@ public class GameGestion {
                         ArrayList<Territory> conflictList = player.IAListOfPossibleConflicts(territoryArrayList);
                         for(int laotseu=0; laotseu<conflictList.size(); laotseu+=2){
                             if(conflictList.get(laotseu).getProprietary()!=conflictList.get(laotseu+1).getProprietary() ){ // si le territoire n'as pas été conquis paar une attaque précédente
-                                conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1));
+                                conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1),territoryArrayList, numberOfPlayers);
                                 updateBackground(territoryArrayList,numberOfPlayers);
                             }
                         }
@@ -447,66 +447,76 @@ public class GameGestion {
     public ArrayList<Territory> chosingTwoTerritories(Player player, int numberOfPlayers, ArrayList<Territory> territories, String button){
         ArrayList<Territory> territoryArrayList = new ArrayList<>();
         boolean attackingTerritoryChosen = false;
-        while (!attackingTerritoryChosen) {
+        // ---------------- Phase 1: choosing source territory -----------------//
+        while (!attackingTerritoryChosen) { // while we haven't selected a proper attacking territory
             StdDraw.disableDoubleBuffering();
             if (StdDraw.isMousePressed()) {
                 double xAttackingTerritory = StdDraw.mouseX();
                 double yAttackingTerritory = StdDraw.mouseY();
                 StdDraw.pause(200);
-                if (xAttackingTerritory < 89) {
-                    for (int a = 0; a < player.getArraylistTerritories().size(); a++) {
-                        Territory territory = player.getArraylistTerritories().get(a);
-                        if ((xAttackingTerritory >= territory.getX() - 2 && xAttackingTerritory <= territory.getX() + 2) && (yAttackingTerritory >= territory.getY() - 4 && yAttackingTerritory <= territory.getY() + 4)) {
+                if (xAttackingTerritory < 89) { // if the menu is selected
+                    for (int a = 0; a < territories.size(); a++) { // we check every territory belonging to the player, to know if the selected one is one of them
+                        Territory territory = territories.get(a);
+                        if ((xAttackingTerritory >= territory.getX() - 2 && xAttackingTerritory <= territory.getX() + 2) && (yAttackingTerritory >= territory.getY() - 4 && yAttackingTerritory <= territory.getY() + 4)&&(territory.getProprietary().getID()==player.getID())) { // comparing the clic location to the location of every territory belonging to the player
                             Territory attackingTerritory = territory;
-                            if(button.equals("attack")){
-                                for(int e=0; e<attackingTerritory.getFrontier().length; e++){
-                                    Territory frontierTerritory = territories.get(attackingTerritory.getFrontier()[e]);
+                            if(button.equals("attack")){ // if we selected the attack mode
+                                for(int e=0; e<(attackingTerritory.getFrontier().length); e++){ // we check if there are ennemies sharing frontier with the selected one
+                                    Territory frontierTerritory = territories.get(attackingTerritory.getFrontier()[e]-1);
                                     if(frontierTerritory.getProprietary().getID()!=player.getID()){
                                         attackingTerritoryChosen = true;
                                     }
                                 }
-                                if(!attackingTerritoryChosen){
+                                if(!attackingTerritoryChosen){ // if the territory is surrounded by allies
                                     StdDraw.disableDoubleBuffering();
                                     StdDraw.clear();
                                     StdDraw.text(50,50,"Please choose another territory");
                                     StdDraw.show();
                                     StdDraw.pause(1000);
-                                    updateBackground(territories, numberOfPlayers);
+                                    updateBackground(territories, numberOfPlayers); // back to the map
                                 }
-                                StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory());
-                                StdDraw.show();
-                                StdDraw.clear();
+                                else{
+                                    StdDraw.clear();
+                                    StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory()); // choose validation
+                                    StdDraw.show();
+                                }
+
 
                             }
-                            else if(button.equals("move")){
+                            else if(button.equals("move")){ // if we selected the moveing mode
+                                attackingTerritoryChosen = true; // we can move from any territory belonging to the player
                                 StdDraw.disableDoubleBuffering();
                                 StdDraw.clear();
-                                StdDraw.text(50,50,"You chose to move units from " + attackingTerritory.getNameTerritory());
+                                StdDraw.text(50,50,"You chose to move units from " + attackingTerritory.getNameTerritory()); // movement feedback
                                 StdDraw.show();
 
                             }
                             StdDraw.pause(2000);
                             updateBackground(territories,numberOfPlayers);
+
+                            // ---------------- Phase 2: choosing destination -----------------//
+
                             boolean defendingTerritoryChosen = false;
-                            while (!defendingTerritoryChosen && attackingTerritoryChosen) {
+                            while (!defendingTerritoryChosen && attackingTerritoryChosen) { // while there is no destination selected, we ask for one
                                 if (StdDraw.isMousePressed()) {
                                     double xDefendingTerritory = StdDraw.mouseX();
                                     double yDefendingTerritory = StdDraw.mouseY();
                                     StdDraw.pause(200);
-                                    if (xDefendingTerritory < 89) {
-                                        for (a = 0; a < territories.size(); a++) {
+                                    if (xDefendingTerritory < 89) { // if the menu is selected
+                                        for (a = 0; a < territories.size(); a++) { // we check every territory in the game
                                             Territory territory2 = territories.get(a);
-                                            if ((xDefendingTerritory >= territory2.getX() - 2 && xDefendingTerritory <= territory2.getX() + 2) && (yDefendingTerritory >= territory2.getY() - 4 && yDefendingTerritory <= territory2.getY() + 4)) {
+                                            if ((xDefendingTerritory >= territory2.getX() - 2 && xDefendingTerritory <= territory2.getX() + 2) && (yDefendingTerritory >= territory2.getY() - 4 && yDefendingTerritory <= territory2.getY() + 4)) { // until we found the selected one
                                                 Territory defendingTerritory = territory2;
+
+                                                // ------------ Considering attack mode ------------//
+
                                                 if(button.equals("attack")){
-                                                    // verifying that the defending territory is next to the attacking one
                                                     boolean frontier = false;
-                                                    for(int d=0; d<attackingTerritory.getFrontier().length;d++){
+                                                    for(int d=0; d<attackingTerritory.getFrontier().length;d++){ // double checking that the defending territory is next to the attacking one
                                                         if(defendingTerritory.getIdTerritory() == attackingTerritory.getFrontier()[d]){
                                                             frontier = true;
                                                         }
                                                     }
-                                                    // verifying that the it isn't the same territory and that it belongs to two different players
+                                                    // verifying that there are not twice the same territory, get a different owner, and share a frontier
                                                     if(territory2 != territory && territory2.getProprietary() != territory.getProprietary() && frontier){
                                                         defendingTerritoryChosen = true;
                                                         StdDraw.clear();
@@ -525,7 +535,10 @@ public class GameGestion {
                                                         updateBackground(territories, numberOfPlayers);
                                                     }
                                                 }
-                                                else if(button.equals("move")){
+
+                                                // ------------ Considering move mode ------------//
+
+                                                else if(button.equals("move")){ // if the move is selected
                                                     // verifying that the defending territory is next to the attacking one
 //                                                    boolean frontier = false;
 //                                                    for(int d=0; d<attackingTerritory.getFrontier().length;d++){
@@ -533,17 +546,17 @@ public class GameGestion {
 //                                                            frontier = true;
 //                                                        }
 //                                                    }
-                                                    if(territory2 != territory && territory2.getProprietary() == territory.getProprietary() ){
-                                                        defendingTerritoryChosen = true;
+                                                    if((territory2 != territory) && (territory2.getProprietary() == territory.getProprietary()) ){ // we make sure that both territories are differents and have the same owner
+                                                        defendingTerritoryChosen = true; // validation
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"You chose to move your units to " + defendingTerritory.getNameTerritory());
                                                         StdDraw.show();
                                                         StdDraw.pause(1000);
                                                         updateBackground(territories,numberOfPlayers);
-                                                        territoryArrayList.add(0, attackingTerritory);
-                                                        territoryArrayList.add(1, defendingTerritory);
+                                                        territoryArrayList.add(0, attackingTerritory); // troops first location
+                                                        territoryArrayList.add(1, defendingTerritory); // troops destination
                                                     }
-                                                    else{
+                                                    else{ // if both territories doesn't have the same owner
                                                         StdDraw.clear();
                                                         StdDraw.text(50,50,"Please choose another territory");
                                                         StdDraw.show();
@@ -1141,9 +1154,11 @@ public class GameGestion {
         else{
             if(defenderTerritory.getNbSoldier()==1){
                 defender.setNbSoldier(1);
+                defenderTerritory.setNbSoldier(0);
             }
             else if(defenderTerritory.getNbSoldier()>1){
                 defender.setNbSoldier(2);
+                defenderTerritory.setNbSoldier(defenderTerritory.getNbSoldier()-2);
             }
         }
 
@@ -1164,26 +1179,44 @@ public class GameGestion {
 
     }
 
-    public void conflictAI(Territory attackerTerritory, Territory defenderTerritory){
+    public void conflictAI(Territory attackerTerritory, Territory defenderTerritory, ArrayList<Territory> territoryArrayList, int numberOfPlayers){
         // ------------------- On crée l'armée attaquante -------------------//
         Army attacker = new Army();
         attacker.setAttacker(true);
         attacker.setTerritory(attackerTerritory);
-        if(attackerTerritory.getNbSoldier()>=3){
+        if(attackerTerritory.getNbSoldier()==1){
+            return;
+
+        }
+        if(attackerTerritory.getNbSoldier()>3){
             attacker.setNbSoldier(3);
+            attackerTerritory.setNbSoldier(attackerTerritory.getNbSoldier()-3);
+
+        }
+        if(attackerTerritory.getNbSoldier()==3){
+            attacker.setNbSoldier(2);
+            attackerTerritory.setNbSoldier(attackerTerritory.getNbSoldier()-2);
+
         }
         else if(attackerTerritory.getNbSoldier()==2){
-            attacker.setNbSoldier(2);
-        }
-        else if(attackerTerritory.getNbSoldier()==1){
             attacker.setNbSoldier(1);
+            attackerTerritory.setNbSoldier(attackerTerritory.getNbSoldier()-1);
         }
+
+
+
+        updateBackground(territoryArrayList, numberOfPlayers );
 
         // ------------------- On crée l'armée défenseuse -------------------//
         Army defender = new Army();
         defender.setAttacker(false);
         defender.setTerritory(defenderTerritory);
         if(!defenderTerritory.getProprietary().getIA()){
+            StdDraw.disableDoubleBuffering();
+            StdDraw.clear();
+            StdDraw.text(50,50, attackerTerritory.getNameTerritory()+" is attacking " + defenderTerritory.getNameTerritory());
+            StdDraw.pause(2000);
+            StdDraw.clear();
             if (!defender.generateDefender()){ // si l'armée n'est pas générée correctement
                 return;
             }

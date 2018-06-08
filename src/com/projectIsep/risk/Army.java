@@ -3,7 +3,6 @@ package com.projectIsep.risk;
 import edu.princeton.cs.introcs.StdDraw;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 public class Army {
@@ -66,121 +65,124 @@ public class Army {
 
     public boolean generateAttacker(){
         boolean unitsChosen = false;
+        int nbCanonAttacker = 0;
+        int nbSoldierAttacker = 0;
+        int nbCavaleryAttacker = 0;
         while (!unitsChosen){
-            int [] xTextSoldier = new int[this.getTerritory().getNbSoldier()+1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50,60,"How many soldiers do you want to attack ?");
-            StdDraw.text(40,55,"Number of soldiers : ");
-            for(int it=0;it<=this.getTerritory().getNbSoldier();it++){
-                StdDraw.text((45+it*2)+2,55, String.valueOf(it));
-                xTextSoldier[it] = (45+it*2)+2;
-            }
-            StdDraw.show();
-            boolean numberOfSoldiersChosen = false;
-            int nbSoldierAttacker = 0;
-            while (!numberOfSoldiersChosen){
-                if (StdDraw.isMousePressed()){
-                    double xSoldier = StdDraw.mouseX();
-                    double ySoldier = StdDraw.mouseY();
-                    if((ySoldier>=53.7 && ySoldier<=56.3)){
-                        for (int k=0; k<=this.getTerritory().getNbSoldier();k++){
-                            if((xSoldier>=xTextSoldier[k]-1.1) && (xSoldier<=xTextSoldier[k]+1.1)){
-                                nbSoldierAttacker = k;
-                                numberOfSoldiersChosen = true;
-                            }
-                        }
-                    }
-                    StdDraw.pause(90);
-                }
-            }
-
-            if (this.getTerritory().getNbSoldier()<nbSoldierAttacker){
+            if(this.getTerritory().getNbSoldier()>0){
+                int [] xTextSoldier = new int[this.getTerritory().getNbSoldier()+1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"Not enough soldiers");
+                StdDraw.text(50,60,"How many soldiers do you want to attack ?");
+                StdDraw.text(40,55,"Number of soldiers : ");
+                for(int it=0;it<=this.getTerritory().getNbSoldier();it++){
+                    StdDraw.text((45+it*2)+2,55, String.valueOf(it));
+                    xTextSoldier[it] = (45+it*2)+2;
+                }
                 StdDraw.show();
-                StdDraw.pause(1500);
-            }
-            this.setNbSoldier(nbSoldierAttacker);
+                boolean numberOfSoldiersChosen = false;
 
-
-
-            int [] xTextCavalier = new int[this.getTerritory().getNbCavalery()+1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50,60,"How many cavaleries do you want to attack ?");
-            StdDraw.text(40,55,"Number of cavaleries : ");
-            for(int it=0;it<=this.getTerritory().getNbCavalery();it++){
-                StdDraw.text((45+it*2)+2,55, String.valueOf(it));
-                xTextCavalier[it] = (45+it*2)+2;
-            }
-            StdDraw.show();
-            boolean numberOfCavaliersChosen = false;
-            int nbCavaleryAttacker = 0;
-            while (!numberOfCavaliersChosen){
-                if (StdDraw.isMousePressed()){
-                    double xCavalery = StdDraw.mouseX();
-                    double yCavalery = StdDraw.mouseY();
-                    if(yCavalery>=53.7 && yCavalery<=56.3){
-                        for (int k=0; k<=this.getTerritory().getNbCavalery();k++){
-                            if(xCavalery>=xTextCavalier[k]-0.1 && xCavalery<=xTextCavalier[k]+0.1){
-                                nbCavaleryAttacker = k;
-                                numberOfCavaliersChosen = true;
+                while (!numberOfSoldiersChosen){
+                    if (StdDraw.isMousePressed()){
+                        double xSoldier = StdDraw.mouseX();
+                        double ySoldier = StdDraw.mouseY();
+                        if((ySoldier>=53.7 && ySoldier<=56.3)){
+                            for (int k=0; k<=this.getTerritory().getNbSoldier();k++){
+                                if((xSoldier>=xTextSoldier[k]-1.1) && (xSoldier<=xTextSoldier[k]+1.1)){
+                                    nbSoldierAttacker = k;
+                                    numberOfSoldiersChosen = true;
+                                }
                             }
                         }
+                        StdDraw.pause(90);
                     }
-                    StdDraw.pause(90);
                 }
-            }
 
-            if (this.getTerritory().getNbCavalery()<nbCavaleryAttacker){
+                if (this.getTerritory().getNbSoldier()<nbSoldierAttacker){
+                    StdDraw.disableDoubleBuffering();
+                    StdDraw.clear();
+                    StdDraw.text(50,50,"Not enough soldiers");
+                    StdDraw.show();
+                    StdDraw.pause(1500);
+                }
+                this.setNbSoldier(nbSoldierAttacker);
+            }
+            if(this.getTerritory().getNbCavalery()>0){
+                int [] xTextCavalier = new int[this.getTerritory().getNbCavalery()+1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"Not enough cavaleries");
+                StdDraw.text(50,60,"How many cavaleries do you want to attack ?");
+                StdDraw.text(40,55,"Number of cavaleries : ");
+                for(int it=0;it<=this.getTerritory().getNbCavalery();it++){
+                    StdDraw.text((45+it*2)+2,55, String.valueOf(it));
+                    xTextCavalier[it] = (45+it*2)+2;
+                }
                 StdDraw.show();
-                StdDraw.pause(1500);
-            }
-            this.setNbCavalery(nbCavaleryAttacker);
+                boolean numberOfCavaliersChosen = false;
 
-
-
-            int [] xTextCanon = new int[this.getTerritory().getNbCanon()+1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50,60,"How many canons do you want to attack ?");
-            StdDraw.text(40,55,"Number of canons : ");
-            for(int it=0;it<=this.getTerritory().getNbCanon();it++){
-                StdDraw.text((45+it*2)+2,55, String.valueOf(it));
-                xTextCanon[it] = (45+it*2)+2;
-            }
-            StdDraw.show();
-            boolean numberOfCanonChosen = false;
-            int nbCanonAttacker = 0;
-            while (!numberOfCanonChosen){
-                if (StdDraw.isMousePressed()){
-                    double xCanon = StdDraw.mouseX();
-                    double yCanon = StdDraw.mouseY();
-                    if(yCanon>=53.7 && yCanon<=56.3){
-                        for (int k=0; k<=this.getTerritory().getNbCanon();k++){
-                            if(xCanon>=xTextCanon[k]-1.1 && xCanon<=xTextCanon[k]+1.1){
-                                nbCanonAttacker = k;
-                                numberOfCanonChosen = true;
+                while (!numberOfCavaliersChosen){
+                    if (StdDraw.isMousePressed()){
+                        double xCavalery = StdDraw.mouseX();
+                        double yCavalery = StdDraw.mouseY();
+                        if(yCavalery>=53.7 && yCavalery<=56.3){
+                            for (int k=0; k<=this.getTerritory().getNbCavalery();k++){
+                                if(xCavalery>=xTextCavalier[k]-0.1 && xCavalery<=xTextCavalier[k]+0.1){
+                                    nbCavaleryAttacker = k;
+                                    numberOfCavaliersChosen = true;
+                                }
                             }
                         }
+                        StdDraw.pause(90);
                     }
-                    StdDraw.pause(90);
                 }
-            }
 
-            if (this.getTerritory().getNbCanon()<nbCanonAttacker){
+                if (this.getTerritory().getNbCavalery()<nbCavaleryAttacker){
+                    StdDraw.disableDoubleBuffering();
+                    StdDraw.clear();
+                    StdDraw.text(50,50,"Not enough cavaleries");
+                    StdDraw.show();
+                    StdDraw.pause(1500);
+                }
+                this.setNbCavalery(nbCavaleryAttacker);
+            }
+            if(this.getTerritory().getNbCanon()>0){
+                int [] xTextCanon = new int[this.getTerritory().getNbCanon()+1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50,50,"Not enough canons");
+                StdDraw.text(50,60,"How many canons do you want to attack ?");
+                StdDraw.text(40,55,"Number of canons : ");
+                for(int it=0;it<=this.getTerritory().getNbCanon();it++){
+                    StdDraw.text((45+it*2)+2,55, String.valueOf(it));
+                    xTextCanon[it] = (45+it*2)+2;
+                }
                 StdDraw.show();
-                StdDraw.pause(1500);
+                boolean numberOfCanonChosen = false;
+
+                while (!numberOfCanonChosen){
+                    if (StdDraw.isMousePressed()){
+                        double xCanon = StdDraw.mouseX();
+                        double yCanon = StdDraw.mouseY();
+                        if(yCanon>=53.7 && yCanon<=56.3){
+                            for (int k=0; k<=this.getTerritory().getNbCanon();k++){
+                                if(xCanon>=xTextCanon[k]-1.1 && xCanon<=xTextCanon[k]+1.1){
+                                    nbCanonAttacker = k;
+                                    numberOfCanonChosen = true;
+                                }
+                            }
+                        }
+                        StdDraw.pause(90);
+                    }
+                }
+
+                if (this.getTerritory().getNbCanon()<nbCanonAttacker){
+                    StdDraw.disableDoubleBuffering();
+                    StdDraw.clear();
+                    StdDraw.text(50,50,"Not enough canons");
+                    StdDraw.show();
+                    StdDraw.pause(1500);
+                }
+                this.setNbCanon(nbCanonAttacker);
             }
-            this.setNbCanon(nbCanonAttacker);
 
 
             if ((this.getNbSoldier() + this.getNbCavalery() + this.getNbCanon()) ==0){
@@ -226,124 +228,136 @@ public class Army {
     public boolean generateDefender(){
         StdDraw.disableDoubleBuffering();
         StdDraw.clear();
-        StdDraw.text(50, 60, "Player " + this.getTerritory().getProprietary().getID()+1 +" you need to defend " + this.getTerritory().getNameTerritory());
+        StdDraw.text(50, 60, "Player " + (this.getTerritory().getProprietary().getID()+1) +" you need to defend " + this.getTerritory().getNameTerritory());
         StdDraw.show();
         StdDraw.pause(2000);
         // ---------------------- Generating army -----------------//
         boolean unitsChosen = false;
+        int nbSoldierDefender = 0;
+        int nbCavaleryDefender = 0;
+        int nbCanonDefender = 0;
         while (!unitsChosen) {
-            int[] xTextSoldier = new int[this.getTerritory().getNbSoldier() + 1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50, 60, "How many soldiers do you want to hold the line ?");
-            StdDraw.text(40, 55, "Number of soldiers : ");
-            for (int it = 0; it <= this.getTerritory().getNbSoldier(); it++) {
-                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
-                xTextSoldier[it] = (45 + it * 2) + 2;
-            }
-            StdDraw.show();
-            boolean numberOfSoldiersChosen = false;
-            int nbSoldierDefender = 0;
-            while (!numberOfSoldiersChosen) {
-                if (StdDraw.isMousePressed()) {
-                    double xSoldier = StdDraw.mouseX();
-                    double ySoldier = StdDraw.mouseY();
-                    StdDraw.pause(200);
-                    if ((ySoldier >= 53.7 && ySoldier <= 56.3)) {
-                        for (int k = 0; k <= this.getTerritory().getNbSoldier(); k++) {
-                            if ((xSoldier >= xTextSoldier[k] - 1.1) && (xSoldier <= xTextSoldier[k] + 1.1)) {
-                                nbSoldierDefender = k;
-                                numberOfSoldiersChosen = true;
+            if(this.getTerritory().getNbSoldier()>0){
+                int[] xTextSoldier = new int[this.getTerritory().getNbSoldier() + 1];
+                StdDraw.disableDoubleBuffering();
+                StdDraw.clear();
+                StdDraw.text(50, 60, "How many soldiers do you want to hold the line ?");
+                StdDraw.text(40, 55, "Number of soldiers : ");
+                for (int it = 0; it <= this.getTerritory().getNbSoldier(); it++) {
+                    StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                    xTextSoldier[it] = (45 + it * 2) + 2;
+                }
+                StdDraw.show();
+                boolean numberOfSoldiersChosen = false;
+                while (!numberOfSoldiersChosen) {
+                    if (StdDraw.isMousePressed()) {
+                        double xSoldier = StdDraw.mouseX();
+                        double ySoldier = StdDraw.mouseY();
+                        StdDraw.pause(200);
+                        if ((ySoldier >= 53.7 && ySoldier <= 56.3)) {
+                            for (int k = 0; k <= this.getTerritory().getNbSoldier(); k++) {
+                                if ((xSoldier >= xTextSoldier[k] - 1.1) && (xSoldier <= xTextSoldier[k] + 1.1)) {
+                                    nbSoldierDefender = k;
+                                    numberOfSoldiersChosen = true;
+                                }
                             }
                         }
                     }
                 }
+
+                if (this.getTerritory().getNbSoldier() < nbSoldierDefender) {
+                    StdDraw.disableDoubleBuffering();
+                    StdDraw.clear();
+                    StdDraw.text(50, 50, "Not enough soldiers");
+                    StdDraw.show();
+                    StdDraw.pause(1500);
+                }
+                this.setNbSoldier(nbSoldierDefender);
             }
 
-            if (this.getTerritory().getNbSoldier() < nbSoldierDefender) {
+
+            if(this.getTerritory().getNbCavalery()>0){
+                int[] xTextCavalier = new int[this.getTerritory().getNbCavalery() + 1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50, 50, "Not enough soldiers");
+                StdDraw.text(50, 60, "How many cavaliers do you want to protect this land ?");
+                StdDraw.text(40, 55, "Number of cavaliers : ");
+                for (int it = 0; it <= this.getTerritory().getNbCavalery(); it++) {
+                    StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                    xTextCavalier[it] = (45 + it * 2) + 2;
+                }
                 StdDraw.show();
-                StdDraw.pause(1500);
-            }
-            this.setNbSoldier(nbSoldierDefender);
-
-
-            int[] xTextCavalier = new int[this.getTerritory().getNbCavalery() + 1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50, 60, "How many cavaliers do you want to protect this land ?");
-            StdDraw.text(40, 55, "Number of cavaliers : ");
-            for (int it = 0; it <= this.getTerritory().getNbCavalery(); it++) {
-                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
-                xTextCavalier[it] = (45 + it * 2) + 2;
-            }
-            StdDraw.show();
-            boolean numberOfCavaliersChosen = false;
-            int nbCavaleryDefender = 0;
-            while (!numberOfCavaliersChosen) {
-                if (StdDraw.isMousePressed()) {
-                    double xCavalery = StdDraw.mouseX();
-                    double yCavalery = StdDraw.mouseY();
-                    StdDraw.pause(200);
-                    if (yCavalery >= 53.7 && yCavalery <= 56.3) {
-                        for (int k = 0; k <= this.getTerritory().getNbCavalery(); k++) {
-                            if (xCavalery >= xTextCavalier[k] - 1.1 && xCavalery <= xTextCavalier[k] + 1.1) {
-                                nbCavaleryDefender = k;
-                                numberOfCavaliersChosen = true;
+                boolean numberOfCavaliersChosen = false;
+                while (!numberOfCavaliersChosen) {
+                    if (StdDraw.isMousePressed()) {
+                        double xCavalery = StdDraw.mouseX();
+                        double yCavalery = StdDraw.mouseY();
+                        StdDraw.pause(200);
+                        if (yCavalery >= 53.7 && yCavalery <= 56.3) {
+                            for (int k = 0; k <= this.getTerritory().getNbCavalery(); k++) {
+                                if (xCavalery >= xTextCavalier[k] - 1.1 && xCavalery <= xTextCavalier[k] + 1.1) {
+                                    nbCavaleryDefender = k;
+                                    numberOfCavaliersChosen = true;
+                                }
                             }
                         }
                     }
                 }
+
+                if (this.getTerritory().getNbCavalery() < nbCavaleryDefender) {
+                    StdDraw.disableDoubleBuffering();
+                    StdDraw.clear();
+                    StdDraw.text(50, 50, "Not enough cavaliers");
+                    StdDraw.show();
+                    StdDraw.pause(1500);
+                }
+                this.setNbCavalery(nbCavaleryDefender);
             }
 
-            if (this.getTerritory().getNbCavalery() < nbCavaleryDefender) {
+            if(this.getTerritory().getNbCanon()>0){
+                int[] xTextCanon = new int[this.getTerritory().getNbCanon() + 1];
                 StdDraw.disableDoubleBuffering();
                 StdDraw.clear();
-                StdDraw.text(50, 50, "Not enough cavaliers");
+                StdDraw.text(50, 60, "How many canons do you want to break their assault ?");
+                StdDraw.text(40, 55, "Number of canons : ");
+                for (int it = 0; it <= this.getTerritory().getNbCanon(); it++) {
+                    StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
+                    xTextCanon[it] = (45 + it * 2) + 2;
+                }
                 StdDraw.show();
-                StdDraw.pause(1500);
-            }
-            this.setNbCavalery(nbCavaleryDefender);
-
-
-            int[] xTextCanon = new int[this.getTerritory().getNbCanon() + 1];
-            StdDraw.disableDoubleBuffering();
-            StdDraw.clear();
-            StdDraw.text(50, 60, "How many canons do you want to break their assault ?");
-            StdDraw.text(40, 55, "Number of canons : ");
-            for (int it = 0; it <= this.getTerritory().getNbCanon(); it++) {
-                StdDraw.text((45 + it * 2) + 2, 55, String.valueOf(it));
-                xTextCanon[it] = (45 + it * 2) + 2;
-            }
-            StdDraw.show();
-            boolean numberOfCanonChosen = false;
-            int nbCanonDefender = 0;
-            while (!numberOfCanonChosen) {
-                if (StdDraw.isMousePressed()) {
-                    double xCanon = StdDraw.mouseX();
-                    double yCanon = StdDraw.mouseY();
-                    StdDraw.pause(200);
-                    if (yCanon >= 53.7 && yCanon <= 56.3) {
-                        for (int k = 0; k <= this.getTerritory().getNbCanon(); k++) {
-                            if (xCanon >= xTextCanon[k] - 1.1 && xCanon <= xTextCanon[k] + 1.1) {
-                                nbCanonDefender = k;
-                                numberOfCanonChosen = true;
+                boolean numberOfCanonChosen = false;
+                while (!numberOfCanonChosen) {
+                    if (StdDraw.isMousePressed()) {
+                        double xCanon = StdDraw.mouseX();
+                        double yCanon = StdDraw.mouseY();
+                        StdDraw.pause(200);
+                        if (yCanon >= 53.7 && yCanon <= 56.3) {
+                            for (int k = 0; k <= this.getTerritory().getNbCanon(); k++) {
+                                if (xCanon >= xTextCanon[k] - 1.1 && xCanon <= xTextCanon[k] + 1.1) {
+                                    nbCanonDefender = k;
+                                    numberOfCanonChosen = true;
+                                }
                             }
                         }
                     }
                 }
+
+                if (this.getTerritory().getNbCanon() < nbCanonDefender) {
+                    StdDraw.disableDoubleBuffering();
+                    StdDraw.clear();
+                    StdDraw.text(50, 50, "Not enough canons");
+                    StdDraw.show();
+                    StdDraw.pause(1500);
+                }
+                this.setNbCanon(nbCanonDefender);
             }
 
-            if (this.getTerritory().getNbCanon() < nbCanonDefender) {
-                StdDraw.disableDoubleBuffering();
-                StdDraw.clear();
-                StdDraw.text(50, 50, "Not enough canons");
-                StdDraw.show();
-                StdDraw.pause(1500);
-            }
-            this.setNbCanon(nbCanonDefender);
+
+
+
+
+
+
 
             // ---------------------- Army checking -----------------//
 
@@ -454,17 +468,30 @@ public class Army {
             }
             result.add(value);
         }
+        System.out.println(result);
         return result;
+
     }
 
     public ArrayList<Boolean> compareResult(ArrayList<Integer> attackerResults, ArrayList<Integer> defenderResults){
         ArrayList<Boolean> results = new ArrayList<Boolean>();
         int numberOfRounds= Math.min(attackerResults.size(), defenderResults.size());
         int it = 0;
+        Integer attack = attackerResults.get(0); // initialisation du résultat maximum d'attaque
+        Integer defense = defenderResults.get(0); // initialisation du résultat maximum de défense
         while (it< numberOfRounds ){
-           Integer attack = Collections.max(attackerResults); // on prend le plus grand résultat des attaquants
-            attackerResults.remove(attack);
-           Integer defense = Collections.max(defenderResults);// on prend le plus grand résultat des défenseurs
+            for (int result=0; result<attackerResults.size(); result++ ){
+                if(attackerResults.get(result)>attack){
+                    attack = attackerResults.get(result);
+                }
+            }
+            for (int resultdef=0; resultdef<defenderResults.size(); resultdef++ ){
+                if(defenderResults.get(resultdef)>attack){
+                    defense = defenderResults.get(resultdef);
+                }
+            }
+
+            attackerResults.remove(attack); // on retire le résultat précédement considéré
             attackerResults.remove(defense);
 
             if(attack <= defense){ // on si le défenseur gagne
