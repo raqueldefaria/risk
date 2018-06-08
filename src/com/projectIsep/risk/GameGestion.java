@@ -91,7 +91,7 @@ public class GameGestion {
                         for(int laotseu=0; laotseu<conflictList.size(); laotseu+=2){
                             if(conflictList.get(laotseu).getProprietary()!=conflictList.get(laotseu+1).getProprietary() ){ // si le territoire n'as pas été conquis paar une attaque précédente
                                 conflictAI(conflictList.get(laotseu), conflictList.get(laotseu+1),territoryArrayList, numberOfPlayers);
-                                updateBackground(territoryArrayList,numberOfPlayers);
+                                updateBackground(territoryArrayList,numberOfPlayers,"none");
                             }
                         }
                         player.IAMovement(territoryArrayList);
@@ -142,7 +142,7 @@ public class GameGestion {
                     }
                 }
                 if(player.getIA()){
-                    updateBackground(territoryArrayList, numberOfPlayers);
+                    updateBackground(territoryArrayList, numberOfPlayers,"none");
                 }
             }
         }
@@ -164,7 +164,7 @@ public class GameGestion {
             StdDraw.pause(2000);
             StdDraw.clear();
             //getting the map
-            updateBackground(territoryArrayList, numberOfPlayers);
+            updateBackground(territoryArrayList, numberOfPlayers,"reinforcements");
             //player positioning its reinforcements
             placingUnits(player, compteur, territoryArrayList, playerArrayList);
         }
@@ -174,7 +174,7 @@ public class GameGestion {
             StdDraw.clear();
             StdDraw.text(50,50,"Player " + (compteur+1) + " it's your turn to play !");
             StdDraw.pause(2000);
-            updateBackground(territoryArrayList,numberOfPlayers);
+            updateBackground(territoryArrayList,numberOfPlayers,"none");
             boolean actionChosen = false;
             while (!actionChosen){
                 if(StdDraw.isMousePressed()){
@@ -191,14 +191,16 @@ public class GameGestion {
                             StdDraw.show();
                             StdDraw.pause(1000);
                             StdDraw.clear();
-                            updateBackground(territoryArrayList, numberOfPlayers);
+                            updateBackground(territoryArrayList, numberOfPlayers,"attack");
                             ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"attack");
                             conflict(listTerritories.get(0),listTerritories.get(1));
 
-                            updateBackground(territoryArrayList, numberOfPlayers);
+                            updateBackground(territoryArrayList, numberOfPlayers,"none");
+
                         }
                         // move
                         else if(yAction>=54.9 && yAction<=57.4){
+                            updateBackground(territoryArrayList, numberOfPlayers,"move");
                             ArrayList<Territory> listTerritories =  chosingTwoTerritories(player, numberOfPlayers, territoryArrayList,"move");
                             int distanceBetweenTerritories = calculateMovement(listTerritories.get(0), listTerritories.get(1), territoryArrayList);
                             if (distanceBetweenTerritories<4 && distanceBetweenTerritories>0){
@@ -209,7 +211,7 @@ public class GameGestion {
                                 StdDraw.text(50,50,"The territory you chose is too far away !");
                                 StdDraw.pause(2000);
                             }
-                            updateBackground(territoryArrayList,numberOfPlayers);
+                            updateBackground(territoryArrayList,numberOfPlayers,"none");
                         }
                         // pass
                         else if(yAction>=50.8 && yAction<=53.3){
@@ -225,7 +227,7 @@ public class GameGestion {
                             StdDraw.show();
                             StdDraw.pause(3000);
                             StdDraw.clear();
-                            updateBackground(territoryArrayList, playerArrayList.size());
+                            updateBackground(territoryArrayList, playerArrayList.size(),"none");
                         }
                         //clicking on inspection
                         else if(yAction>=39.34 && yAction<=42.47) {
@@ -234,7 +236,7 @@ public class GameGestion {
                             StdDraw.text(50,50,"Click on a territory to inspect it !");
                             StdDraw.show();
                             StdDraw.pause(2000);
-                            updateBackground(territoryArrayList, playerArrayList.size());
+                            updateBackground(territoryArrayList, playerArrayList.size(),"inspection");
                             boolean territoryChecked = false;
                             while (!territoryChecked) {
                                 if (StdDraw.isMousePressed()) {
@@ -254,7 +256,7 @@ public class GameGestion {
                                             StdDraw.show();
                                             StdDraw.pause(4000);
                                             territoryChecked = true;
-                                            updateBackground(territoryArrayList, playerArrayList.size());
+                                            updateBackground(territoryArrayList, playerArrayList.size(),"none");
                                         }
                                     }
                                 }
@@ -270,19 +272,26 @@ public class GameGestion {
     public int calculateMovement(Territory territoryGivingUnits, Territory territoryReceivingUnits, ArrayList<Territory> territoryArrayList){
         ArrayList<Territory> frontier2Territories = new ArrayList<>();
         ArrayList<Territory> frontier3Territories = new ArrayList<>();
+        ArrayList<Territory> frontierTerritories = new ArrayList<>();
 
         // direct neighbour
         for(int it=0; it<territoryGivingUnits.getFrontier().length; it++) {
-            if(territoryReceivingUnits.getIdTerritory() == territoryGivingUnits.getFrontier()[it]-1){
-                return 1;
-            }
             Territory territoryFrontier = territoryArrayList.get(territoryGivingUnits.getFrontier()[it]-1);
+            frontierTerritories.add(territoryFrontier);
             for(int i=0; i<territoryFrontier.getFrontier().length;i++){
                 frontier2Territories.add(territoryArrayList.get(territoryFrontier.getFrontier()[i]-1));
+
                 Territory territoryFrontier2 = territoryArrayList.get(territoryFrontier.getFrontier()[i]-1);
                 for(int k = 0; k<territoryFrontier2.getFrontier().length; k++){
                     frontier3Territories.add(territoryArrayList.get(territoryFrontier2.getFrontier()[k]-1));
                 }
+            }
+        }
+
+
+        for(int it=0; it<frontierTerritories.size(); it++) {
+            if (frontierTerritories.get(it).getIdTerritory()==territoryReceivingUnits.getIdTerritory()) {
+                return 1;
             }
         }
 
@@ -472,13 +481,15 @@ public class GameGestion {
                                     StdDraw.text(50,50,"Please choose another territory");
                                     StdDraw.show();
                                     StdDraw.pause(1000);
-                                    updateBackground(territories, numberOfPlayers); // back to the map
+                                    updateBackground(territories, numberOfPlayers,"attack"); // back to the map
                                 }
                                 else{
                                     StdDraw.clear();
                                     StdDraw.text(50,50,"You chose to attack with " + attackingTerritory.getNameTerritory()); // choose validation
                                     StdDraw.show();
                                 }
+                                StdDraw.pause(2000);
+                                updateBackground(territories,numberOfPlayers,"attack");
 
 
                             }
@@ -488,10 +499,11 @@ public class GameGestion {
                                 StdDraw.clear();
                                 StdDraw.text(50,50,"You chose to move units from " + attackingTerritory.getNameTerritory()); // movement feedback
                                 StdDraw.show();
+                                StdDraw.pause(2000);
+                                updateBackground(territories,numberOfPlayers,"move");
 
                             }
-                            StdDraw.pause(2000);
-                            updateBackground(territories,numberOfPlayers);
+
 
                             // ---------------- Phase 2: choosing destination -----------------//
 
@@ -523,7 +535,7 @@ public class GameGestion {
                                                         StdDraw.text(50,50,"You chose to attack " + defendingTerritory.getNameTerritory());
                                                         StdDraw.show();
                                                         StdDraw.pause(1000);
-                                                        updateBackground(territories,numberOfPlayers);
+                                                        updateBackground(territories,numberOfPlayers,"attack");
                                                         territoryArrayList.add(0, attackingTerritory);
                                                         territoryArrayList.add(1, defendingTerritory);
                                                     }
@@ -532,7 +544,7 @@ public class GameGestion {
                                                         StdDraw.text(50,50,"Please choose another territory");
                                                         StdDraw.show();
                                                         StdDraw.pause(1000);
-                                                        updateBackground(territories, numberOfPlayers);
+                                                        updateBackground(territories, numberOfPlayers,"attack");
                                                     }
                                                 }
 
@@ -552,7 +564,7 @@ public class GameGestion {
                                                         StdDraw.text(50,50,"You chose to move your units to " + defendingTerritory.getNameTerritory());
                                                         StdDraw.show();
                                                         StdDraw.pause(1000);
-                                                        updateBackground(territories,numberOfPlayers);
+                                                        updateBackground(territories,numberOfPlayers,"move");
                                                         territoryArrayList.add(0, attackingTerritory); // troops first location
                                                         territoryArrayList.add(1, defendingTerritory); // troops destination
                                                     }
@@ -561,7 +573,7 @@ public class GameGestion {
                                                         StdDraw.text(50,50,"Please choose another territory");
                                                         StdDraw.show();
                                                         StdDraw.pause(1000);
-                                                        updateBackground(territories, numberOfPlayers);
+                                                        updateBackground(territories, numberOfPlayers,"move");
                                                     }
                                                 }
 
@@ -585,7 +597,7 @@ public class GameGestion {
     // ---------- Initialising Armies in the different territories ---------- //
     public void initiateArmy(ArrayList<Player> playerArrayList, ArrayList<Territory> territoryArrayList) {
 
-        //updateBackground(territoryArrayList, playerArrayList.size());
+        updateBackground(territoryArrayList, playerArrayList.size(),"reinforcement");
 
         for (int k = 0; k<playerArrayList.size();k++){
             Player player = playerArrayList.get(k);
@@ -598,14 +610,14 @@ public class GameGestion {
                 StdDraw.show();
                 StdDraw.pause(2000);
 
-                updateBackground(territoryArrayList, playerArrayList.size());
+                updateBackground(territoryArrayList, playerArrayList.size(),"none");
 
                 // placing units
                 placingUnits(player, k, territoryArrayList, playerArrayList);
             }
             else{
                  player.IAReinforcement(territoryArrayList);
-                 updateBackground(territoryArrayList, playerArrayList.size());
+                 updateBackground(territoryArrayList, playerArrayList.size(),"none");
             }
         }
     }
@@ -629,14 +641,14 @@ public class GameGestion {
                         StdDraw.text(50, 50, "Player " + (k + 1) + ", your mission is :  " + player.getMission().getBriefing());
                         StdDraw.pause(3000);
                         StdDraw.clear();
-                        updateBackground(territoryArrayList, playerArrayList.size());
+                        updateBackground(territoryArrayList, playerArrayList.size(),"none");
                     }
                     //clicking on inspection
                     else if(y>=39.34 && y<=42.47) {
                         StdDraw.clear();
                         StdDraw.text(50,50,"Click on a territory to inspect it !");
                         StdDraw.pause(2000);
-                        updateBackground(territoryArrayList, playerArrayList.size());
+                        updateBackground(territoryArrayList, playerArrayList.size(),"inspection");
                         boolean territoryChecked = false;
                         while (!territoryChecked) {
                             if (StdDraw.isMousePressed()) {
@@ -655,7 +667,7 @@ public class GameGestion {
                                         StdDraw.text(70, 50, "Number of Canons : " + territory.getNbCanon());
                                         StdDraw.pause(5000);
                                         territoryChecked = true;
-                                        updateBackground(territoryArrayList, playerArrayList.size());
+                                        updateBackground(territoryArrayList, playerArrayList.size(),"none");
                                     }
                                 }
                             }
@@ -701,7 +713,7 @@ public class GameGestion {
                                     }
                                 }
                             }
-                            updateBackground(territoryArrayList, playerArrayList.size());
+                            updateBackground(territoryArrayList, playerArrayList.size(),"none");
                         }
 
                     }
@@ -719,6 +731,7 @@ public class GameGestion {
         StdDraw.setXscale(0,100);
         StdDraw.setYscale(0,100);
         StdDraw.clear();
+        StdDraw.text(92,95,"Reinforcement");
         StdDraw.picture(50,50, "img/riskmap.jpg");
         for(int a=0;a<numberOfPlayers;a++){
             if(a==0) {
@@ -839,10 +852,24 @@ public class GameGestion {
     }
 
     //updating the game's background
-    public void updateBackground(ArrayList<Territory> territoryArrayList, int numberOfPlayers){
+    public void updateBackground(ArrayList<Territory> territoryArrayList, int numberOfPlayers, String option){
         StdDraw.enableDoubleBuffering();
         StdDraw.clear();
         StdDraw.picture(50,50, "img/riskmap.jpg");
+        if(option=="attack"){
+            StdDraw.text(94,95,"Attack");
+        }
+        if(option=="move"){
+            StdDraw.text(94,95,"Move");
+        }
+        if(option=="inspection"){
+            StdDraw.text(94,95,"Inspection");
+        }
+        if(option=="reinforcement"){
+            StdDraw.text(92,95,"Reinforcement");
+        }
+
+
         for(int a=0;a<numberOfPlayers;a++){
             if(a==0) {
                 StdDraw.setPenColor(Color.RED);
@@ -1205,7 +1232,7 @@ public class GameGestion {
 
 
 
-        updateBackground(territoryArrayList, numberOfPlayers );
+        updateBackground(territoryArrayList, numberOfPlayers, "attack" );
         StdDraw.pause(1500);
 
         // ------------------- On crée l'armée défenseuse -------------------//
